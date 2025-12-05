@@ -103,7 +103,16 @@ header .header-inner {
 .hero { padding: 120px 0 100px; text-align: center; }
 .hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; line-height: 1.2; }
 .hero p { font-size: 1.25rem; color: var(--text-sub); margin-bottom: 80px; max-width: 600px; margin: 0 auto; }
-.hero-btns { display: flex; gap: 16px; justify-content: center; }
+/* style.css 중간 쯤 */
+
+.hero-btns { 
+    display: flex; 
+    gap: 16px; 
+    justify-content: center; 
+    
+    /* [추가] 텍스트와의 간격을 여기서 강제로 밀어버립니다 */
+    margin-top: 64px; 
+}
 
 .btn { padding: 14px 32px; border-radius: 50px; font-weight: 600; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
 .btn-primary { background-color: var(--primary); color: white; }
@@ -240,7 +249,15 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     .hero { padding: 80px 0 60px; }
     .hero h1 { font-size: 2.4rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 24px; word-break: keep-all; }
     .hero h1 br { display: none; }
-    .hero p { font-size: 1.1rem; color: var(--text-sub); padding: 0 10px; line-height: 1.6; margin-bottom: 48px !important; }
+    .hero p {
+    font-size: 1.25rem;
+    color: var(--text-sub);
+    /* 아래 마진은 없애거나 작게 둬도 됩니다. 위에서 버튼이 64px만큼 밀어내니까요. */
+    margin-bottom: 0; 
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
     .page-title { font-size: 2rem; }
 
     /* 4. Grids */
