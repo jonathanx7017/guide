@@ -173,64 +173,79 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
 .content-footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.9rem; }
 
-/* style.css 맨 하단 미디어 쿼리 전체 교체 */
+/* --- Mobile Sub Header (Default Hidden on Desktop) --- */
+.mobile-sub-header { display: none; }
+
+/* --- Mobile Responsive & Sub Header Styles --- */
 @media (max-width: 768px) {
-    /* 1. 데스크탑 요소 숨김 & 모바일 버튼 표시 */
+    /* 1. Global Reset & Layout */
     .desktop-only { display: none !important; }
     .mobile-menu-btn { display: block; }
-    
-    /* 2. 레이아웃 조정 */
-    .sidebar { display: none; }
+    .sidebar { display: none; } /* 사이드바 숨김 */
     .layout-container { flex-direction: column; }
     .main-content { padding: 32px 24px; }
     .header-inner { padding: 0 24px; }
-    .container { padding: 0 24px; } 
+    .container { padding: 0 24px; }
     
-    /* 3. Hero 섹션 수정 (요청사항 반영) */
-    .hero {
-        /* 높이 줄이지 않고 원본 유지 */
-        padding: 80px 0 60px; 
+    /* 2. Mobile Sub Header (Visible on Mobile) */
+    .mobile-sub-header {
+        display: block;
+        position: sticky;
+        top: var(--header-height); /* 메인 헤더 바로 아래 붙음 */
+        z-index: 900;
+        background: white;
+        border-bottom: 1px solid var(--border);
     }
 
-    .hero h1 { 
-        /* 3.5rem은 모바일 폭을 넘어가서 3줄이 됩니다. 
-           2.8rem(약 45px)으로 설정하면 "크게" 보이면서 2줄로 예쁘게 떨어집니다. */
-        font-size: 2.4rem; 
-        line-height: 1.2; 
-        letter-spacing: -0.02em; 
-        margin-bottom: 24px;
-        word-break: keep-all; /* 단어 중간 끊김 방지 */
-    } 
-
-    /* [핵심] 모바일에서는 강제 줄바꿈(<br>)을 무시하고 자연스럽게 흐르게 함 */
-    .hero h1 br {
-        display: none;
+    .sub-header-inner {
+        height: 50px; /* 서브 헤더 높이 */
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1rem;
     }
 
-    .hero p {
-        font-size: 1.1rem; /* 설명글 가독성 확보 */
+    /* Dropdown Menu */
+    .sub-menu-list {
+        display: none; /* 기본 숨김 */
+        background: white;
+        border-top: 1px solid var(--border);
+        padding: 0;
+        list-style: none;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    .sub-menu-list.active { display: block; } /* JS로 토글 */
+
+    .sub-menu-list li a {
+        display: block;
+        padding: 14px 24px;
+        font-size: 0.95rem;
         color: var(--text-sub);
-        padding: 0 10px;
-        line-height: 1.6;
-        
-        /* [핵심] 버튼과 설명글 사이 간격 넓힘 */
-        margin-bottom: 48px !important; 
+        border-bottom: 1px solid #f4f4f4;
     }
-    
+    .sub-menu-list li a.active {
+        color: var(--primary);
+        font-weight: 700;
+        background-color: var(--bg-light);
+    }
+
+    /* Arrow Rotation */
+    #subArrow { transition: transform 0.2s; font-size: 1.2rem; color: var(--text-sub); }
+    #subArrow.rotate { transform: rotate(180deg); }
+
+    /* 3. Typography & Spacing (이전 설정 유지) */
+    .hero { padding: 80px 0 60px; }
+    .hero h1 { font-size: 2.4rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 24px; word-break: keep-all; }
+    .hero h1 br { display: none; }
+    .hero p { font-size: 1.1rem; color: var(--text-sub); padding: 0 10px; line-height: 1.6; margin-bottom: 48px !important; }
     .page-title { font-size: 2rem; }
-    
-    /* 4. 그리드 시스템 수정 */
+
+    /* 4. Grids */
     .card-grid { grid-template-columns: 1fr; }
-    .foundation-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 12px;
-    }
-    
-    /* 5. 기타 */
+    .foundation-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .hero-btns { width: 100%; justify-content: center; }
     .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
-    
-    .hero-btns {
-        width: 100%;
-        justify-content: center;
-    }
 }
