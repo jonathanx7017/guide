@@ -13,16 +13,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Header -->
-    <header>
+    <!-- 1. Global Header -->
+    <header class="global-header">
         <div class="header-inner">
             <a href="index.html" class="logo">
                 <img src="https://newtype.design/img/common/logo.png" alt="Newtype Logo">
                 <span>Design System</span>
             </a>
             <nav class="nav-links desktop-only">
-                <a href="foundation-color.html" class="active">Foundation</a>
+                <!-- Foundation 링크를 Overview로 변경 -->
+                <a href="foundation-overview.html" class="active">Foundation</a>
                 <a href="#">Components</a>
                 <a href="#">Patterns</a>
                 <a href="#">Resources</a>
@@ -33,7 +33,7 @@
         </div>
         <div class="mobile-menu" id="mobileMenu">
             <nav class="nav-links">
-                <a href="foundation-color.html" class="active">Foundation</a>
+                <a href="foundation-overview.html" class="active">Foundation</a>
                 <a href="#">Components</a>
                 <a href="#">Patterns</a>
                 <a href="#">Resources</a>
@@ -41,30 +41,38 @@
         </div>
     </header>
 
+    <!-- 2. [추가됨] Mobile Sub Header -->
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Foundation</span> <!-- 여기 텍스트는 섹션명 -->
+            <i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <!-- 현재 페이지(Color)에는 active 클래스 이동 -->
+            <li><a href="foundation-overview.html">Overview</a></li>
+            <li><a href="#">Typography</a></li>
+            <li><a href="foundation-color.html" class="active">Color</a></li>
+            <li><a href="#">Layout</a></li>
+            <li><a href="#">Iconography</a></li>
+            <li><a href="#">Object Styles</a></li>
+        </ul>
+    </div>
+
     <div class="layout-container">
-        <!-- Sidebar -->
+        <!-- Sidebar도 동일하게 링크 수정 -->
         <aside class="sidebar">
             <div class="menu-group">
                 <div class="menu-title">Foundation</div>
                 <ul class="menu-list">
-                    <li><a href="#">Overview</a></li>
-                    <li><a href="#" class="current">Color</a></li>
+                    <li><a href="foundation-overview.html">Overview</a></li>
                     <li><a href="#">Typography</a></li>
-                    <li><a href="#">Iconography</a></li>
+                    <li><a href="foundation-color.html" class="current">Color</a></li>
                     <li><a href="#">Layout</a></li>
+                    <li><a href="#">Iconography</a></li>
+                    <li><a href="#">Object Styles</a></li>
                 </ul>
             </div>
-            <div class="menu-group">
-                <div class="menu-title">Components</div>
-                <ul class="menu-list">
-                    <li><a href="#">Button</a></li>
-                    <li><a href="#">Input</a></li>
-                    <li><a href="#">Modal</a></li>
-                    <li><a href="#">Table</a></li>
-                </ul>
-            </div>
-        </aside>
-
+    <!-- 이하 생략 (Main Content) -->
         <!-- Main Content -->
         <main class="main-content">
             <div class="page-header">
