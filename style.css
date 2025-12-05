@@ -186,29 +186,35 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     .header-inner { padding: 0 24px; }
     .container { padding: 0 24px; } 
     
-    /* 3. 타이포그래피 수정 (여기가 핵심입니다) */
+    /* 3. Hero 섹션 수정 (요청사항 반영) */
     .hero {
-        padding: 80px 0 60px; /* 상하 여백 조정 */
+        /* 높이 줄이지 않고 원본 유지 */
+        padding: 120px 0 100px; 
     }
 
     .hero h1 { 
-        font-size: 2.1rem; /* 2.5rem -> 2.1rem으로 축소 (2줄로 만들기 위함) */
-        line-height: 1.25; 
+        /* 3.5rem은 모바일 폭을 넘어가서 3줄이 됩니다. 
+           2.8rem(약 45px)으로 설정하면 "크게" 보이면서 2줄로 예쁘게 떨어집니다. */
+        font-size: 2.8rem; 
+        line-height: 1.2; 
         letter-spacing: -0.02em; 
-        word-break: keep-all; /* 단어 단위 줄바꿈 */
-        margin-bottom: 16px;
-        padding: 0 10px; /* 좌우 여백 확보 */
+        margin-bottom: 24px;
+        word-break: keep-all; /* 단어 중간 끊김 방지 */
     } 
 
+    /* [핵심] 모바일에서는 강제 줄바꿈(<br>)을 무시하고 자연스럽게 흐르게 함 */
+    .hero h1 br {
+        display: none;
+    }
+
     .hero p {
-        font-size: 1rem;
-        line-height: 1.6;
-        word-break: keep-all; /* 한글 단어 끊김 방지 */
-        padding: 0 10px;
+        font-size: 1.1rem; /* 설명글 가독성 확보 */
         color: var(--text-sub);
+        padding: 0 10px;
+        line-height: 1.6;
         
-        /* 버튼과의 간격 벌리기 */
-        margin-bottom: 40px !important; 
+        /* [핵심] 버튼과 설명글 사이 간격 넓힘 */
+        margin-bottom: 48px !important; 
     }
     
     .page-title { font-size: 2rem; }
@@ -223,10 +229,8 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     /* 5. 기타 */
     .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
     
-    /* 버튼들 세로 배치 대신 가로 유지하되 간격 조정 */
     .hero-btns {
         width: 100%;
         justify-content: center;
-        margin-top: 10px;
     }
 }
