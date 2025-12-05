@@ -415,3 +415,84 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .color-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; display: block; }
 .color-hex { font-family: monospace; color: var(--text-sub); font-size: 0.9rem; display: block; margin-bottom: 8px; }
 .color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
+
+/* --- Components Overview Page Styles --- */
+
+.comp-category { margin-bottom: 60px; }
+
+/* Grid Layout */
+.comp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 데스크탑 3단 */
+    gap: 20px;
+}
+
+/* Component Card */
+.comp-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.comp-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+}
+
+/* Preview Area (Top) */
+.comp-preview {
+    height: 120px;
+    background-color: var(--bg-light); /* 연한 회색 배경 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem; /* 아이콘 크기 */
+    color: var(--text-sub);
+    transition: color 0.2s;
+}
+
+.comp-card:hover .comp-preview {
+    color: var(--primary); /* 호버 시 아이콘 색상 진하게 */
+}
+
+/* Info Area (Bottom) */
+.comp-info {
+    padding: 16px 20px;
+    border-top: 1px solid var(--border); /* 프리뷰와 정보 사이 구분선 */
+}
+
+.comp-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-main);
+}
+
+.comp-info span {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    display: block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .comp-grid {
+        grid-template-columns: repeat(2, 1fr); /* 모바일에서는 2단으로 */
+        gap: 12px;
+    }
+    
+    .comp-preview {
+        height: 100px;
+        font-size: 2rem;
+    }
+    
+    .comp-info { padding: 12px 16px; }
+}
+
+
+
