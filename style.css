@@ -460,53 +460,81 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     transition: all 0.3s ease;
 }
 
-/* [추가] 아이콘에 애니메이션 적용 */
+/* --- Component Custom Animations --- */
+
+/* 기본 설정: 모든 애니메이션은 무한 반복(infinite) */
 .comp-preview i {
     display: inline-block;
-    /* 3초 동안 둥둥 떠다니는 애니메이션 무한 반복 */
-    animation: floating 3s ease-in-out infinite;
 }
 
-/* 각 카드마다 애니메이션 타이밍을 살짝 다르게 주어 자연스럽게 연출 (선택사항) */
-.comp-card:nth-child(2n) .comp-preview i { animation-delay: 0.5s; }
-.comp-card:nth-child(3n) .comp-preview i { animation-delay: 1s; }
-
-
-/* [추가] Floating Keyframes (위아래로 살짝 움직임) */
-@keyframes floating {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        /* 위로 6px 정도 올라감 */
-        transform: translateY(-6px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+/* 1. Press (버튼 클릭 효과) */
+.anim-press { animation: press 2s ease-in-out infinite; }
+@keyframes press {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(0.85); opacity: 0.8; }
 }
 
-.comp-card:hover .comp-preview {
-    color: var(--primary); /* 호버 시 아이콘 색상 진하게 */
+/* 2. Rotate Quarter (FAB 회전) */
+.anim-rotate-quarter { animation: rotateQuarter 3s ease-in-out infinite; }
+@keyframes rotateQuarter {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(90deg); }
 }
 
-/* Info Area (Bottom) */
-.comp-info {
-    padding: 16px 20px;
-    border-top: 1px solid var(--border); /* 프리뷰와 정보 사이 구분선 */
+/* 3. Shake (링크 연결) */
+.anim-shake { animation: shake 3s ease-in-out infinite; }
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(10deg); }
 }
 
-.comp-info h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 4px;
-    color: var(--text-main);
+/* 4. Blink (텍스트 커서) */
+.anim-blink { animation: blink 1.5s step-start infinite; }
+@keyframes blink {
+    50% { opacity: 0.3; }
 }
 
-.comp-info span {
-    font-size: 0.85rem;
-    color: var(--text-sub);
-    display: block;
+/* 5. Bounce (체크박스 체크) */
+.anim-bounce { animation: bounce 2s ease-in-out infinite; }
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* 6. Pulse (라디오 버튼) */
+.anim-pulse { animation: pulse 2s infinite; }
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); border-radius: 50%; }
+    70% { box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); border-radius: 50%; }
+    100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); border-radius: 50%; }
+}
+
+/* 7. Toggle (스위치 좌우 이동) */
+.anim-toggle { animation: toggle 3s ease-in-out infinite; }
+@keyframes toggle {
+    0%, 100% { transform: translateX(-4px); opacity: 0.6; }
+    50% { transform: translateX(4px); opacity: 1; }
+}
+
+/* 8. Slide Up (토스트 알림) */
+.anim-slide-up { animation: slideUp 3s ease-in-out infinite; }
+@keyframes slideUp {
+    0%, 100% { transform: translateY(5px); opacity: 0.7; }
+    50% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* 9. Pop (모달 팝업) */
+.anim-pop { animation: pop 3s ease-in-out infinite; }
+@keyframes pop {
+    0%, 100% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* 10. Spin (스피너 회전) */
+.anim-spin { animation: spin 2s linear infinite; }
+@keyframes spin {
+    100% { transform: rotate(360deg); }
 }
 
 /* Mobile Responsive */
