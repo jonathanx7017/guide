@@ -195,7 +195,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     .hero h1 { 
         /* 3.5rem은 모바일 폭을 넘어가서 3줄이 됩니다. 
            2.8rem(약 45px)으로 설정하면 "크게" 보이면서 2줄로 예쁘게 떨어집니다. */
-        font-size: 2.8rem; 
+        font-size: 2.4rem; 
         line-height: 1.2; 
         letter-spacing: -0.02em; 
         margin-bottom: 24px;
