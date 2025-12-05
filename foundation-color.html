@@ -41,16 +41,19 @@
         </div>
     </header>
 
-    <!-- 2. Mobile Sub Header (현재 페이지: Color) -->
+   <!-- 2. Mobile Sub Header -->
     <div class="mobile-sub-header">
         <div class="sub-header-inner" onclick="toggleSubMenu()">
-            <span class="current-page">Color</span> <!-- 현재 섹션명 -->
+            <!-- [수정] Color -> Foundation 으로 변경 -->
+            <span class="current-page">Foundation</span> 
             <i class="ri-arrow-down-s-line" id="subArrow"></i>
         </div>
+        
         <ul class="sub-menu-list" id="mobileSubMenu">
             <li><a href="foundation-overview.html">Overview</a></li>
             <li><a href="#">Typography</a></li>
-            <li><a href="foundation-color.html" class="active">Color</a></li> <!-- Active 처리 -->
+            <!-- 리스트 안에서 현재 페이지가 active 되어 있으므로, 사용자는 여기가 Color임 알 수 있습니다 -->
+            <li><a href="foundation-color.html" class="active">Color</a></li> 
             <li><a href="#">Layout</a></li>
             <li><a href="#">Iconography</a></li>
             <li><a href="#">Object Styles</a></li>
