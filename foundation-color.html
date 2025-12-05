@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <!-- 1. Global Header -->
     <header class="global-header">
         <div class="header-inner">
@@ -21,7 +22,6 @@
                 <span>Design System</span>
             </a>
             <nav class="nav-links desktop-only">
-                <!-- Foundation 링크를 Overview로 변경 -->
                 <a href="foundation-overview.html" class="active">Foundation</a>
                 <a href="#">Components</a>
                 <a href="#">Patterns</a>
@@ -41,17 +41,16 @@
         </div>
     </header>
 
-    <!-- 2. [추가됨] Mobile Sub Header -->
+    <!-- 2. Mobile Sub Header (현재 페이지: Color) -->
     <div class="mobile-sub-header">
         <div class="sub-header-inner" onclick="toggleSubMenu()">
-            <span class="current-page">Foundation</span> <!-- 여기 텍스트는 섹션명 -->
+            <span class="current-page">Color</span> <!-- 현재 섹션명 -->
             <i class="ri-arrow-down-s-line" id="subArrow"></i>
         </div>
         <ul class="sub-menu-list" id="mobileSubMenu">
-            <!-- 현재 페이지(Color)에는 active 클래스 이동 -->
             <li><a href="foundation-overview.html">Overview</a></li>
             <li><a href="#">Typography</a></li>
-            <li><a href="foundation-color.html" class="active">Color</a></li>
+            <li><a href="foundation-color.html" class="active">Color</a></li> <!-- Active 처리 -->
             <li><a href="#">Layout</a></li>
             <li><a href="#">Iconography</a></li>
             <li><a href="#">Object Styles</a></li>
@@ -59,7 +58,7 @@
     </div>
 
     <div class="layout-container">
-        <!-- Sidebar도 동일하게 링크 수정 -->
+        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="menu-group">
                 <div class="menu-title">Foundation</div>
@@ -72,7 +71,8 @@
                     <li><a href="#">Object Styles</a></li>
                 </ul>
             </div>
-    <!-- 이하 생략 (Main Content) -->
+        </aside>
+
         <!-- Main Content -->
         <main class="main-content">
             <div class="page-header">
