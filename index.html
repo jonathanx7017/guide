@@ -5,27 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newtype Design System</title>
     
-    <!-- Pretendard Font (CDN) -->
+    <!-- Pretendard Font -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     
-    <!-- Remix Icon (Icons) -->
+    <!-- Remix Icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <style>
         /* --- 1. Variables & Reset --- */
         :root {
-            /* Colors: Changed Green to Black */
             --primary: #000000;
-            --primary-dark: #333333; 
-            --primary-light-bg: #F4F4F4; /* Light gray for icon backgrounds */
-            
+            --primary-dark: #333333;
+            --primary-light-bg: #F4F4F4;
             --text-main: #111111;
             --text-sub: #666666;
             --bg-body: #FFFFFF;
             --bg-light: #F7F8FA;
             --border: #E5E5E5;
-
-            /* Spacing */
             --max-width: 1200px;
             --header-height: 64px;
         }
@@ -42,6 +38,7 @@
 
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
+        button { border: none; background: none; cursor: pointer; }
         
         .container {
             max-width: var(--max-width);
@@ -49,27 +46,25 @@
             padding: 0 24px;
         }
 
-        /* --- 2. Header (GNB) --- */
+        /* --- 2. Header (Updated for Mobile) --- */
         header {
             position: sticky;
             top: 0;
             height: var(--header-height);
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            display: flex;
-            align-items: center;
         }
 
         header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
+            height: 100%;
         }
 
-        /* Logo Customization */
+        /* Logo */
         .logo { 
             font-weight: 700; 
             font-size: 1.1rem; 
@@ -78,18 +73,16 @@
             gap: 10px; 
             color: var(--text-main);
             letter-spacing: -0.01em;
+            z-index: 1001; /* Ensure logo is clickable */
         }
-        
-        .logo img {
-            height: 20px; /* Adjust logo height */
-            width: auto;
-            display: block;
-        }
+        .logo img { height: 20px; width: auto; display: block; }
 
+        /* Desktop Nav & Actions */
         .nav-links { display: flex; gap: 32px; font-size: 0.95rem; font-weight: 500; }
         .nav-links a:hover { color: var(--primary); }
 
         .header-actions { display: flex; gap: 16px; align-items: center; }
+        
         .search-bar {
             background: var(--bg-light);
             padding: 8px 16px;
@@ -100,165 +93,101 @@
             color: var(--text-sub);
             font-size: 0.9rem;
             width: 200px;
-            cursor: text;
         }
         .search-shortcut { font-size: 0.8rem; border: 1px solid #ddd; padding: 2px 6px; border-radius: 4px; }
 
-        /* --- 3. Hero Section --- */
-        .hero {
-            padding: 120px 0 100px;
-            text-align: center;
+        /* Mobile Menu Button (Hidden on Desktop) */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            z-index: 1001;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 24px;
-            line-height: 1.2;
+        /* Mobile Menu Overlay (Hidden by default) */
+        .mobile-menu {
+            display: none; /* JS will toggle this */
+            position: absolute;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 24px;
+            flex-direction: column;
+            gap: 24px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        /* Mobile Specific Styles inside menu */
+        .mobile-menu .search-bar { width: 100%; }
+        .mobile-menu .nav-links {
+            flex-direction: column;
+            gap: 16px;
+            font-size: 1.1rem;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-sub);
-            margin-bottom: 48px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+        /* --- 3. Content Sections --- */
+        .hero { padding: 120px 0 100px; text-align: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; line-height: 1.2; }
+        .hero p { font-size: 1.25rem; color: var(--text-sub); margin-bottom: 48px; max-width: 600px; margin: 0 auto; }
         .hero-btns { display: flex; gap: 16px; justify-content: center; }
 
-        .btn {
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Primary Button is now Black */
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
+        .btn { padding: 14px 32px; border-radius: 50px; font-weight: 600; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background-color: var(--primary); color: white; }
         .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
-
-        .btn-secondary {
-            background-color: var(--bg-light);
-            color: var(--text-main);
-        }
+        .btn-secondary { background-color: var(--bg-light); color: var(--text-main); }
         .btn-secondary:hover { background-color: #e9ecef; transform: translateY(-2px); }
 
-        /* --- 4. Cards Grid (Quick Access) --- */
         .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; }
-
         .grid-section { padding: 60px 0; }
-        
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
+        .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-        .card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
-            transform: translateY(-4px);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            background: var(--primary-light-bg); /* Changed to Gray */
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-        }
-
+        .card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; }
+        .card:hover { border-color: var(--primary); box-shadow: 0 12px 24px rgba(0,0,0,0.05); transform: translateY(-4px); }
+        .card-icon { font-size: 2rem; margin-bottom: 20px; color: var(--primary); background: var(--primary-light-bg); width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
         .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
         .card p { color: var(--text-sub); font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
         .card-link { margin-top: auto; font-weight: 600; font-size: 0.9rem; color: var(--primary); display: flex; align-items: center; gap: 4px; }
 
-        /* --- 5. Foundations --- */
         .foundations { background-color: var(--bg-light); padding: 80px 0; }
-        
-        .foundation-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-        }
-
-        .foundation-item {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            border: 1px solid transparent;
-            transition: 0.2s;
-        }
+        .foundation-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+        .foundation-item { background: white; border-radius: 12px; padding: 24px; text-align: center; border: 1px solid transparent; transition: 0.2s; display: block; }
         .foundation-item:hover { border-color: var(--primary); }
         .foundation-item i { font-size: 1.5rem; color: var(--text-main); margin-bottom: 12px; display: block; }
         .foundation-item span { font-size: 0.9rem; font-weight: 500; color: var(--text-sub); }
 
-        /* --- 6. Updates --- */
         .updates { padding: 80px 0; }
         .update-list { border-top: 1px solid var(--border); }
-        
-        .update-item {
-            display: flex;
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border);
-            align-items: baseline;
-        }
-        
-        .version { 
-            font-family: monospace; 
-            font-weight: 600; 
-            background: var(--bg-light); 
-            padding: 4px 8px; 
-            border-radius: 4px; 
-            margin-right: 24px;
-            font-size: 0.9rem;
-            color: var(--primary);
-        }
-        
+        .update-item { display: flex; padding: 24px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+        .version { font-family: monospace; font-weight: 600; background: var(--bg-light); padding: 4px 8px; border-radius: 4px; margin-right: 24px; font-size: 0.9rem; color: var(--primary); }
         .update-content h4 { font-size: 1.1rem; margin-bottom: 4px; }
         .update-content p { color: var(--text-sub); font-size: 0.95rem; }
         .date { margin-left: auto; color: var(--text-sub); font-size: 0.9rem; }
 
-        /* --- 7. Footer --- */
         footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px; }
         .footer-content { display: flex; justify-content: space-between; }
         .copyright { color: var(--text-sub); font-size: 0.9rem; }
 
-        /* Mobile Responsive */
+        /* --- 4. Responsive & Mobile Menu Logic --- */
         @media (max-width: 768px) {
+            /* Hide Desktop Elements */
+            .desktop-only { display: none !important; }
+            
+            /* Show Mobile Button */
+            .mobile-menu-btn { display: block; }
+
+            /* Mobile Menu Active State */
+            .mobile-menu.active { display: flex; }
+
+            /* Content Adjustments */
             .hero h1 { font-size: 2.5rem; }
+            .hero p { padding: 0 16px; }
             .card-grid, .foundation-grid { grid-template-columns: 1fr; }
             .foundation-grid { grid-template-columns: repeat(3, 1fr); }
-            .nav-links { display: none; }
-            .header-actions { display: none; }
             .update-item { flex-direction: column; gap: 8px; }
             .date { margin-left: 0; }
+            .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
         }
     </style>
 </head>
@@ -267,20 +196,22 @@
     <!-- GNB -->
     <header>
         <div class="container">
-            <!-- Logo Section Updated -->
-            <a href="#" class="logo">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
                 <img src="https://newtype.design/img/common/logo.png" alt="Newtype Logo">
                 <span>Design System</span>
             </a>
             
-            <nav class="nav-links">
-                <a href="#">Foundation</a>
+            <!-- Desktop Nav (Hidden on Mobile) -->
+            <nav class="nav-links desktop-only">
+                <a href="foundation-color.html">Foundation</a>
                 <a href="#">Components</a>
                 <a href="#">Patterns</a>
                 <a href="#">Resources</a>
             </nav>
 
-            <div class="header-actions">
+            <!-- Desktop Actions (Hidden on Mobile) -->
+            <div class="header-actions desktop-only">
                 <div class="search-bar">
                     <i class="ri-search-line"></i>
                     <span>Search...</span>
@@ -288,6 +219,31 @@
                 </div>
                 <a href="#"><i class="ri-github-fill" style="font-size: 1.5rem;"></i></a>
             </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="ri-menu-line"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay (Inside Header) -->
+        <div class="mobile-menu" id="mobileMenu">
+            <!-- Mobile Search -->
+            <div class="search-bar">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="Search..." style="border:none; background:transparent; outline:none; font-size:1rem; width:100%;">
+            </div>
+
+            <!-- Mobile Links -->
+            <nav class="nav-links">
+                <a href="foundation-color.html">Foundation</a>
+                <a href="#">Components</a>
+                <a href="#">Patterns</a>
+                <a href="#">Resources</a>
+                <a href="#" style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+                    <i class="ri-github-fill"></i> GitHub
+                </a>
+            </nav>
         </div>
     </header>
 
@@ -311,27 +267,22 @@
             </div>
         </section>
 
-        <!-- Quick Access (Cards) -->
+        <!-- Quick Access -->
         <section class="grid-section">
             <div class="container">
                 <div class="card-grid">
-                    <!-- Designers -->
                     <div class="card">
                         <div class="card-icon"><i class="ri-palette-line"></i></div>
                         <h3>For Designers</h3>
                         <p>Figma 라이브러리를 연결하고 디자인 원칙과 스타일 가이드를 확인하세요.</p>
                         <span class="card-link">Setup Guide <i class="ri-arrow-right-line"></i></span>
                     </div>
-
-                    <!-- Developers -->
                     <div class="card">
                         <div class="card-icon"><i class="ri-code-s-slash-line"></i></div>
                         <h3>For Developers</h3>
                         <p>React/Vue 패키지를 설치하고 디자인 토큰과 컴포넌트 API를 확인하세요.</p>
                         <span class="card-link">Installation <i class="ri-arrow-right-line"></i></span>
                     </div>
-
-                    <!-- Guidelines -->
                     <div class="card">
                         <div class="card-icon"><i class="ri-book-open-line"></i></div>
                         <h3>Guidelines</h3>
@@ -351,26 +302,26 @@
                         <i class="ri-drop-line"></i>
                         <span>Color</span>
                     </a>
-                    <div class="foundation-item">
+                    <a href="#" class="foundation-item">
                         <i class="ri-text"></i>
                         <span>Typography</span>
-                    </div>
-                    <div class="foundation-item">
+                    </a>
+                    <a href="#" class="foundation-item">
                         <i class="ri-layout-grid-line"></i>
                         <span>Layout</span>
-                    </div>
-                    <div class="foundation-item">
+                    </a>
+                    <a href="#" class="foundation-item">
                         <i class="ri-emotion-line"></i>
                         <span>Iconography</span>
-                    </div>
-                    <div class="foundation-item">
+                    </a>
+                    <a href="#" class="foundation-item">
                         <i class="ri-shape-line"></i>
                         <span>Shapes</span>
-                    </div>
-                    <div class="foundation-item">
+                    </a>
+                    <a href="#" class="foundation-item">
                         <i class="ri-shadow-line"></i>
                         <span>Elevation</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -396,14 +347,6 @@
                         </div>
                         <span class="date">2024.05.02</span>
                     </div>
-                    <div class="update-item">
-                        <span class="version">v1.1.0</span>
-                        <div class="update-content">
-                            <h4>Mobile GNB Fix</h4>
-                            <p>모바일 환경에서 네비게이션이 겹치던 버그를 수정했습니다.</p>
-                        </div>
-                        <span class="date">2024.04.15</span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -424,6 +367,25 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btnIcon = document.querySelector('.mobile-menu-btn i');
+            
+            // Toggle Active Class
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                btnIcon.classList.remove('ri-close-line');
+                btnIcon.classList.add('ri-menu-line');
+            } else {
+                menu.classList.add('active');
+                btnIcon.classList.remove('ri-menu-line');
+                btnIcon.classList.add('ri-close-line');
+            }
+        }
+    </script>
 
 </body>
 </html>
