@@ -110,14 +110,15 @@
 
     <div class="divider"></div>
 
-    <!-- 2. System Elements (2x2 그리드) -->
+   <!-- 2. System Elements (2x2 그리드) -->
     <section>
         <h2 class="sub-section-title">System Elements</h2>
         <p class="section-desc">디자인 시스템을 구성하는 가장 기초적인 시각적 요소들입니다.</p>
         
         <div class="elements-grid">
             <a href="foundation-color.html" class="element-item">
-                <div class="el-icon" style="background: #E8F3FF; color: #007AFF;"><i class="ri-palette-line"></i></div>
+                <!-- style 속성 제거 (CSS에서 모노톤 처리) -->
+                <div class="el-icon"><i class="ri-palette-line"></i></div>
                 <div class="el-info">
                     <h4>Color</h4>
                     <span>브랜드 아이덴티티와 상태 표현</span>
@@ -125,7 +126,7 @@
                 <i class="ri-arrow-right-s-line arrow"></i>
             </a>
             <a href="#" class="element-item">
-                <div class="el-icon" style="background: #FFF0E6; color: #FF9500;"><i class="ri-text"></i></div>
+                <div class="el-icon"><i class="ri-text"></i></div>
                 <div class="el-info">
                     <h4>Typography</h4>
                     <span>가독성과 정보 위계 설정</span>
@@ -133,7 +134,7 @@
                 <i class="ri-arrow-right-s-line arrow"></i>
             </a>
             <a href="#" class="element-item">
-                <div class="el-icon" style="background: #E6FFFA; color: #00B894;"><i class="ri-layout-masonry-line"></i></div>
+                <div class="el-icon"><i class="ri-layout-masonry-line"></i></div>
                 <div class="el-info">
                     <h4>Layout</h4>
                     <span>반응형 그리드와 여백 규칙</span>
@@ -141,13 +142,33 @@
                 <i class="ri-arrow-right-s-line arrow"></i>
             </a>
             <a href="#" class="element-item">
-                <div class="el-icon" style="background: #F3F0FF; color: #9B59B6;"><i class="ri-image-line"></i></div>
+                <div class="el-icon"><i class="ri-image-line"></i></div>
                 <div class="el-info">
                     <h4>Iconography</h4>
                     <span>의미 전달을 위한 심볼</span>
                 </div>
                 <i class="ri-arrow-right-s-line arrow"></i>
             </a>
+        </div>
+    </section>
+
+    <!-- 3. Downloads (배너 형태) -->
+    <section class="downloads-section">
+        <div class="download-card">
+            <div class="dl-content">
+                <h3>Foundation UI Kit</h3>
+                <p>Figma에서 바로 사용할 수 있는 스타일 라이브러리입니다.</p>
+            </div>
+            <!-- btn-primary로 변경 -->
+            <button class="btn btn-primary btn-sm">Download <i class="ri-download-line"></i></button>
+        </div>
+        <div class="download-card">
+            <div class="dl-content">
+                <h3>Design Tokens</h3>
+                <p>개발자를 위한 JSON/CSS 변수 모음입니다.</p>
+            </div>
+            <!-- btn-secondary -> btn-primary로 변경 -->
+            <button class="btn btn-primary btn-sm">Repository <i class="ri-github-fill"></i></button>
         </div>
     </section>
 
