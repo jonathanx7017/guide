@@ -74,36 +74,105 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="page-header">
-                <h1 class="page-title">Foundation Overview</h1>
-                <p class="page-desc">
-                    Newtype 디자인 시스템의 파운데이션은 시각적 언어의 기초를 정의합니다.<br>
-                    일관된 브랜드 경험을 위해 아래의 기본 원칙들을 준수해주세요.
-                </p>
+       <!-- foundation-overview.html 의 main 태그 내부 -->
+<main class="main-content">
+    <div class="page-header">
+        <h1 class="page-title">Foundation Overview</h1>
+        <p class="page-desc">
+            Newtype 디자인 시스템의 파운데이션은 시각적 언어의 기초를 정의합니다.<br>
+            우리는 아래의 원칙을 통해 일관되고 효율적인 사용자 경험을 만듭니다.
+        </p>
+    </div>
+    
+    <!-- 1. Design Principles (3단 그리드) -->
+    <section>
+        <h2 class="sub-section-title">Principles</h2>
+        <p class="section-desc">Newtype 서비스를 관통하는 3가지 핵심 디자인 가치입니다.</p>
+        
+        <div class="principles-grid">
+            <div class="card principle-card">
+                <div class="p-icon"><i class="ri-eye-2-line"></i></div>
+                <h3>Clear</h3>
+                <p>정보는 명확해야 합니다. 불필요한 장식을 배제하고 사용자가 핵심에 집중할 수 있도록 돕습니다.</p>
             </div>
-            
-            <section>
-                <h2 class="sub-section-title">Principles</h2>
-                <p class="section-desc">디자인 시스템을 관통하는 핵심 가치입니다.</p>
-                <!-- 내용 예시 -->
-                <div class="card-grid">
-                    <div class="card">
-                        <h3>Clear</h3>
-                        <p>정보는 명확하고 직관적이어야 합니다.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Consistent</h3>
-                        <p>어느 화면에서나 동일한 경험을 제공합니다.</p>
-                    </div>
-                </div>
-            </section>
+            <div class="card principle-card">
+                <div class="p-icon"><i class="ri-ruler-2-line"></i></div>
+                <h3>Consistent</h3>
+                <p>일관성은 신뢰를 만듭니다. 예측 가능한 패턴과 스타일을 사용하여 학습 비용을 줄입니다.</p>
+            </div>
+            <div class="card principle-card">
+                <div class="p-icon"><i class="ri-rocket-line"></i></div>
+                <h3>Efficient</h3>
+                <p>효율은 속도입니다. 재사용 가능한 컴포넌트와 토큰을 통해 디자인과 개발 속도를 높입니다.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="content-footer">
-                © 2025 newtype imageworks. All rights reserved.
+    <div class="divider"></div>
+
+    <!-- 2. System Elements (2x2 그리드) -->
+    <section>
+        <h2 class="sub-section-title">System Elements</h2>
+        <p class="section-desc">디자인 시스템을 구성하는 가장 기초적인 시각적 요소들입니다.</p>
+        
+        <div class="elements-grid">
+            <a href="foundation-color.html" class="element-item">
+                <div class="el-icon" style="background: #E8F3FF; color: #007AFF;"><i class="ri-palette-line"></i></div>
+                <div class="el-info">
+                    <h4>Color</h4>
+                    <span>브랜드 아이덴티티와 상태 표현</span>
+                </div>
+                <i class="ri-arrow-right-s-line arrow"></i>
+            </a>
+            <a href="#" class="element-item">
+                <div class="el-icon" style="background: #FFF0E6; color: #FF9500;"><i class="ri-text"></i></div>
+                <div class="el-info">
+                    <h4>Typography</h4>
+                    <span>가독성과 정보 위계 설정</span>
+                </div>
+                <i class="ri-arrow-right-s-line arrow"></i>
+            </a>
+            <a href="#" class="element-item">
+                <div class="el-icon" style="background: #E6FFFA; color: #00B894;"><i class="ri-layout-masonry-line"></i></div>
+                <div class="el-info">
+                    <h4>Layout</h4>
+                    <span>반응형 그리드와 여백 규칙</span>
+                </div>
+                <i class="ri-arrow-right-s-line arrow"></i>
+            </a>
+            <a href="#" class="element-item">
+                <div class="el-icon" style="background: #F3F0FF; color: #9B59B6;"><i class="ri-image-line"></i></div>
+                <div class="el-info">
+                    <h4>Iconography</h4>
+                    <span>의미 전달을 위한 심볼</span>
+                </div>
+                <i class="ri-arrow-right-s-line arrow"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. Downloads (배너 형태) -->
+    <section class="downloads-section">
+        <div class="download-card">
+            <div class="dl-content">
+                <h3>Foundation UI Kit</h3>
+                <p>Figma에서 바로 사용할 수 있는 스타일 라이브러리입니다.</p>
             </div>
-        </main>
+            <button class="btn btn-primary btn-sm">Download <i class="ri-download-line"></i></button>
+        </div>
+        <div class="download-card">
+            <div class="dl-content">
+                <h3>Design Tokens</h3>
+                <p>개발자를 위한 JSON/CSS 변수 모음입니다.</p>
+            </div>
+            <button class="btn btn-secondary btn-sm">Repository <i class="ri-github-fill"></i></button>
+        </div>
+    </section>
+
+    <div class="content-footer">
+        © 2025 newtype imageworks. All rights reserved.
+    </div>
+</main>
     </div>
 
     <!-- JS 연결 -->
