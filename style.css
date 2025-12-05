@@ -23,12 +23,17 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* style.css 상단 부분 */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Pretendard", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-main);
     background-color: var(--bg-body);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    
+    /* [추가] 가로 스크롤 생김 방지 */
+    overflow-x: hidden; 
+    width: 100%;
 }
 
 a { text-decoration: none; color: inherit; }
