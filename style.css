@@ -444,16 +444,46 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.04);
 }
 
-/* Preview Area (Top) */
+/* Preview Area */
 .comp-preview {
     height: 120px;
-    background-color: var(--bg-light); /* 연한 회색 배경 */
+    background-color: var(--bg-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem; /* 아이콘 크기 */
-    color: var(--text-sub);
-    transition: color 0.2s;
+    font-size: 2.5rem;
+    
+    /* [수정] 기본 색상을 Black(Primary)으로 변경 */
+    color: var(--primary); 
+    
+    /* 호버 시 색상 변화 제거 (항상 블랙 유지)하거나 원하시면 남겨두셔도 됩니다 */
+    transition: all 0.3s ease;
+}
+
+/* [추가] 아이콘에 애니메이션 적용 */
+.comp-preview i {
+    display: inline-block;
+    /* 3초 동안 둥둥 떠다니는 애니메이션 무한 반복 */
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* 각 카드마다 애니메이션 타이밍을 살짝 다르게 주어 자연스럽게 연출 (선택사항) */
+.comp-card:nth-child(2n) .comp-preview i { animation-delay: 0.5s; }
+.comp-card:nth-child(3n) .comp-preview i { animation-delay: 1s; }
+
+
+/* [추가] Floating Keyframes (위아래로 살짝 움직임) */
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        /* 위로 6px 정도 올라감 */
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .comp-card:hover .comp-preview {
