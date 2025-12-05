@@ -184,21 +184,49 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     .layout-container { flex-direction: column; }
     .main-content { padding: 32px 24px; }
     .header-inner { padding: 0 24px; }
-    .container { padding: 0 20px; } /* 패딩을 살짝 줄여 공간 확보 */
+    .container { padding: 0 24px; } 
     
-    /* 3. 타이포그래피 */
-    .hero h1 { font-size: 2.5rem; word-break: keep-all; } /* 단어 끊김 방지 */
+    /* 3. 타이포그래피 수정 (여기가 핵심입니다) */
+    .hero {
+        padding: 80px 0 60px; /* 상하 여백 조정 */
+    }
+
+    .hero h1 { 
+        font-size: 2.1rem; /* 2.5rem -> 2.1rem으로 축소 (2줄로 만들기 위함) */
+        line-height: 1.25; 
+        letter-spacing: -0.02em; 
+        word-break: keep-all; /* 단어 단위 줄바꿈 */
+        margin-bottom: 16px;
+        padding: 0 10px; /* 좌우 여백 확보 */
+    } 
+
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.6;
+        word-break: keep-all; /* 한글 단어 끊김 방지 */
+        padding: 0 10px;
+        color: var(--text-sub);
+        
+        /* 버튼과의 간격 벌리기 */
+        margin-bottom: 40px !important; 
+    }
+    
     .page-title { font-size: 2rem; }
     
-    /* 4. 그리드 시스템 수정 (여기가 핵심) */
-    .card-grid { grid-template-columns: 1fr; } /* 카드는 1단 */
-    
-    /* 파운데이션 그리드를 3단 -> 2단으로 변경하여 공간 확보 */
+    /* 4. 그리드 시스템 수정 */
+    .card-grid { grid-template-columns: 1fr; }
     .foundation-grid { 
         grid-template-columns: repeat(2, 1fr); 
-        gap: 12px; /* 간격도 살짝 줄임 */
+        gap: 12px;
     }
     
     /* 5. 기타 */
     .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
+    
+    /* 버튼들 세로 배치 대신 가로 유지하되 간격 조정 */
+    .hero-btns {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
 }
