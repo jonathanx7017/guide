@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design System</title>
+    <title>Newtype Design System</title>
     
     <!-- Pretendard Font (CDN) -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -14,9 +14,11 @@
     <style>
         /* --- 1. Variables & Reset --- */
         :root {
-            /* Colors */
-            --primary: #06C755; /* LINE Green style */
-            --primary-dark: #05a546;
+            /* Colors: Changed Green to Black */
+            --primary: #000000;
+            --primary-dark: #333333; 
+            --primary-light-bg: #F4F4F4; /* Light gray for icon backgrounds */
+            
             --text-main: #111111;
             --text-sub: #666666;
             --bg-body: #FFFFFF;
@@ -31,7 +33,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            /* 요청하신 폰트 스택: Apple System -> SF Pro -> Pretendard -> Sans-serif */
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Pretendard", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             color: var(--text-main);
             background-color: var(--bg-body);
@@ -68,8 +69,22 @@
             width: 100%;
         }
 
-        .logo { font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
-        .logo span { color: var(--primary); }
+        /* Logo Customization */
+        .logo { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+        
+        .logo img {
+            height: 20px; /* Adjust logo height */
+            width: auto;
+            display: block;
+        }
 
         .nav-links { display: flex; gap: 32px; font-size: 0.95rem; font-weight: 500; }
         .nav-links a:hover { color: var(--primary); }
@@ -124,6 +139,7 @@
             gap: 8px;
         }
 
+        /* Primary Button is now Black */
         .btn-primary {
             background-color: var(--primary);
             color: white;
@@ -169,7 +185,7 @@
             font-size: 2rem;
             margin-bottom: 20px;
             color: var(--primary);
-            background: #E8F9EE;
+            background: var(--primary-light-bg); /* Changed to Gray */
             width: 56px;
             height: 56px;
             display: flex;
@@ -222,6 +238,7 @@
             border-radius: 4px; 
             margin-right: 24px;
             font-size: 0.9rem;
+            color: var(--primary);
         }
         
         .update-content h4 { font-size: 1.1rem; margin-bottom: 4px; }
@@ -238,7 +255,7 @@
             .hero h1 { font-size: 2.5rem; }
             .card-grid, .foundation-grid { grid-template-columns: 1fr; }
             .foundation-grid { grid-template-columns: repeat(3, 1fr); }
-            .nav-links { display: none; } /* Hide menu for mobile demo */
+            .nav-links { display: none; }
             .header-actions { display: none; }
             .update-item { flex-direction: column; gap: 8px; }
             .date { margin-left: 0; }
@@ -250,9 +267,10 @@
     <!-- GNB -->
     <header>
         <div class="container">
+            <!-- Logo Section Updated -->
             <a href="#" class="logo">
-                <i class="ri-layout-3-fill" style="color: var(--primary);"></i>
-                DS Name
+                <img src="https://newtype.design/img/common/logo.png" alt="Newtype Logo">
+                <span>Design System</span>
             </a>
             
             <nav class="nav-links">
@@ -279,7 +297,7 @@
             <div class="container">
                 <h1>Build better products,<br>faster.</h1>
                 <p>
-                    서비스의 일관된 사용자 경험을 위한 단일 디자인 소스입니다.<br>
+                    Newtype 서비스의 일관된 사용자 경험을 위한 디자인 소스입니다.<br>
                     디자이너와 개발자를 위한 가이드라인과 리소스를 확인하세요.
                 </p>
                 <div class="hero-btns">
@@ -396,7 +414,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="copyright">
-                    © 2024 Design System Team. All rights reserved.
+                    © 2025 newtype imageworks. All rights reserved.
                 </div>
                 <div class="footer-links" style="display: flex; gap: 24px; color: var(--text-sub); font-size: 0.9rem;">
                     <a href="#">Feedback</a>
