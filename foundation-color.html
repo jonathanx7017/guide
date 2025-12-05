@@ -8,12 +8,13 @@
     <!-- Pretendard Font -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     
-    <!-- Icons -->
+    <!-- Remix Icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <style>
-        /* --- Common Styles (랜딩페이지와 동일) --- */
+        /* --- 1. Variables & Reset --- */
         :root {
+            /* Colors */
             --primary: #000000;
             --primary-dark: #333333;
             --text-main: #111111;
@@ -22,8 +23,11 @@
             --bg-body: #FFFFFF;
             --bg-light: #F7F8FA;
             --border: #E5E5E5;
-            --sidebar-width: 260px;
+            
+            /* Layout */
+            --max-width: 1400px;
             --header-height: 64px;
+            --sidebar-width: 260px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,36 +42,74 @@
 
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
+        button { border: none; background: none; cursor: pointer; }
 
-        /* --- Header --- */
+        /* --- 2. Header (Responsive) --- */
         header {
             position: sticky;
             top: 0;
             height: var(--header-height);
             background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
+        }
+
+        header .header-inner {
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            height: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
             padding: 0 24px;
         }
-        .header-inner { display: flex; justify-content: space-between; width: 100%; max-width: 1400px; margin: 0 auto; align-items: center; }
-        
-        .logo { font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
-        .logo img { height: 20px; width: auto; }
 
+        /* Logo */
+        .logo { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+            z-index: 1001;
+        }
+        .logo img { height: 20px; width: auto; display: block; }
+
+        /* Desktop Nav */
         .nav-links { display: flex; gap: 32px; font-size: 0.95rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
         .nav-links a.active { color: var(--primary); font-weight: 700; }
 
-        /* --- Layout (Sidebar + Content) --- */
+        /* Mobile Menu Button & Overlay */
+        .mobile-menu-btn { display: none; font-size: 1.5rem; color: var(--text-main); z-index: 1001; }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 24px;
+            flex-direction: column;
+            gap: 24px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .mobile-menu .nav-links { flex-direction: column; gap: 16px; font-size: 1.1rem; }
+
+        /* --- 3. Layout (Sidebar + Content) --- */
         .layout-container {
             display: flex;
-            max-width: 1400px;
+            max-width: var(--max-width);
             margin: 0 auto;
             min-height: calc(100vh - var(--header-height));
         }
 
-        /* --- LNB (Sidebar) --- */
+        /* Sidebar (LNB) */
         .sidebar {
             width: var(--sidebar-width);
             position: sticky;
@@ -77,26 +119,20 @@
             border-right: 1px solid var(--border);
             padding: 32px 24px 32px 0;
             flex-shrink: 0;
+            margin-left: 24px; /* Align with container padding */
         }
 
         .menu-group { margin-bottom: 32px; }
         .menu-title { font-size: 0.8rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em; padding-left: 12px; }
         
-        .menu-list li a {
-            display: block;
-            padding: 8px 12px;
-            font-size: 0.95rem;
-            color: var(--text-sub);
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
+        .menu-list li a { display: block; padding: 8px 12px; font-size: 0.95rem; color: var(--text-sub); border-radius: 6px; transition: all 0.2s; }
         .menu-list li a:hover { background-color: var(--bg-light); color: var(--text-main); }
         .menu-list li a.current { background-color: #F0F0F0; color: var(--primary); font-weight: 600; }
 
-        /* --- Main Content --- */
+        /* Main Content */
         .main-content {
             flex: 1;
-            padding: 48px 0 80px 48px; /* Left padding for separation */
+            padding: 48px 48px 80px 48px;
             max-width: 960px;
         }
 
@@ -104,57 +140,37 @@
         .page-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
         .page-desc { font-size: 1.1rem; color: var(--text-sub); max-width: 700px; }
 
-        /* Color Section */
+        /* Color Page Specifics */
         .section-title { font-size: 1.5rem; font-weight: 700; margin: 60px 0 24px; border-left: 4px solid var(--primary); padding-left: 16px; }
         .section-desc { margin-bottom: 32px; color: var(--text-sub); }
 
-        /* Palette Grid */
-        .palette-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 24px;
-        }
-
-        .swatch-card {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.2s;
-        }
+        .palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+        .swatch-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
         .swatch-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
-
         .swatch-color { height: 120px; width: 100%; position: relative; }
-        
         .swatch-info { padding: 16px; }
         .color-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; display: block; }
         .color-hex { font-family: monospace; color: var(--text-sub); font-size: 0.9rem; display: block; margin-bottom: 8px; }
         .color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
 
-        /* Semantic Colors (Small grid) */
-        .semantic-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .semantic-row {
-            display: flex;
-            align-items: center;
-            border: 1px solid var(--border);
-            padding: 8px;
-            border-radius: 8px;
-        }
-        .semantic-swatch { width: 48px; height: 48px; border-radius: 6px; margin-right: 16px; }
-        .semantic-detail { display: flex; flex-direction: column; }
-
-        /* Footer in content */
         .content-footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.9rem; }
 
-        /* Responsive */
+        /* --- 4. Responsive Media Queries --- */
         @media (max-width: 768px) {
+            /* Header Mobile */
+            .desktop-only { display: none !important; }
+            .mobile-menu-btn { display: block; }
+            .mobile-menu.active { display: flex; }
+
+            /* Sidebar & Layout */
+            .sidebar { display: none; } /* 모바일에서는 사이드바 숨김 */
             .layout-container { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); position: static; padding: 16px 24px; display: none; /* Mobile Menu interaction needed */ }
             .main-content { padding: 32px 24px; }
             .header-inner { padding: 0 24px; }
+            .sidebar { margin-left: 0; }
+            
+            /* Typography */
+            .page-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -167,9 +183,27 @@
                 <img src="https://newtype.design/img/common/logo.png" alt="Newtype Logo">
                 <span>Design System</span>
             </a>
-            <nav class="nav-links">
-                <a href="#" class="active">Foundation</a>
+            
+            <!-- Desktop Nav -->
+            <nav class="nav-links desktop-only">
+                <a href="foundation-color.html" class="active">Foundation</a>
                 <a href="#">Components</a>
+                <a href="#">Patterns</a>
+                <a href="#">Resources</a>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="ri-menu-line"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="nav-links">
+                <a href="foundation-color.html" class="active">Foundation</a>
+                <a href="#">Components</a>
+                <a href="#">Patterns</a>
                 <a href="#">Resources</a>
             </nav>
         </div>
@@ -323,6 +357,24 @@
             </div>
         </main>
     </div>
+
+    <!-- Script for Mobile Menu -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btnIcon = document.querySelector('.mobile-menu-btn i');
+            
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                btnIcon.classList.remove('ri-close-line');
+                btnIcon.classList.add('ri-menu-line');
+            } else {
+                menu.classList.add('active');
+                btnIcon.classList.remove('ri-menu-line');
+                btnIcon.classList.add('ri-close-line');
+            }
+        }
+    </script>
 
 </body>
 </html>
