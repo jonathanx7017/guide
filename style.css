@@ -187,27 +187,67 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 
 /* --- Overview Page Styles --- */
 
-/* 구분선 */
 .divider { height: 1px; background: var(--border); margin: 60px 0; }
 
-/* 1. Principles Grid (3 columns) */
-.principles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-.principle-card {
-    padding: 32px 24px;
-    background: var(--bg-light); /* 카드 배경을 살짝 회색으로 */
-    border: none; /* 테두리 제거 */
-}
-.principle-card .p-icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
-    color: var(--primary);
-}
+/* 1. Principles Grid */
+.principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.principle-card { padding: 32px 24px; background: var(--bg-light); border: none; }
+.principle-card .p-icon { font-size: 2rem; margin-bottom: 16px; color: var(--primary); }
 .principle-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
 .principle-card p { font-size: 0.95rem; color: var(--text-sub); line-height: 1.5; }
+
+/* 2. System Elements List (Monotone Update) */
+.elements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.element-item {
+    display: flex; align-items: center; padding: 24px;
+    border: 1px solid var(--border); border-radius: 12px; transition: all 0.2s; background: white;
+}
+.element-item:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.04); transform: translateY(-2px); }
+
+/* [수정] 모노톤 스타일 적용 */
+.el-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-right: 16px; flex-shrink: 0;
+    
+    /* 모노톤 색상 강제 적용 */
+    background-color: var(--primary-light-bg) !important; 
+    color: var(--primary) !important;
+}
+
+.el-info { flex: 1; }
+.el-info h4 { font-size: 1.1rem; margin-bottom: 4px; font-weight: 700; }
+.el-info span { font-size: 0.9rem; color: var(--text-sub); }
+.element-item .arrow { color: var(--text-light); font-size: 1.2rem; }
+
+/* 3. Download Section (Layout Fix) */
+.downloads-section {
+    margin-top: 60px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+
+.download-card {
+    background: var(--bg-light);
+    padding: 32px;
+    border-radius: 16px;
+    
+    /* [수정] 카드 레이아웃: 세로 정렬 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 위아래 분산 */
+    align-items: flex-start;
+    min-height: 180px; /* 최소 높이 확보로 모양 통일 */
+}
+
+.dl-content { width: 100%; margin-bottom: 24px; }
+.dl-content h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.dl-content p { color: var(--text-sub); font-size: 0.9rem; margin: 0; line-height: 1.5; }
+
+/* [수정] 버튼을 우측 하단으로 */
+.download-card .btn {
+    align-self: flex-end; /* 우측 정렬 */
+    margin-top: auto; /* 상단 콘텐츠와 거리가 멀어져도 바닥에 붙음 */
+}
 
 
 /* 2. System Elements List */
