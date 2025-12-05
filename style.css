@@ -5,7 +5,7 @@
     /* Colors (Black Theme) */
     --primary: #000000;
     --primary-dark: #333333;
-    --primary-light-bg: #F4F4F4;
+    --primary-light-bg: #F4F4F4; /* 아이콘 배경용 연한 회색 */
     
     --text-main: #111111;
     --text-sub: #666666;
@@ -16,14 +16,13 @@
     --border: #E5E5E5;
     
     /* Layout Variables */
-    --max-width: 1400px; /* 전체 최대 폭 */
+    --max-width: 1400px;
     --header-height: 64px;
     --sidebar-width: 260px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* style.css 상단 부분 */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Pretendard", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-main);
@@ -31,8 +30,8 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     
-    /* [추가] 가로 스크롤 생김 방지 */
-    overflow-x: hidden; 
+    /* 가로 스크롤 방지 */
+    overflow-x: hidden;
     width: 100%;
 }
 
@@ -47,8 +46,8 @@ button { border: none; background: none; cursor: pointer; }
     padding: 0 24px;
 }
 
-/* --- 2. Header (Common) --- */
-header {
+/* --- 2. Header (Global) --- */
+header.global-header {
     position: sticky;
     top: 0;
     height: var(--header-height);
@@ -58,7 +57,7 @@ header {
     z-index: 1000;
 }
 
-header .header-inner {
+.header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,7 +87,7 @@ header .header-inner {
 }
 .search-shortcut { font-size: 0.8rem; border: 1px solid #ddd; padding: 2px 6px; border-radius: 4px; }
 
-/* Mobile Menu */
+/* Mobile Menu Overlay */
 .mobile-menu-btn { display: none; font-size: 1.5rem; color: var(--text-main); z-index: 1001; }
 .mobile-menu {
     display: none; position: absolute; top: var(--header-height); left: 0;
@@ -99,19 +98,44 @@ header .header-inner {
 .mobile-menu.active { display: flex; }
 .mobile-menu .nav-links { flex-direction: column; gap: 16px; font-size: 1.1rem; }
 
-/* --- 3. Landing Page Styles --- */
+/* --- 3. Mobile Sub Header (Dropdown) --- */
+.mobile-sub-header { display: none; } /* PC에서는 숨김 */
+
+/* --- 4. Layout (Sidebar + Content) --- */
+.layout-container { display: flex; max-width: var(--max-width); margin: 0 auto; min-height: calc(100vh - var(--header-height)); }
+
+.sidebar {
+    width: var(--sidebar-width); position: sticky; top: var(--header-height);
+    height: calc(100vh - var(--header-height)); overflow-y: auto;
+    border-right: 1px solid var(--border); padding: 32px 24px 32px 0;
+    flex-shrink: 0; margin-left: 24px;
+}
+.menu-group { margin-bottom: 32px; }
+.menu-title { font-size: 0.8rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em; padding-left: 12px; }
+.menu-list li a { display: block; padding: 8px 12px; font-size: 0.95rem; color: var(--text-sub); border-radius: 6px; transition: all 0.2s; }
+.menu-list li a:hover { background-color: var(--bg-light); color: var(--text-main); }
+.menu-list li a.current { background-color: #F0F0F0; color: var(--primary); font-weight: 600; }
+
+.main-content { flex: 1; padding: 48px 48px 80px 48px; max-width: 960px; }
+.page-header { margin-bottom: 60px; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
+.page-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
+.page-desc { font-size: 1.1rem; color: var(--text-sub); max-width: 700px; }
+.sub-section-title { font-size: 1.5rem; font-weight: 700; margin: 60px 0 24px; border-left: 4px solid var(--primary); padding-left: 16px; }
+.section-desc { margin-bottom: 32px; color: var(--text-sub); }
+.divider { height: 1px; background: var(--border); margin: 60px 0; }
+.content-footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.9rem; }
+
+/* --- 5. Landing Page Styles --- */
 .hero { padding: 120px 0 100px; text-align: center; }
 .hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; line-height: 1.2; }
-.hero p { font-size: 1.25rem; color: var(--text-sub); margin-bottom: 80px; max-width: 600px; margin: 0 auto; }
-/* style.css 중간 쯤 */
-
+.hero p {
+    font-size: 1.25rem; color: var(--text-sub);
+    margin-bottom: 0; /* 버튼이 margin-top으로 밀어냄 */
+    max-width: 600px; margin-left: auto; margin-right: auto;
+}
 .hero-btns { 
-    display: flex; 
-    gap: 16px; 
-    justify-content: center; 
-    
-    /* [추가] 텍스트와의 간격을 여기서 강제로 밀어버립니다 */
-    margin-top: 64px; 
+    display: flex; gap: 16px; justify-content: center; 
+    margin-top: 64px; /* 텍스트와 간격 강제 확보 */
 }
 
 .btn { padding: 14px 32px; border-radius: 50px; font-weight: 600; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
@@ -119,6 +143,7 @@ header .header-inner {
 .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
 .btn-secondary { background-color: var(--bg-light); color: var(--text-main); }
 .btn-secondary:hover { background-color: #e9ecef; transform: translateY(-2px); }
+.btn-sm { padding: 10px 20px; font-size: 0.9rem; }
 
 .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; }
 .grid-section { padding: 60px 0; }
@@ -149,54 +174,14 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .footer-content { display: flex; justify-content: space-between; }
 .copyright { color: var(--text-sub); font-size: 0.9rem; }
 
-/* --- 4. Sub Page (Foundation) Styles --- */
-.layout-container { display: flex; max-width: var(--max-width); margin: 0 auto; min-height: calc(100vh - var(--header-height)); }
 
-.sidebar {
-    width: var(--sidebar-width); position: sticky; top: var(--header-height);
-    height: calc(100vh - var(--header-height)); overflow-y: auto;
-    border-right: 1px solid var(--border); padding: 32px 24px 32px 0;
-    flex-shrink: 0; margin-left: 24px;
-}
-.menu-group { margin-bottom: 32px; }
-.menu-title { font-size: 0.8rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em; padding-left: 12px; }
-.menu-list li a { display: block; padding: 8px 12px; font-size: 0.95rem; color: var(--text-sub); border-radius: 6px; transition: all 0.2s; }
-.menu-list li a:hover { background-color: var(--bg-light); color: var(--text-main); }
-.menu-list li a.current { background-color: #F0F0F0; color: var(--primary); font-weight: 600; }
-
-.main-content { flex: 1; padding: 48px 48px 80px 48px; max-width: 960px; }
-.page-header { margin-bottom: 60px; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
-.page-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
-.page-desc { font-size: 1.1rem; color: var(--text-sub); max-width: 700px; }
-
-/* Palette Styles */
-.sub-section-title { font-size: 1.5rem; font-weight: 700; margin: 60px 0 24px; border-left: 4px solid var(--primary); padding-left: 16px; }
-.section-desc { margin-bottom: 32px; color: var(--text-sub); }
-.palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
-.swatch-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
-.swatch-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
-.swatch-color { height: 120px; width: 100%; position: relative; }
-.swatch-info { padding: 16px; }
-.color-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; display: block; }
-.color-hex { font-family: monospace; color: var(--text-sub); font-size: 0.9rem; display: block; margin-bottom: 8px; }
-.color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
-.content-footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.9rem; }
-
-/* --- Mobile Sub Header (Default Hidden on Desktop) --- */
-.mobile-sub-header { display: none; }
-
-/* --- Overview Page Styles --- */
-
-.divider { height: 1px; background: var(--border); margin: 60px 0; }
-
-/* 1. Principles Grid */
+/* --- 6. Foundation Overview Specifics --- */
 .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .principle-card { padding: 32px 24px; background: var(--bg-light); border: none; }
 .principle-card .p-icon { font-size: 2rem; margin-bottom: 16px; color: var(--primary); }
 .principle-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
 .principle-card p { font-size: 0.95rem; color: var(--text-sub); line-height: 1.5; }
 
-/* 2. System Elements List (Monotone Update) */
 .elements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .element-item {
     display: flex; align-items: center; padding: 24px;
@@ -204,13 +189,11 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 }
 .element-item:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.04); transform: translateY(-2px); }
 
-/* [수정] 모노톤 스타일 적용 */
+/* Monotone Icons for System Elements */
 .el-icon {
     width: 48px; height: 48px; border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.5rem; margin-right: 16px; flex-shrink: 0;
-    
-    /* 모노톤 색상 강제 적용 */
     background-color: var(--primary-light-bg) !important; 
     color: var(--primary) !important;
 }
@@ -220,337 +203,136 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .el-info span { font-size: 0.9rem; color: var(--text-sub); }
 .element-item .arrow { color: var(--text-light); font-size: 1.2rem; }
 
-/* 3. Download Section (Layout Fix) */
-.downloads-section {
-    margin-top: 60px;
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-}
-
+.downloads-section { margin-top: 60px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .download-card {
-    background: var(--bg-light);
-    padding: 32px;
-    border-radius: 16px;
-    
-    /* [수정] 카드 레이아웃: 세로 정렬 */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* 위아래 분산 */
-    align-items: flex-start;
-    min-height: 180px; /* 최소 높이 확보로 모양 통일 */
+    background: var(--bg-light); padding: 32px; border-radius: 16px;
+    display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;
+    min-height: 180px;
 }
-
 .dl-content { width: 100%; margin-bottom: 24px; }
 .dl-content h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .dl-content p { color: var(--text-sub); font-size: 0.9rem; margin: 0; line-height: 1.5; }
-
-/* [수정] 버튼을 우측 하단으로 */
-.download-card .btn {
-    align-self: flex-end; /* 우측 정렬 */
-    margin-top: auto; /* 상단 콘텐츠와 거리가 멀어져도 바닥에 붙음 */
-}
+.download-card .btn { align-self: flex-end; margin-top: auto; }
 
 
-/* 2. System Elements List */
-.elements-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+/* --- 7. Color Page Specifics --- */
+.palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+.swatch-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
+.swatch-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
+.swatch-color { height: 120px; width: 100%; position: relative; }
+.swatch-info { padding: 16px; }
+.color-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; display: block; }
+.color-hex { font-family: monospace; color: var(--text-sub); font-size: 0.9rem; display: block; margin-bottom: 8px; }
+.color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
+
+
+/* --- 8. Components Overview Specifics --- */
+.comp-category { margin-bottom: 60px; }
+.comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.comp-card {
+    background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    transition: all 0.2s ease; display: flex; flex-direction: column;
 }
-.element-item {
-    display: flex;
-    align-items: center;
-    padding: 24px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    transition: all 0.2s;
-    background: white;
-}
-.element-item:hover {
-    border-color: var(--primary);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    transform: translateY(-2px);
-}
-.el-icon {
-    width: 48px; height: 48px;
-    border-radius: 10px;
+.comp-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.04); }
+
+/* Component Preview Area (Black Icons + Animation) */
+.comp-preview {
+    height: 120px; background-color: var(--bg-light);
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem;
-    margin-right: 16px;
-    flex-shrink: 0;
+    font-size: 2.5rem; color: var(--primary); /* Black */
+    transition: all 0.3s ease;
 }
-.el-info { flex: 1; }
-.el-info h4 { font-size: 1.1rem; margin-bottom: 4px; font-weight: 700; }
-.el-info span { font-size: 0.9rem; color: var(--text-sub); }
-.element-item .arrow { color: var(--text-light); font-size: 1.2rem; }
+.comp-info { padding: 16px 20px; border-top: 1px solid var(--border); }
+.comp-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
+.comp-info span { font-size: 0.85rem; color: var(--text-sub); display: block; }
+
+/* Component Animations */
+.comp-preview i { display: inline-block; }
+
+.anim-press { animation: press 2s ease-in-out infinite; }
+@keyframes press { 0%, 100% { transform: scale(1); } 50% { transform: scale(0.85); opacity: 0.8; } }
+
+.anim-rotate-quarter { animation: rotateQuarter 3s ease-in-out infinite; }
+@keyframes rotateQuarter { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(90deg); } }
+
+.anim-shake { animation: shake 3s ease-in-out infinite; }
+@keyframes shake { 0%, 100% { transform: rotate(0deg); } 40% { transform: rotate(-10deg); } 60% { transform: rotate(10deg); } }
+
+.anim-blink { animation: blink 1.5s step-start infinite; }
+@keyframes blink { 50% { opacity: 0.3; } }
+
+.anim-bounce { animation: bounce 2s ease-in-out infinite; }
+@keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+
+.anim-pulse { animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); border-radius: 50%; } 70% { box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); border-radius: 50%; } 100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); border-radius: 50%; } }
+
+.anim-toggle { animation: toggle 3s ease-in-out infinite; }
+@keyframes toggle { 0%, 100% { transform: translateX(-4px); opacity: 0.6; } 50% { transform: translateX(4px); opacity: 1; } }
+
+.anim-slide-up { animation: slideUp 3s ease-in-out infinite; }
+@keyframes slideUp { 0%, 100% { transform: translateY(5px); opacity: 0.7; } 50% { transform: translateY(-5px); opacity: 1; } }
+
+.anim-pop { animation: pop 3s ease-in-out infinite; }
+@keyframes pop { 0%, 100% { transform: scale(0.9); opacity: 0.7; } 50% { transform: scale(1.05); opacity: 1; } }
+
+.anim-spin { animation: spin 2s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
 
 
-/* 3. Download Section */
-.downloads-section {
-    margin-top: 60px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-.download-card {
-    background: var(--bg-light);
-    padding: 32px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.dl-content h3 { font-size: 1.1rem; margin-bottom: 8px; }
-.dl-content p { color: var(--text-sub); font-size: 0.9rem; margin: 0; }
-.btn-sm { padding: 10px 20px; font-size: 0.9rem; }
-
-/* --- Mobile Responsive & Sub Header Styles --- */
+/* --- 9. Responsive & Mobile Overrides --- */
 @media (max-width: 768px) {
-    /* 1. Global Reset & Layout */
+    /* 1. Reset */
     .desktop-only { display: none !important; }
     .mobile-menu-btn { display: block; }
-    .sidebar { display: none; } /* 사이드바 숨김 */
+    .sidebar { display: none; }
     .layout-container { flex-direction: column; }
     .main-content { padding: 32px 24px; }
     .header-inner { padding: 0 24px; }
     .container { padding: 0 24px; }
     
-    /* 2. Mobile Sub Header (Visible on Mobile) */
+    /* 2. Mobile Sub Header (Visible) */
     .mobile-sub-header {
-        display: block;
-        position: sticky;
-        top: var(--header-height); /* 메인 헤더 바로 아래 붙음 */
-        z-index: 900;
-        background: white;
-        border-bottom: 1px solid var(--border);
+        display: block; position: sticky; top: var(--header-height); z-index: 900;
+        background: white; border-bottom: 1px solid var(--border);
     }
-
     .sub-header-inner {
-        height: 50px; /* 서브 헤더 높이 */
-        padding: 0 24px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 1rem;
+        height: 50px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between;
+        cursor: pointer; font-weight: 700; font-size: 1rem;
     }
-
-    /* Dropdown Menu */
     .sub-menu-list {
-        display: none; /* 기본 숨김 */
-        background: white;
-        border-top: 1px solid var(--border);
-        padding: 0;
-        list-style: none;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        display: none; background: white; border-top: 1px solid var(--border);
+        padding: 0; list-style: none; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
-    .sub-menu-list.active { display: block; } /* JS로 토글 */
-
-    .sub-menu-list li a {
-        display: block;
-        padding: 14px 24px;
-        font-size: 0.95rem;
-        color: var(--text-sub);
-        border-bottom: 1px solid #f4f4f4;
-    }
-    .sub-menu-list li a.active {
-        color: var(--primary);
-        font-weight: 700;
-        background-color: var(--bg-light);
-    }
-
-    /* Arrow Rotation */
+    .sub-menu-list.active { display: block; }
+    .sub-menu-list li a { display: block; padding: 14px 24px; font-size: 0.95rem; color: var(--text-sub); border-bottom: 1px solid #f4f4f4; }
+    .sub-menu-list li a.active { color: var(--primary); font-weight: 700; background-color: var(--bg-light); }
     #subArrow { transition: transform 0.2s; font-size: 1.2rem; color: var(--text-sub); }
     #subArrow.rotate { transform: rotate(180deg); }
-
-    /* 3. Typography & Spacing (이전 설정 유지) */
+    
+    /* 3. Typography & Spacing */
     .hero { padding: 80px 0 60px; }
     .hero h1 { font-size: 2.4rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 24px; word-break: keep-all; }
     .hero h1 br { display: none; }
-    .hero p {
-    font-size: 1.25rem;
-    color: var(--text-sub);
-    /* 아래 마진은 없애거나 작게 둬도 됩니다. 위에서 버튼이 64px만큼 밀어내니까요. */
-    margin-bottom: 0; 
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
+    .hero p { 
+        font-size: 1.1rem; color: var(--text-sub); padding: 0 10px; line-height: 1.6; 
+        margin-bottom: 48px !important; 
+    }
+    .hero-btns { width: 100%; justify-content: center; margin-top: 10px; }
     .page-title { font-size: 2rem; }
-
+    
     /* 4. Grids */
     .card-grid { grid-template-columns: 1fr; }
     .foundation-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .hero-btns { width: 100%; justify-content: center; }
-    .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
-
-     /* Overview Page Mobile */
-    .principles-grid, 
-    .elements-grid, 
-    .downloads-section {
-        grid-template-columns: 1fr; /* 모든 그리드를 1단으로 */
-        gap: 16px;
-    }
+    .principles-grid, .elements-grid, .downloads-section { grid-template-columns: 1fr; gap: 16px; }
+    .comp-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     
-    .download-card {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-    .download-card .btn { width: 100%; justify-content: center; }
-}
-
-/* --- Color Page Styles (이게 없으면 컬러 페이지가 깨집니다!) --- */
-.sub-section-title { font-size: 1.5rem; font-weight: 700; margin: 60px 0 24px; border-left: 4px solid var(--primary); padding-left: 16px; }
-.section-desc { margin-bottom: 32px; color: var(--text-sub); }
-
-.palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
-
-.swatch-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
-.swatch-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
-
-.swatch-color { height: 120px; width: 100%; position: relative; }
-.swatch-info { padding: 16px; }
-
-.color-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; display: block; }
-.color-hex { font-family: monospace; color: var(--text-sub); font-size: 0.9rem; display: block; margin-bottom: 8px; }
-.color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
-
-/* --- Components Overview Page Styles --- */
-
-.comp-category { margin-bottom: 60px; }
-
-/* Grid Layout */
-.comp-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 데스크탑 3단 */
-    gap: 20px;
-}
-
-/* Component Card */
-.comp-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.comp-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.04);
-}
-
-/* Preview Area */
-.comp-preview {
-    height: 120px;
-    background-color: var(--bg-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    
-    /* [수정] 기본 색상을 Black(Primary)으로 변경 */
-    color: var(--primary); 
-    
-    /* 호버 시 색상 변화 제거 (항상 블랙 유지)하거나 원하시면 남겨두셔도 됩니다 */
-    transition: all 0.3s ease;
-}
-
-/* --- Component Custom Animations --- */
-
-/* 기본 설정: 모든 애니메이션은 무한 반복(infinite) */
-.comp-preview i {
-    display: inline-block;
-}
-
-/* 1. Press (버튼 클릭 효과) */
-.anim-press { animation: press 2s ease-in-out infinite; }
-@keyframes press {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(0.85); opacity: 0.8; }
-}
-
-/* 2. Rotate Quarter (FAB 회전) */
-.anim-rotate-quarter { animation: rotateQuarter 3s ease-in-out infinite; }
-@keyframes rotateQuarter {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(90deg); }
-}
-
-/* 3. Shake (링크 연결) */
-.anim-shake { animation: shake 3s ease-in-out infinite; }
-@keyframes shake {
-    0%, 100% { transform: rotate(0deg); }
-    40% { transform: rotate(-10deg); }
-    60% { transform: rotate(10deg); }
-}
-
-/* 4. Blink (텍스트 커서) */
-.anim-blink { animation: blink 1.5s step-start infinite; }
-@keyframes blink {
-    50% { opacity: 0.3; }
-}
-
-/* 5. Bounce (체크박스 체크) */
-.anim-bounce { animation: bounce 2s ease-in-out infinite; }
-@keyframes bounce {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-}
-
-/* 6. Pulse (라디오 버튼) */
-.anim-pulse { animation: pulse 2s infinite; }
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); border-radius: 50%; }
-    70% { box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); border-radius: 50%; }
-    100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); border-radius: 50%; }
-}
-
-/* 7. Toggle (스위치 좌우 이동) */
-.anim-toggle { animation: toggle 3s ease-in-out infinite; }
-@keyframes toggle {
-    0%, 100% { transform: translateX(-4px); opacity: 0.6; }
-    50% { transform: translateX(4px); opacity: 1; }
-}
-
-/* 8. Slide Up (토스트 알림) */
-.anim-slide-up { animation: slideUp 3s ease-in-out infinite; }
-@keyframes slideUp {
-    0%, 100% { transform: translateY(5px); opacity: 0.7; }
-    50% { transform: translateY(-5px); opacity: 1; }
-}
-
-/* 9. Pop (모달 팝업) */
-.anim-pop { animation: pop 3s ease-in-out infinite; }
-@keyframes pop {
-    0%, 100% { transform: scale(0.9); opacity: 0.7; }
-    50% { transform: scale(1.05); opacity: 1; }
-}
-
-/* 10. Spin (스피너 회전) */
-.anim-spin { animation: spin 2s linear infinite; }
-@keyframes spin {
-    100% { transform: rotate(360deg); }
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .comp-grid {
-        grid-template-columns: repeat(2, 1fr); /* 모바일에서는 2단으로 */
-        gap: 12px;
-    }
-    
-    .comp-preview {
-        height: 100px;
-        font-size: 2rem;
-    }
-    
+    /* 5. Components Adjustments */
+    .download-card { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .download-card .btn { width: 100%; justify-content: center; align-self: stretch; }
+    .comp-preview { height: 100px; font-size: 2rem; }
     .comp-info { padding: 12px 16px; }
+    
+    /* 6. Footer */
+    .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
 }
-
-
-
