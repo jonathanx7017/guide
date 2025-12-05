@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System</title>
+    
+    <!-- Pretendard Font (CDN) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    
+    <!-- Remix Icon (Icons) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <style>
+        /* --- 1. Variables & Reset --- */
+        :root {
+            /* Colors */
+            --primary: #06C755; /* LINE Green style */
+            --primary-dark: #05a546;
+            --text-main: #111111;
+            --text-sub: #666666;
+            --bg-body: #FFFFFF;
+            --bg-light: #F7F8FA;
+            --border: #E5E5E5;
+
+            /* Spacing */
+            --max-width: 1200px;
+            --header-height: 64px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            /* 요청하신 폰트 스택: Apple System -> SF Pro -> Pretendard -> Sans-serif */
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Pretendard", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- 2. Header (GNB) --- */
+        header {
+            position: sticky;
+            top: 0;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo { font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--primary); }
+
+        .nav-links { display: flex; gap: 32px; font-size: 0.95rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .header-actions { display: flex; gap: 16px; align-items: center; }
+        .search-bar {
+            background: var(--bg-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            width: 200px;
+            cursor: text;
+        }
+        .search-shortcut { font-size: 0.8rem; border: 1px solid #ddd; padding: 2px 6px; border-radius: 4px; }
+
+        /* --- 3. Hero Section --- */
+        .hero {
+            padding: 120px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns { display: flex; gap: 16px; justify-content: center; }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
+
+        .btn-secondary {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+        }
+        .btn-secondary:hover { background-color: #e9ecef; transform: translateY(-2px); }
+
+        /* --- 4. Cards Grid (Quick Access) --- */
+        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; }
+
+        .grid-section { padding: 60px 0; }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            background: #E8F9EE;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .card p { color: var(--text-sub); font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
+        .card-link { margin-top: auto; font-weight: 600; font-size: 0.9rem; color: var(--primary); display: flex; align-items: center; gap: 4px; }
+
+        /* --- 5. Foundations --- */
+        .foundations { background-color: var(--bg-light); padding: 80px 0; }
+        
+        .foundation-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        .foundation-item {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+        .foundation-item:hover { border-color: var(--primary); }
+        .foundation-item i { font-size: 1.5rem; color: var(--text-main); margin-bottom: 12px; display: block; }
+        .foundation-item span { font-size: 0.9rem; font-weight: 500; color: var(--text-sub); }
+
+        /* --- 6. Updates --- */
+        .updates { padding: 80px 0; }
+        .update-list { border-top: 1px solid var(--border); }
+        
+        .update-item {
+            display: flex;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: baseline;
+        }
+        
+        .version { 
+            font-family: monospace; 
+            font-weight: 600; 
+            background: var(--bg-light); 
+            padding: 4px 8px; 
+            border-radius: 4px; 
+            margin-right: 24px;
+            font-size: 0.9rem;
+        }
+        
+        .update-content h4 { font-size: 1.1rem; margin-bottom: 4px; }
+        .update-content p { color: var(--text-sub); font-size: 0.95rem; }
+        .date { margin-left: auto; color: var(--text-sub); font-size: 0.9rem; }
+
+        /* --- 7. Footer --- */
+        footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px; }
+        .footer-content { display: flex; justify-content: space-between; }
+        .copyright { color: var(--text-sub); font-size: 0.9rem; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .card-grid, .foundation-grid { grid-template-columns: 1fr; }
+            .foundation-grid { grid-template-columns: repeat(3, 1fr); }
+            .nav-links { display: none; } /* Hide menu for mobile demo */
+            .header-actions { display: none; }
+            .update-item { flex-direction: column; gap: 8px; }
+            .date { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GNB -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="ri-layout-3-fill" style="color: var(--primary);"></i>
+                DS Name
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#">Foundation</a>
+                <a href="#">Components</a>
+                <a href="#">Patterns</a>
+                <a href="#">Resources</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <span>Search...</span>
+                    <span class="search-shortcut">⌘K</span>
+                </div>
+                <a href="#"><i class="ri-github-fill" style="font-size: 1.5rem;"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Build better products,<br>faster.</h1>
+                <p>
+                    서비스의 일관된 사용자 경험을 위한 단일 디자인 소스입니다.<br>
+                    디자이너와 개발자를 위한 가이드라인과 리소스를 확인하세요.
+                </p>
+                <div class="hero-btns">
+                    <a href="#" class="btn btn-primary">
+                        Get Started <i class="ri-arrow-right-line"></i>
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="ri-figma-line"></i> UI Kit
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access (Cards) -->
+        <section class="grid-section">
+            <div class="container">
+                <div class="card-grid">
+                    <!-- Designers -->
+                    <div class="card">
+                        <div class="card-icon"><i class="ri-palette-line"></i></div>
+                        <h3>For Designers</h3>
+                        <p>Figma 라이브러리를 연결하고 디자인 원칙과 스타일 가이드를 확인하세요.</p>
+                        <span class="card-link">Setup Guide <i class="ri-arrow-right-line"></i></span>
+                    </div>
+
+                    <!-- Developers -->
+                    <div class="card">
+                        <div class="card-icon"><i class="ri-code-s-slash-line"></i></div>
+                        <h3>For Developers</h3>
+                        <p>React/Vue 패키지를 설치하고 디자인 토큰과 컴포넌트 API를 확인하세요.</p>
+                        <span class="card-link">Installation <i class="ri-arrow-right-line"></i></span>
+                    </div>
+
+                    <!-- Guidelines -->
+                    <div class="card">
+                        <div class="card-icon"><i class="ri-book-open-line"></i></div>
+                        <h3>Guidelines</h3>
+                        <p>접근성, UX 라이팅, 데이터 시각화 등 사용자 경험을 위한 패턴을 익히세요.</p>
+                        <span class="card-link">Read Docs <i class="ri-arrow-right-line"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Foundation Preview -->
+        <section class="foundations">
+            <div class="container">
+                <h2 class="section-title">Core Foundations</h2>
+                <div class="foundation-grid">
+                    <div class="foundation-item">
+                        <i class="ri-drop-line"></i>
+                        <span>Color</span>
+                    </div>
+                    <div class="foundation-item">
+                        <i class="ri-text"></i>
+                        <span>Typography</span>
+                    </div>
+                    <div class="foundation-item">
+                        <i class="ri-layout-grid-line"></i>
+                        <span>Layout</span>
+                    </div>
+                    <div class="foundation-item">
+                        <i class="ri-emotion-line"></i>
+                        <span>Iconography</span>
+                    </div>
+                    <div class="foundation-item">
+                        <i class="ri-shape-line"></i>
+                        <span>Shapes</span>
+                    </div>
+                    <div class="foundation-item">
+                        <i class="ri-shadow-line"></i>
+                        <span>Elevation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Updates -->
+        <section class="updates">
+            <div class="container">
+                <h2 class="section-title">Latest Updates</h2>
+                <div class="update-list">
+                    <div class="update-item">
+                        <span class="version">v1.2.0</span>
+                        <div class="update-content">
+                            <h4>Dark Mode Support</h4>
+                            <p>다크 모드용 시멘틱 컬러 토큰이 전체 시스템에 적용되었습니다.</p>
+                        </div>
+                        <span class="date">2024.05.20</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="version">v1.1.5</span>
+                        <div class="update-content">
+                            <h4>New Component: DatePicker</h4>
+                            <p>날짜 범위를 선택할 수 있는 DatePicker 컴포넌트가 추가되었습니다.</p>
+                        </div>
+                        <span class="date">2024.05.02</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="version">v1.1.0</span>
+                        <div class="update-content">
+                            <h4>Mobile GNB Fix</h4>
+                            <p>모바일 환경에서 네비게이션이 겹치던 버그를 수정했습니다.</p>
+                        </div>
+                        <span class="date">2024.04.15</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    © 2024 Design System Team. All rights reserved.
+                </div>
+                <div class="footer-links" style="display: flex; gap: 24px; color: var(--text-sub); font-size: 0.9rem;">
+                    <a href="#">Feedback</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">About</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
