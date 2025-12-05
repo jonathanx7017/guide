@@ -189,7 +189,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     /* 3. Hero 섹션 수정 (요청사항 반영) */
     .hero {
         /* 높이 줄이지 않고 원본 유지 */
-        padding: 120px 0 100px; 
+        padding: 80px 0 60px; 
     }
 
     .hero h1 { 
