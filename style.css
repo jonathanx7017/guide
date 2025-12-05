@@ -168,23 +168,32 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
 .content-footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.9rem; }
 
-/* --- 5. Responsive (Mobile) --- */
+/* style.css 맨 하단 미디어 쿼리 전체 교체 */
 @media (max-width: 768px) {
+    /* 1. 데스크탑 요소 숨김 & 모바일 버튼 표시 */
     .desktop-only { display: none !important; }
     .mobile-menu-btn { display: block; }
     
-    /* Layout */
+    /* 2. 레이아웃 조정 */
     .sidebar { display: none; }
     .layout-container { flex-direction: column; }
     .main-content { padding: 32px 24px; }
     .header-inner { padding: 0 24px; }
+    .container { padding: 0 20px; } /* 패딩을 살짝 줄여 공간 확보 */
     
-    /* Typography */
-    .hero h1 { font-size: 2.5rem; }
+    /* 3. 타이포그래피 */
+    .hero h1 { font-size: 2.5rem; word-break: keep-all; } /* 단어 끊김 방지 */
     .page-title { font-size: 2rem; }
     
-    /* Grids */
-    .card-grid, .foundation-grid { grid-template-columns: 1fr; }
-    .foundation-grid { grid-template-columns: repeat(3, 1fr); }
+    /* 4. 그리드 시스템 수정 (여기가 핵심) */
+    .card-grid { grid-template-columns: 1fr; } /* 카드는 1단 */
+    
+    /* 파운데이션 그리드를 3단 -> 2단으로 변경하여 공간 확보 */
+    .foundation-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px; /* 간격도 살짝 줄임 */
+    }
+    
+    /* 5. 기타 */
     .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
 }
