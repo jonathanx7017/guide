@@ -399,3 +399,19 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     }
     .download-card .btn { width: 100%; justify-content: center; }
 }
+
+/* --- Color Page Styles (이게 없으면 컬러 페이지가 깨집니다!) --- */
+.sub-section-title { font-size: 1.5rem; font-weight: 700; margin: 60px 0 24px; border-left: 4px solid var(--primary); padding-left: 16px; }
+.section-desc { margin-bottom: 32px; color: var(--text-sub); }
+
+.palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+
+.swatch-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
+.swatch-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
+
+.swatch-color { height: 120px; width: 100%; position: relative; }
+.swatch-info { padding: 16px; }
+
+.color-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; display: block; }
+.color-hex { font-family: monospace; color: var(--text-sub); font-size: 0.9rem; display: block; margin-bottom: 8px; }
+.color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
