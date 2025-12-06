@@ -44,12 +44,10 @@
     <!-- 2. Mobile Sub Header (Components Dropdown) -->
     <div class="mobile-sub-header">
         <div class="sub-header-inner" onclick="toggleSubMenu()">
-            <!-- 상위 카테고리명: Components -->
             <span class="current-page">Components</span>
             <i class="ri-arrow-down-s-line" id="subArrow"></i>
         </div>
         <ul class="sub-menu-list" id="mobileSubMenu">
-            <!-- 하위 메뉴들 -->
             <li><a href="components-overview.html" class="active">Overview</a></li>
             <li><a href="#">Button</a></li>
             <li><a href="#">Input / Form</a></li>
@@ -59,17 +57,14 @@
     </div>
 
     <div class="layout-container">
-        <!-- Desktop Sidebar (위계 정리됨) -->
+        <!-- Desktop Sidebar -->
         <aside class="sidebar">
-            <!-- 1. General -->
             <div class="menu-group">
                 <div class="menu-title">General</div>
                 <ul class="menu-list">
                     <li><a href="components-overview.html" class="current">Overview</a></li>
                 </ul>
             </div>
-
-            <!-- 2. Actions & Inputs -->
             <div class="menu-group">
                 <div class="menu-title">Actions & Inputs</div>
                 <ul class="menu-list">
@@ -80,8 +75,6 @@
                     <li><a href="#">FAB</a></li>
                 </ul>
             </div>
-
-            <!-- 3. Navigation -->
             <div class="menu-group">
                 <div class="menu-title">Navigation</div>
                 <ul class="menu-list">
@@ -90,8 +83,6 @@
                     <li><a href="#">Breadcrumb</a></li>
                 </ul>
             </div>
-
-            <!-- 4. Feedback -->
             <div class="menu-group">
                 <div class="menu-title">Feedback</div>
                 <ul class="menu-list">
@@ -112,12 +103,11 @@
                 </p>
             </div>
             
-        <!-- Category 1: Actions -->
+            <!-- Category 1: Actions -->
             <section class="comp-category">
                 <h2 class="sub-section-title">Actions</h2>
                 <div class="comp-grid">
                     <a href="#" class="comp-card">
-                        <!-- 1. Button: 텀 줄이고(속도 UP), 더 작게 눌림 -->
                         <div class="comp-preview"><i class="ri-cursor-fill anim-click"></i></div>
                         <div class="comp-info">
                             <h4>Button</h4>
@@ -125,7 +115,6 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 2. FAB: 기존 유지 (Good) -->
                         <div class="comp-preview"><i class="ri-add-circle-fill anim-spin-fast-pause"></i></div>
                         <div class="comp-info">
                             <h4>FAB</h4>
@@ -133,7 +122,6 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 3. Link: 360도 한 바퀴 돌고 멈춤 (루핑) -->
                         <div class="comp-preview"><i class="ri-link anim-rotate-loop"></i></div>
                         <div class="comp-info">
                             <h4>Link</h4>
@@ -143,12 +131,11 @@
                 </div>
             </section>
 
-        <!-- Category 2: Forms & Inputs -->
+            <!-- Category 2: Forms -->
             <section class="comp-category">
                 <h2 class="sub-section-title">Forms & Inputs</h2>
                 <div class="comp-grid">
                     <a href="#" class="comp-card">
-                        <!-- 4. Text Field: 얇은 < > 와 커서 -->
                         <div class="comp-preview"><i class="custom-input-icon anim-input-caret"></i></div>
                         <div class="comp-info">
                             <h4>Text Field</h4>
@@ -156,7 +143,6 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 5. Checkbox: 체크 위치 상향 조정 -->
                         <div class="comp-preview"><i class="ri-checkbox-blank-circle-line anim-check-draw"></i></div>
                         <div class="comp-info">
                             <h4>Checkbox</h4>
@@ -164,7 +150,6 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 6. Radio: 빈 원 안에 점이 생기는 방식 (재설계) -->
                         <div class="comp-preview"><i class="ri-radio-button-line anim-radio-dot"></i></div>
                         <div class="comp-info">
                             <h4>Radio</h4>
@@ -172,11 +157,38 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 7. Switch: 두꺼운 테두리, 긴 텀 -->
                         <div class="comp-preview"><i class="custom-switch-icon anim-switch-knob"></i></div>
                         <div class="comp-info">
                             <h4>Switch</h4>
                             <span>On/Off toggle</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Category 3: Feedback (복구됨) -->
+            <section class="comp-category">
+                <h2 class="sub-section-title">Feedback</h2>
+                <div class="comp-grid">
+                    <a href="#" class="comp-card">
+                        <div class="comp-preview"><i class="ri-chat-4-line"></i></div>
+                        <div class="comp-info">
+                            <h4>Toast</h4>
+                            <span>Temporary notification</span>
+                        </div>
+                    </a>
+                    <a href="#" class="comp-card">
+                        <div class="comp-preview"><i class="ri-window-line"></i></div>
+                        <div class="comp-info">
+                            <h4>Modal</h4>
+                            <span>Dialog window</span>
+                        </div>
+                    </a>
+                    <a href="#" class="comp-card">
+                        <div class="comp-preview"><i class="ri-loader-4-line anim-spin"></i></div>
+                        <div class="comp-info">
+                            <h4>Spinner</h4>
+                            <span>Loading state</span>
                         </div>
                     </a>
                 </div>
