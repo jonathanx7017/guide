@@ -23,19 +23,19 @@
             <li><a href="foundation-object-styles.html">Object Styles</a></li>
         </ul>
     </div>
+
     <div class="layout-container">
         <aside class="sidebar" id="sidebar-placeholder"></aside>
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Iconography</h1>
-                <p class="page-desc">
-                    아이콘은 언어를 초월하여 기능을 직관적으로 설명합니다.<br>
-                    Remix Icon(Line/Fill) 스타일을 사용합니다.
-                </p>
+                <p class="page-desc">아이콘은 언어를 초월하여 기능을 직관적으로 설명하는 시각 언어입니다.<br>Remix Icon 라이브러리를 기반으로 일관된 스타일을 유지합니다.</p>
             </div>
 
+            <!-- 1. System Icons -->
             <section>
-                <h2 class="sub-section-title">Interface Icons</h2>
+                <h2 class="sub-section-title">System Icons</h2>
+                <p class="section-desc">인터페이스 전반에 사용되는 기본 아이콘 셋입니다.</p>
                 <div class="icon-grid">
                     <div class="icon-box"><i class="ri-home-line"></i><span>Home</span></div>
                     <div class="icon-box"><i class="ri-user-line"></i><span>User</span></div>
@@ -49,6 +49,50 @@
                     <div class="icon-box"><i class="ri-menu-line"></i><span>Menu</span></div>
                     <div class="icon-box"><i class="ri-download-line"></i><span>Download</span></div>
                     <div class="icon-box"><i class="ri-share-line"></i><span>Share</span></div>
+                </div>
+            </section>
+
+            <!-- 2. Sizing & Touch Target -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Sizing Guidelines</h2>
+                <div class="guideline-grid">
+                    <div class="guide-card">
+                        <div class="guide-preview" style="background:white; gap:20px;">
+                            <div style="text-align:center;">
+                                <i class="ri-home-line" style="font-size:16px; background:#eee;"></i>
+                                <p style="font-size:0.8rem; margin-top:8px;">16px (Small)</p>
+                            </div>
+                            <div style="text-align:center;">
+                                <i class="ri-home-line" style="font-size:24px; background:#eee;"></i>
+                                <p style="font-size:0.8rem; margin-top:8px;">24px (Base)</p>
+                            </div>
+                            <div style="text-align:center;">
+                                <i class="ri-home-line" style="font-size:32px; background:#eee;"></i>
+                                <p style="font-size:0.8rem; margin-top:8px;">32px (Large)</p>
+                            </div>
+                        </div>
+                        <div class="guide-desc">
+                            <span class="guide-tag do">DO</span>
+                            <p style="font-size:0.9rem;">기본 사이즈는 <strong>24px</strong>입니다. 모바일 터치 영역은 최소 <strong>44px</strong>을 확보해야 합니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <div class="guide-preview" style="background:white;">
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="ri-search-line"></i> Search
+                                </button>
+                                <button class="btn btn-secondary btn-sm" style="width:40px; padding:0; justify-content:center;">
+                                    <i class="ri-more-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="guide-desc">
+                            <span class="guide-tag do">DO</span>
+                            <p style="font-size:0.9rem;">버튼 내부의 아이콘은 텍스트와 수직 중앙 정렬을 맞춥니다.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
