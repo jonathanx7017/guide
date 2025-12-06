@@ -29,66 +29,93 @@
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Object Styles</h1>
-                <p class="page-desc">UI 요소의 깊이감, 형태, 경계선을 정의하여 입체적이고 구분된 레이아웃을 제공합니다.</p>
+                <p class="page-desc">Elevation, Radius, Border 등 객체의 형태와 깊이감을 정의하여 입체적이고 구분된 레이아웃을 만듭니다.</p>
             </div>
 
-            <!-- 1. Corner Radius -->
+            <!-- 1. Elevation -->
             <section>
-                <h2 class="sub-section-title">Corner Radius</h2>
-                <div class="radius-grid">
-                    <div>
-                        <div class="style-box" style="border-radius: 4px;">4px</div>
-                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Small<br>(Badge, Tag)</p>
-                    </div>
-                    <div>
-                        <div class="style-box" style="border-radius: 8px;">8px</div>
-                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Medium<br>(Card, Input)</p>
-                    </div>
-                    <div>
-                        <div class="style-box" style="border-radius: 16px;">16px</div>
-                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Large<br>(Modal, Sheet)</p>
-                    </div>
-                    <div>
-                        <div class="style-box" style="border-radius: 9999px;">Full</div>
-                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Round<br>(Button, Pill)</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 2. Elevation (Shadow) -->
-            <section style="margin-top:60px;">
                 <h2 class="sub-section-title">Elevation (Shadow)</h2>
-                <p class="section-desc">요소의 Z축 높이를 표현하여 계층 구조를 나타냅니다.</p>
-                <div class="shadow-grid">
-                    <div>
-                        <div class="style-box" style="box-shadow: 0 2px 4px rgba(0,0,0,0.05); border:none;">Level 1</div>
-                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Card, List Item<br>(기본 깊이)</p>
+                <div class="palette-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div style="display:flex; flex-direction:column; align-items:center;">
+                        <div class="visual-box" style="width:100%; min-height:150px; background:white; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">Lv 1</div>
+                        <p style="margin-top:16px; font-weight:700;">Level 1</p>
+                        <span style="font-size:0.9rem; color:var(--text-sub);">Card, List Item</span>
+                        <div class="code-block" style="margin-top:8px;">0 2px 4px (5%)</div>
                     </div>
-                    <div>
-                        <div class="style-box" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08); border:none;">Level 2</div>
-                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Dropdown, Hover<br>(일시적 띄움)</p>
+                    <div style="display:flex; flex-direction:column; align-items:center;">
+                        <div class="visual-box" style="width:100%; min-height:150px; background:white; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">Lv 2</div>
+                        <p style="margin-top:16px; font-weight:700;">Level 2</p>
+                        <span style="font-size:0.9rem; color:var(--text-sub);">Dropdown, Popover</span>
+                        <div class="code-block" style="margin-top:8px;">0 4px 12px (8%)</div>
                     </div>
-                    <div>
-                        <div class="style-box" style="box-shadow: 0 8px 24px rgba(0,0,0,0.12); border:none;">Level 3</div>
-                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Modal, Popover<br>(최상위 띄움)</p>
+                    <div style="display:flex; flex-direction:column; align-items:center;">
+                        <div class="visual-box" style="width:100%; min-height:150px; background:white; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">Lv 3</div>
+                        <p style="margin-top:16px; font-weight:700;">Level 3</p>
+                        <span style="font-size:0.9rem; color:var(--text-sub);">Modal, Dialog</span>
+                        <div class="code-block" style="margin-top:8px;">0 8px 24px (12%)</div>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. Border & Divider -->
+            <!-- 2. Radius -->
             <section style="margin-top:60px;">
-                <h2 class="sub-section-title">Border & Divider</h2>
-                <div class="guideline-grid">
-                    <div class="guide-card">
-                        <div class="guide-preview" style="background:white; flex-direction:column; gap:16px;">
-                            <div style="width:100%; height:1px; background:#E5E5E5;"></div>
-                            <div style="width:100%; border:1px solid #E5E5E5; padding:12px; border-radius:8px; text-align:center; color:#999;">Bordered Box</div>
-                        </div>
-                        <div class="guide-desc">
-                            <span class="guide-tag do">1px Solid</span>
-                            <p style="font-size:0.9rem;">구분선과 보더는 <strong>1px #E5E5E5</strong>를 기본으로 사용합니다.</p>
-                        </div>
+                <h2 class="sub-section-title">Corner Radius</h2>
+                <div class="palette-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div style="text-align:center;">
+                        <div class="visual-box" style="height:100px; min-height:100px; border-radius:4px; background:var(--primary); color:white;">4px</div>
+                        <p style="margin-top:12px; font-size:0.9rem;">Small<br>(Tag, Badge)</p>
                     </div>
+                    <div style="text-align:center;">
+                        <div class="visual-box" style="height:100px; min-height:100px; border-radius:8px; background:var(--primary); color:white;">8px</div>
+                        <p style="margin-top:12px; font-size:0.9rem;">Medium<br>(Card, Input)</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <div class="visual-box" style="height:100px; min-height:100px; border-radius:16px; background:var(--primary); color:white;">16px</div>
+                        <p style="margin-top:12px; font-size:0.9rem;">Large<br>(Modal)</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <div class="visual-box" style="height:100px; min-height:100px; border-radius:999px; background:var(--primary); color:white;">Round</div>
+                        <p style="margin-top:12px; font-size:0.9rem;">Full<br>(Button)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Interaction States -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Interaction States</h2>
+                <p class="section-desc">사용자의 인터랙션에 따른 상태 변화 시각화입니다.</p>
+                <div class="spec-table-container">
+                    <table class="spec-table">
+                        <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>Visual</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Hover</strong></td>
+                                <td><div style="padding:8px 16px; background:#F5F5F5; border-radius:4px; display:inline-block;">Background Darken 5%</div></td>
+                                <td>마우스가 요소 위에 있을 때</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pressed</strong></td>
+                                <td><div style="padding:8px 16px; background:#E0E0E0; border-radius:4px; display:inline-block; transform:scale(0.98);">Scale 0.98</div></td>
+                                <td>요소를 클릭하거나 터치했을 때</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Focus</strong></td>
+                                <td><div style="padding:8px 16px; border:2px solid #000; border-radius:4px; display:inline-block;">2px Solid Border</div></td>
+                                <td>키보드 탭이나 입력창 활성화 시 (접근성)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Disabled</strong></td>
+                                <td><div style="padding:8px 16px; background:#F5F5F5; color:#CCC; border-radius:4px; display:inline-block;">Opacity 0.4</div></td>
+                                <td>비활성화 상태</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
