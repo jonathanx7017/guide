@@ -262,3 +262,24 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     display: flex; align-items: center; justify-content: center;
     color: var(--text-sub); font-size: 0.9rem; font-family: monospace;
 }
+/* --- Documentation Detail Styles (New) --- */
+
+/* 스펙 테이블 고도화 */
+.detail-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin-top: 16px; }
+.detail-table th { text-align: left; background: var(--bg-light); padding: 12px 16px; color: var(--text-sub); font-weight: 600; border-bottom: 1px solid var(--border); }
+.detail-table td { padding: 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.token-code { font-family: monospace; background: var(--bg-light); padding: 4px 6px; border-radius: 4px; color: #E83E8C; font-size: 0.85rem; }
+
+/* Do & Don't 가이드 */
+.guideline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+.guide-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.guide-preview { height: 160px; background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; }
+.guide-desc { padding: 16px; border-top: 1px solid var(--border); }
+.guide-tag { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; }
+.guide-tag.do { background: #E8F9EE; color: #06C755; } /* Green */
+.guide-tag.dont { background: #FFEEEE; color: #E02020; } /* Red */
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .guideline-grid { grid-template-columns: 1fr; }
+}
