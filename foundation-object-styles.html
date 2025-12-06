@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Styles - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Foundation</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="foundation-overview.html">Overview</a></li>
+            <li><a href="foundation-color.html">Color</a></li>
+            <li><a href="foundation-typography.html">Typography</a></li>
+            <li><a href="foundation-layout.html">Layout</a></li>
+            <li><a href="foundation-iconography.html">Iconography</a></li>
+            <li><a href="foundation-object-styles.html" class="active">Object Styles</a></li>
+        </ul>
+    </div>
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Object Styles</h1>
+                <p class="page-desc">
+                    객체의 깊이감(Elevation)과 모서리 둥글기(Radius)를 정의하여<br>
+                    입체적이고 부드러운 UI를 구성합니다.
+                </p>
+            </div>
+
+            <section>
+                <h2 class="sub-section-title">Corner Radius</h2>
+                <div class="radius-grid">
+                    <div>
+                        <div class="style-box" style="border-radius: 4px;">4px</div>
+                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Small (Btn, Input)</p>
+                    </div>
+                    <div>
+                        <div class="style-box" style="border-radius: 8px;">8px</div>
+                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Medium (Card)</p>
+                    </div>
+                    <div>
+                        <div class="style-box" style="border-radius: 16px;">16px</div>
+                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Large (Modal)</p>
+                    </div>
+                    <div>
+                        <div class="style-box" style="border-radius: 9999px;">Full</div>
+                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Round (Pill)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="sub-section-title">Elevation (Shadow)</h2>
+                <div class="shadow-grid">
+                    <div>
+                        <div class="style-box" style="box-shadow: 0 2px 4px rgba(0,0,0,0.05); border:none;">Lv 1</div>
+                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Card, Button</p>
+                    </div>
+                    <div>
+                        <div class="style-box" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08); border:none;">Lv 2</div>
+                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Dropdown, Hover</p>
+                    </div>
+                    <div>
+                        <div class="style-box" style="box-shadow: 0 8px 24px rgba(0,0,0,0.12); border:none;">Lv 3</div>
+                        <p style="text-align:center; margin-top:8px; font-size:0.9rem; color:var(--text-sub);">Modal, Popover</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'foundation'); loadComponent('sidebar-placeholder', 'layout/sidebar-foundation.html', 'foundation-object-styles.html');</script>
+</body>
+</html>
