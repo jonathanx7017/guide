@@ -319,14 +319,49 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .token-name { color: #FF79C6; }
 .token-value { color: #8BE9FD; }
 
-/* 3. Detailed Spec Table */
-.spec-table-container { overflow-x: auto; margin-bottom: 40px; border: 1px solid var(--border); border-radius: 12px; }
-.spec-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-.spec-table th { text-align: left; background: #FAFAFA; padding: 16px; font-weight: 600; color: var(--text-main); border-bottom: 1px solid var(--border); }
-.spec-table td { padding: 16px; border-bottom: 1px solid var(--border); color: var(--text-sub); font-size: 0.95rem; vertical-align: top; }
+/* 3. Detailed Spec Table (Updated) */
+.spec-table-container { 
+    /* 가로 스크롤의 핵심 영역 */
+    overflow-x: auto; 
+    width: 100%;
+    margin-bottom: 40px; 
+    border: 1px solid var(--border); 
+    border-radius: 12px; 
+    
+    /* 모바일 터치 스크롤 부드럽게 */
+    -webkit-overflow-scrolling: touch; 
+}
+
+.spec-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    /* 최소 너비 설정: 이 너비보다 화면이 작으면 스크롤 발생 */
+    min-width: 600px; 
+}
+
+.spec-table th { 
+    text-align: left; 
+    background: #FAFAFA; 
+    padding: 16px; 
+    font-weight: 600; 
+    color: var(--text-main); 
+    border-bottom: 1px solid var(--border); 
+    /* 텍스트 줄바꿈 방지 */
+    white-space: nowrap; 
+}
+
+.spec-table td { 
+    padding: 16px; 
+    border-bottom: 1px solid var(--border); 
+    color: var(--text-sub); 
+    font-size: 0.95rem; 
+    vertical-align: top; 
+    /* 텍스트 줄바꿈 방지 */
+    white-space: nowrap; 
+}
+
 .spec-table tr:last-child td { border-bottom: none; }
 .spec-preview-text { color: var(--text-main); display: block; margin-bottom: 8px; }
-
 /* 4. Do & Don't Grid */
 .dodont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
 .dodont-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
