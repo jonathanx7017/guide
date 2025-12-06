@@ -112,12 +112,12 @@
                 </p>
             </div>
             
-          <!-- Category 1: Actions -->
+        <!-- Category 1: Actions -->
             <section class="comp-category">
                 <h2 class="sub-section-title">Actions</h2>
                 <div class="comp-grid">
                     <a href="#" class="comp-card">
-                        <!-- 1. Button: 딸깍 클릭 (빠르게 눌렀다 떼기) -->
+                        <!-- 1. Button: 텀 줄이고(속도 UP), 더 작게 눌림 -->
                         <div class="comp-preview"><i class="ri-cursor-fill anim-click"></i></div>
                         <div class="comp-info">
                             <h4>Button</h4>
@@ -125,7 +125,7 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 2. FAB: 빠르게 돌고 멈춤 (강약 조절) -->
+                        <!-- 2. FAB: 기존 유지 (Good) -->
                         <div class="comp-preview"><i class="ri-add-circle-fill anim-spin-fast-pause"></i></div>
                         <div class="comp-info">
                             <h4>FAB</h4>
@@ -133,8 +133,8 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 3. Link: 빠르게 흔들리고 쉬기 -->
-                        <div class="comp-preview"><i class="ri-link anim-shake-rush"></i></div>
+                        <!-- 3. Link: 360도 한 바퀴 돌고 멈춤 (루핑) -->
+                        <div class="comp-preview"><i class="ri-link anim-rotate-loop"></i></div>
                         <div class="comp-info">
                             <h4>Link</h4>
                             <span>Hyperlink text</span>
@@ -148,17 +148,16 @@
                 <h2 class="sub-section-title">Forms & Inputs</h2>
                 <div class="comp-grid">
                     <a href="#" class="comp-card">
-                        <!-- 4. Text Field: 가운데 커서만 깜빡임 -->
-                        <!-- 폰트 아이콘 특성상 전체가 깜빡이지만, 커서 모양이라 자연스럽습니다 -->
-                        <div class="comp-preview"><i class="ri-input-cursor-move anim-caret"></i></div>
+                        <!-- 4. Text Field: 외곽선 고정, 가운데 커서만 깜빡임 -->
+                        <!-- 아이콘을 사각형(프레임)으로 교체 -->
+                        <div class="comp-preview"><i class="ri-rectangle-line anim-cursor-blink"></i></div>
                         <div class="comp-info">
                             <h4>Text Field</h4>
                             <span>User text input</span>
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 5. Checkbox: 원은 고정, 체크 표시가 그려짐 -->
-                        <!-- 아이콘을 '빈 원'으로 바꾸고 CSS로 체크를 그립니다 -->
+                        <!-- 5. Checkbox: 체크 위치 중앙 정렬 -->
                         <div class="comp-preview"><i class="ri-checkbox-blank-circle-line anim-check-draw"></i></div>
                         <div class="comp-info">
                             <h4>Checkbox</h4>
@@ -166,7 +165,7 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 6. Radio: 레이더처럼 퍼지는 면 -->
+                        <!-- 6. Radio: 사라짐 버그 수정 (Z-index 조정) -->
                         <div class="comp-preview"><i class="ri-radio-button-fill anim-radar"></i></div>
                         <div class="comp-info">
                             <h4>Radio</h4>
@@ -174,8 +173,8 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 7. Switch: 프레임 고정, 알맹이만 딸깍 이동 -->
-                        <div class="comp-preview"><i class="ri-toggle-line anim-toggle-snap"></i></div>
+                        <!-- 7. Switch: 프레임 고정, 내부 원만 이동 -->
+                        <div class="comp-preview"><i class="ri-toggle-line anim-switch-knob"></i></div>
                         <div class="comp-info">
                             <h4>Switch</h4>
                             <span>On/Off toggle</span>
@@ -183,13 +182,12 @@
                     </a>
                 </div>
             </section>
-
-            <!-- Category 3: Feedback -->
+            
+            <!-- Category 3: Feedback (기존 유지) -->
             <section class="comp-category">
                 <h2 class="sub-section-title">Feedback</h2>
                 <div class="comp-grid">
                     <a href="#" class="comp-card">
-                        <!-- 8. Toast: 고정 (애니메이션 제거) -->
                         <div class="comp-preview"><i class="ri-chat-4-line"></i></div>
                         <div class="comp-info">
                             <h4>Toast</h4>
@@ -197,7 +195,6 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- 9. Modal: 고정 (애니메이션 제거) -->
                         <div class="comp-preview"><i class="ri-window-line"></i></div>
                         <div class="comp-info">
                             <h4>Modal</h4>
@@ -205,7 +202,6 @@
                         </div>
                     </a>
                     <a href="#" class="comp-card">
-                        <!-- Spinner: 회전 유지 -->
                         <div class="comp-preview"><i class="ri-loader-4-line anim-spin"></i></div>
                         <div class="comp-info">
                             <h4>Spinner</h4>
