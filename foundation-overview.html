@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foundation - Newtype Design System</title>
+    
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- CSS 연결 -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header class="global-header" id="header-placeholder"></header>
     <div class="mobile-sub-header">
         <div class="sub-header-inner" onclick="toggleSubMenu()">
@@ -22,59 +27,115 @@
             <li><a href="#">Iconography</a></li>
         </ul>
     </div>
+
     <div class="layout-container">
         <aside class="sidebar" id="sidebar-placeholder"></aside>
+
         <main class="main-content">
-            <div class="page-header"><h1 class="page-title">Foundation</h1><p class="page-desc">Newtype 디자인 시스템의 파운데이션은 시각적 언어의 기초를 정의합니다.<br>일관된 브랜드 경험을 위해 아래의 기본 스타일을 준수해주세요.</p></div>
-            <section><h2 class="sub-section-title">Principles</h2><div class="principles-grid"><div class="card principle-card"><div class="p-icon"><i class="ri-eye-2-line"></i></div><h3>Clear</h3><p>정보는 명확해야 합니다. 불필요한 장식을 배제하여 핵심에 집중합니다.</p></div><div class="card principle-card"><div class="p-icon"><i class="ri-ruler-2-line"></i></div><h3>Consistent</h3><p>일관성은 신뢰를 만듭니다. 예측 가능한 패턴과 스타일을 사용합니다.</p></div><div class="card principle-card"><div class="p-icon"><i class="ri-rocket-line"></i></div><h3>Efficient</h3><p>효율은 속도입니다. 재사용 가능한 시스템으로 작업 속도를 높입니다.</p></div></div></section>
+            <div class="page-header">
+                <h1 class="page-title">Foundation</h1>
+                <p class="page-desc">
+                    Foundation은 디자인 시스템의 가장 기초적인 시각적 언어입니다.<br>
+                    이 규칙들은 브랜드의 일관성을 유지하고, 확장 가능한 시스템을 만드는 뼈대가 됩니다.
+                </p>
+            </div>
+            
+            <!-- 1. Principles -->
+            <section>
+                <h2 class="sub-section-title">Design Principles</h2>
+                <p class="section-desc">우리가 제품을 만들 때 고민하고 지향하는 핵심 가치입니다.</p>
+                <div class="principles-grid">
+                    <div class="card principle-card">
+                        <div class="p-icon"><i class="ri-eye-2-line"></i></div>
+                        <h3>Clear</h3>
+                        <p>불필요한 장식을 배제하고 핵심에 집중합니다. 사용자가 정보를 명확하게 인지할 수 있도록 돕습니다.</p>
+                    </div>
+                    <div class="card principle-card">
+                        <div class="p-icon"><i class="ri-ruler-2-line"></i></div>
+                        <h3>Consistent</h3>
+                        <p>예측 가능한 경험을 제공합니다. 동일한 기능은 동일한 형태와 동작을 가져야 신뢰를 줄 수 있습니다.</p>
+                    </div>
+                    <div class="card principle-card">
+                        <div class="p-icon"><i class="ri-rocket-line"></i></div>
+                        <h3>Efficient</h3>
+                        <p>재사용성을 극대화합니다. 잘 정의된 토큰과 컴포넌트를 통해 디자인과 개발의 속도를 높입니다.</p>
+                    </div>
+                </div>
+            </section>
+
             <div class="divider"></div>
-            <!-- 2. System Elements (카드 그리드) -->
-            <section class="comp-category">
+
+            <!-- 2. The Building Blocks (New: 구조 설명) -->
+            <section>
+                <h2 class="sub-section-title">The Building Blocks</h2>
+                <p class="section-desc">디자인 시스템은 가장 작은 단위인 토큰부터 시작하여 패턴으로 확장됩니다.</p>
+                <div class="visual-box" style="background:#F7F9FC; flex-direction:column; align-items:flex-start; padding:32px;">
+                    <div style="display:flex; gap:16px; width:100%; flex-wrap:wrap;">
+                        <div style="flex:1; min-width:200px; background:white; padding:20px; border-radius:8px; border:1px solid #E5E5E5;">
+                            <h4 style="margin-bottom:8px; color:#007AFF;">1. Tokens</h4>
+                            <p style="font-size:0.9rem; color:#666;">색상, 폰트, 여백 등의 원자 단위 값 (ex. $blue-60)</p>
+                        </div>
+                        <div style="flex:1; min-width:200px; background:white; padding:20px; border-radius:8px; border:1px solid #E5E5E5;">
+                            <h4 style="margin-bottom:8px; color:#00B894;">2. Components</h4>
+                            <p style="font-size:0.9rem; color:#666;">토큰을 조합하여 만든 UI 요소 (ex. Button, Input)</p>
+                        </div>
+                        <div style="flex:1; min-width:200px; background:white; padding:20px; border-radius:8px; border:1px solid #E5E5E5;">
+                            <h4 style="margin-bottom:8px; color:#9B59B6;">3. Patterns</h4>
+                            <p style="font-size:0.9rem; color:#666;">특정 과업을 수행하기 위한 컴포넌트의 집합 (ex. Login Form)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. System Elements Links -->
+            <section class="comp-category" style="margin-top:60px;">
                 <h2 class="sub-section-title">System Elements</h2>
-                <p class="section-desc">디자인 시스템을 구성하는 가장 기초적인 시각적 요소들입니다.</p>
-                
                 <div class="comp-grid">
-                    <!-- Color: 아이콘 변경 (Palette -> Drop), 애니메이션 변경 (Radar -> Pulse) -->
                     <a href="foundation-color.html" class="comp-card">
                         <div class="comp-preview"><i class="ri-drop-line anim-pulse"></i></div>
-                        <div class="comp-info">
-                            <h4>Color</h4>
-                            <span>Semantic color palette</span>
-                        </div>
+                        <div class="comp-info"><h4>Color</h4><span>Semantic color palette</span></div>
                     </a>
-                    
-                    <!-- Typography -->
                     <a href="foundation-typography.html" class="comp-card">
                         <div class="comp-preview"><i class="ri-text anim-click"></i></div>
-                        <div class="comp-info">
-                            <h4>Typography</h4>
-                            <span>Fonts and hierarchy</span>
-                        </div>
+                        <div class="comp-info"><h4>Typography</h4><span>Fonts and hierarchy</span></div>
                     </a>
-                    
-                    <!-- Layout -->
                     <a href="foundation-layout.html" class="comp-card">
                         <div class="comp-preview"><i class="ri-layout-masonry-line anim-pop"></i></div>
-                        <div class="comp-info">
-                            <h4>Layout</h4>
-                            <span>Grid and spacing</span>
-                        </div>
+                        <div class="comp-info"><h4>Layout</h4><span>Grid and spacing</span></div>
                     </a>
-                    
-                    <!-- Iconography -->
                     <a href="foundation-iconography.html" class="comp-card">
                         <div class="comp-preview"><i class="ri-image-line anim-spin-fast-pause"></i></div>
-                        <div class="comp-info">
-                            <h4>Iconography</h4>
-                            <span>Symbols and assets</span>
-                        </div>
+                        <div class="comp-info"><h4>Iconography</h4><span>Symbols and assets</span></div>
+                    </a>
+                    <a href="foundation-object-styles.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-shape-line anim-pop"></i></div>
+                        <div class="comp-info"><h4>Object Styles</h4><span>Radius, Shadow, Border</span></div>
                     </a>
                 </div>
             </section>
-            <section class="downloads-section"><div class="download-card"><div class="dl-content"><h3>Foundation UI Kit</h3><p>Figma 스타일 라이브러리</p></div><button class="btn btn-primary btn-sm">Download <i class="ri-download-line"></i></button></div><div class="download-card"><div class="dl-content"><h3>Design Tokens</h3><p>개발용 JSON/CSS 변수</p></div><button class="btn btn-primary btn-sm">Repository <i class="ri-github-fill"></i></button></div></section>
+
+            <!-- 4. Downloads -->
+            <section class="downloads-section">
+                <div class="download-card">
+                    <div class="dl-content">
+                        <h3>Foundation UI Kit</h3>
+                        <p>Figma 스타일 라이브러리</p>
+                    </div>
+                    <button class="btn btn-primary btn-sm">Download <i class="ri-download-line"></i></button>
+                </div>
+                <div class="download-card">
+                    <div class="dl-content">
+                        <h3>Design Tokens</h3>
+                        <p>개발용 JSON/CSS 변수</p>
+                    </div>
+                    <button class="btn btn-primary btn-sm">Repository <i class="ri-github-fill"></i></button>
+                </div>
+            </section>
+
             <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
         </main>
     </div>
+
     <script src="script.js"></script>
     <script>loadComponent('header-placeholder', 'layout/header.html', 'foundation'); loadComponent('sidebar-placeholder', 'layout/sidebar-foundation.html', 'foundation-overview.html');</script>
 </body>
