@@ -29,70 +29,86 @@
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Iconography</h1>
-                <p class="page-desc">아이콘은 언어를 초월하여 기능을 직관적으로 설명하는 시각 언어입니다.<br>Remix Icon 라이브러리를 기반으로 일관된 스타일을 유지합니다.</p>
+                <p class="page-desc">아이콘은 직관적인 시각 언어입니다. 24px 그리드를 기본으로 제작되며, Remix Icon 라이브러리를 사용합니다.</p>
             </div>
 
-            <!-- 1. System Icons -->
+            <!-- 1. Library -->
             <section>
                 <h2 class="sub-section-title">System Icons</h2>
-                <p class="section-desc">인터페이스 전반에 사용되는 기본 아이콘 셋입니다.</p>
-                <div class="icon-grid">
-                    <div class="icon-box"><i class="ri-home-line"></i><span>Home</span></div>
-                    <div class="icon-box"><i class="ri-user-line"></i><span>User</span></div>
-                    <div class="icon-box"><i class="ri-settings-3-line"></i><span>Settings</span></div>
-                    <div class="icon-box"><i class="ri-search-line"></i><span>Search</span></div>
-                    <div class="icon-box"><i class="ri-notification-3-line"></i><span>Noti</span></div>
-                    <div class="icon-box"><i class="ri-add-line"></i><span>Add</span></div>
-                    <div class="icon-box"><i class="ri-close-line"></i><span>Close</span></div>
-                    <div class="icon-box"><i class="ri-arrow-right-line"></i><span>Arrow</span></div>
-                    <div class="icon-box"><i class="ri-check-line"></i><span>Check</span></div>
-                    <div class="icon-box"><i class="ri-menu-line"></i><span>Menu</span></div>
-                    <div class="icon-box"><i class="ri-download-line"></i><span>Download</span></div>
-                    <div class="icon-box"><i class="ri-share-line"></i><span>Share</span></div>
+                <div class="icon-grid-large">
+                    <div class="icon-box-large">
+                        <i class="ri-home-line"></i>
+                        <div class="icon-meta"><span class="icon-name">Home</span><span class="icon-token">ic-home</span></div>
+                    </div>
+                    <div class="icon-box-large">
+                        <i class="ri-search-line"></i>
+                        <div class="icon-meta"><span class="icon-name">Search</span><span class="icon-token">ic-search</span></div>
+                    </div>
+                    <div class="icon-box-large">
+                        <i class="ri-settings-3-line"></i>
+                        <div class="icon-meta"><span class="icon-name">Settings</span><span class="icon-token">ic-setting</span></div>
+                    </div>
+                    <div class="icon-box-large">
+                        <i class="ri-user-line"></i>
+                        <div class="icon-meta"><span class="icon-name">User</span><span class="icon-token">ic-user</span></div>
+                    </div>
+                    <div class="icon-box-large">
+                        <i class="ri-add-line"></i>
+                        <div class="icon-meta"><span class="icon-name">Add</span><span class="icon-token">ic-plus</span></div>
+                    </div>
+                    <div class="icon-box-large">
+                        <i class="ri-close-line"></i>
+                        <div class="icon-meta"><span class="icon-name">Close</span><span class="icon-token">ic-close</span></div>
+                    </div>
                 </div>
             </section>
 
             <!-- 2. Sizing & Touch Target -->
             <section style="margin-top:60px;">
-                <h2 class="sub-section-title">Sizing Guidelines</h2>
-                <div class="guideline-grid">
-                    <div class="guide-card">
-                        <div class="guide-preview" style="background:white; gap:20px;">
-                            <div style="text-align:center;">
-                                <i class="ri-home-line" style="font-size:16px; background:#eee;"></i>
-                                <p style="font-size:0.8rem; margin-top:8px;">16px (Small)</p>
-                            </div>
-                            <div style="text-align:center;">
-                                <i class="ri-home-line" style="font-size:24px; background:#eee;"></i>
-                                <p style="font-size:0.8rem; margin-top:8px;">24px (Base)</p>
-                            </div>
-                            <div style="text-align:center;">
-                                <i class="ri-home-line" style="font-size:32px; background:#eee;"></i>
-                                <p style="font-size:0.8rem; margin-top:8px;">32px (Large)</p>
+                <h2 class="sub-section-title">Sizing & Touch Target</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual">
+                            <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                <div style="width:44px; height:44px; background:rgba(0,122,255,0.1); border:1px dashed #007AFF; display:flex; align-items:center; justify-content:center;">
+                                    <i class="ri-menu-line" style="font-size:24px;"></i>
+                                </div>
+                                <span style="font-size:0.8rem; color:#007AFF;">44px Clickable Area</span>
                             </div>
                         </div>
-                        <div class="guide-desc">
-                            <span class="guide-tag do">DO</span>
-                            <p style="font-size:0.9rem;">기본 사이즈는 <strong>24px</strong>입니다. 모바일 터치 영역은 최소 <strong>44px</strong>을 확보해야 합니다.</p>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">DO</span>
+                            <p class="dodont-desc">모바일 환경에서는 아이콘 크기가 24px이더라도, 터치 영역은 최소 <strong>44x44px</strong>을 확보해야 합니다.</p>
                         </div>
                     </div>
-                    
-                    <div class="guide-card">
-                        <div class="guide-preview" style="background:white;">
-                            <div style="display:flex; align-items:center; gap:8px;">
-                                <button class="btn btn-primary btn-sm">
-                                    <i class="ri-search-line"></i> Search
-                                </button>
-                                <button class="btn btn-secondary btn-sm" style="width:40px; padding:0; justify-content:center;">
-                                    <i class="ri-more-fill"></i>
-                                </button>
+                    <div class="dodont-card">
+                        <div class="dodont-visual">
+                            <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                <div style="width:24px; height:24px; background:rgba(255,0,0,0.1); border:1px dashed red; display:flex; align-items:center; justify-content:center;">
+                                    <i class="ri-menu-line" style="font-size:24px;"></i>
+                                </div>
+                                <span style="font-size:0.8rem; color:red;">No Padding</span>
                             </div>
                         </div>
-                        <div class="guide-desc">
-                            <span class="guide-tag do">DO</span>
-                            <p style="font-size:0.9rem;">버튼 내부의 아이콘은 텍스트와 수직 중앙 정렬을 맞춥니다.</p>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">DON'T</span>
+                            <p class="dodont-desc">터치 영역 없이 아이콘 크기(24px)만큼만 버튼 영역을 잡으면 사용자가 누르기 어렵습니다.</p>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <!-- 3. Naming Convention -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Naming Convention</h2>
+                <p class="section-desc">아이콘 파일명은 다음과 같은 규칙을 따릅니다.</p>
+                <div class="code-block">
+                    ic-[feature]-[state].svg<br>
+                    <br>
+                    Ex)<br>
+                    ic-checkbox-on.svg<br>
+                    ic-checkbox-off.svg<br>
+                    ic-arrow-right.svg
                 </div>
             </section>
 
