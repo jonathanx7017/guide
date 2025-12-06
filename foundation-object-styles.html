@@ -29,93 +29,113 @@
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Object Styles</h1>
-                <p class="page-desc">Elevation, Radius, Border 등 객체의 형태와 깊이감을 정의하여 입체적이고 구분된 레이아웃을 만듭니다.</p>
+                <p class="page-desc">
+                    현실 세계의 물리 법칙을 UI에 적용하여 깊이감과 공간감을 형성합니다.<br>
+                    조명 모델(Lighting Model)을 기반으로 한 그림자와 일관된 형태를 정의합니다.
+                </p>
             </div>
 
-            <!-- 1. Elevation -->
+            <!-- 1. Elevation & Lighting -->
             <section>
                 <h2 class="sub-section-title">Elevation (Shadow)</h2>
-                <div class="palette-grid" style="grid-template-columns: repeat(3, 1fr);">
-                    <div style="display:flex; flex-direction:column; align-items:center;">
-                        <div class="visual-box" style="width:100%; min-height:150px; background:white; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">Lv 1</div>
-                        <p style="margin-top:16px; font-weight:700;">Level 1</p>
-                        <span style="font-size:0.9rem; color:var(--text-sub);">Card, List Item</span>
-                        <div class="code-block" style="margin-top:8px;">0 2px 4px (5%)</div>
+                <p class="section-desc">요소의 Z축 높이에 따라 그림자의 깊이가 달라집니다.</p>
+                
+                <!-- Lighting Model Visual -->
+                <div class="visual-box" style="gap:40px; align-items:flex-end; padding-bottom:40px; background:#F4F7FC;">
+                    <!-- Base -->
+                    <div style="text-align:center;">
+                        <div style="width:100px; height:100px; background:white; border:1px solid #E5E5E5; display:flex; align-items:center; justify-content:center; color:#999;">Base</div>
+                        <p style="margin-top:12px; font-size:0.85rem;">Level 0 (Flat)</p>
                     </div>
-                    <div style="display:flex; flex-direction:column; align-items:center;">
-                        <div class="visual-box" style="width:100%; min-height:150px; background:white; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">Lv 2</div>
-                        <p style="margin-top:16px; font-weight:700;">Level 2</p>
-                        <span style="font-size:0.9rem; color:var(--text-sub);">Dropdown, Popover</span>
-                        <div class="code-block" style="margin-top:8px;">0 4px 12px (8%)</div>
+                    <!-- Lv 1 -->
+                    <div style="text-align:center;">
+                        <div style="width:100px; height:100px; background:white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display:flex; align-items:center; justify-content:center; position:relative; top:-4px;">Lv 1</div>
+                        <p style="margin-top:16px; font-size:0.85rem;">Level 1 (Card)</p>
                     </div>
-                    <div style="display:flex; flex-direction:column; align-items:center;">
-                        <div class="visual-box" style="width:100%; min-height:150px; background:white; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">Lv 3</div>
-                        <p style="margin-top:16px; font-weight:700;">Level 3</p>
-                        <span style="font-size:0.9rem; color:var(--text-sub);">Modal, Dialog</span>
-                        <div class="code-block" style="margin-top:8px;">0 8px 24px (12%)</div>
+                    <!-- Lv 2 -->
+                    <div style="text-align:center;">
+                        <div style="width:100px; height:100px; background:white; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:center; position:relative; top:-8px;">Lv 2</div>
+                        <p style="margin-top:20px; font-size:0.85rem;">Level 2 (Popover)</p>
+                    </div>
+                    <!-- Lv 3 -->
+                    <div style="text-align:center;">
+                        <div style="width:100px; height:100px; background:white; box-shadow: 0 8px 24px rgba(0,0,0,0.12); display:flex; align-items:center; justify-content:center; position:relative; top:-16px;">Lv 3</div>
+                        <p style="margin-top:28px; font-size:0.85rem;">Level 3 (Modal)</p>
                     </div>
                 </div>
+
+                <table class="detail-table">
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Usage</th>
+                            <th>CSS Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Level 1</strong></td>
+                            <td>카드, 리스트 아이템 등 기본 컨텐츠</td>
+                            <td><span class="token-code">0 2px 4px rgba(0,0,0,0.05)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Level 2</strong></td>
+                            <td>드롭다운, 툴팁, 호버 상태</td>
+                            <td><span class="token-code">0 4px 12px rgba(0,0,0,0.08)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Level 3</strong></td>
+                            <td>모달, 다이얼로그, 토스트 (최상위)</td>
+                            <td><span class="token-code">0 8px 24px rgba(0,0,0,0.12)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
 
-            <!-- 2. Radius -->
+            <!-- 2. Corner Radius (Nested Logic) -->
             <section style="margin-top:60px;">
                 <h2 class="sub-section-title">Corner Radius</h2>
-                <div class="palette-grid" style="grid-template-columns: repeat(4, 1fr);">
-                    <div style="text-align:center;">
-                        <div class="visual-box" style="height:100px; min-height:100px; border-radius:4px; background:var(--primary); color:white;">4px</div>
-                        <p style="margin-top:12px; font-size:0.9rem;">Small<br>(Tag, Badge)</p>
+                <p class="section-desc">동심원(Concentric) 규칙을 사용하여 내부와 외부의 둥글기가 자연스럽게 어우러지도록 합니다.</p>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:#fff;">
+                            <!-- Nested Radius Visual -->
+                            <div style="width:160px; height:120px; background:#F0F0F0; border-radius:16px; padding:16px; display:flex; align-items:center; justify-content:center;">
+                                <div style="width:100%; height:100%; background:#007AFF; border-radius:8px; display:flex; align-items:center; justify-content:center; color:white;">
+                                    Inner 8px
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Nested Logic</span>
+                            <p class="dodont-desc">외부 Radius(16px) > 내부 Radius(8px). 바깥쪽이 더 둥글어야 시각적으로 안정적입니다.</p>
+                        </div>
                     </div>
-                    <div style="text-align:center;">
-                        <div class="visual-box" style="height:100px; min-height:100px; border-radius:8px; background:var(--primary); color:white;">8px</div>
-                        <p style="margin-top:12px; font-size:0.9rem;">Medium<br>(Card, Input)</p>
-                    </div>
-                    <div style="text-align:center;">
-                        <div class="visual-box" style="height:100px; min-height:100px; border-radius:16px; background:var(--primary); color:white;">16px</div>
-                        <p style="margin-top:12px; font-size:0.9rem;">Large<br>(Modal)</p>
-                    </div>
-                    <div style="text-align:center;">
-                        <div class="visual-box" style="height:100px; min-height:100px; border-radius:999px; background:var(--primary); color:white;">Round</div>
-                        <p style="margin-top:12px; font-size:0.9rem;">Full<br>(Button)</p>
+                    
+                    <div class="palette-grid" style="grid-template-columns: 1fr 1fr; margin-top:0;">
+                        <div style="text-align:center;">
+                            <div class="visual-box" style="height:80px; min-height:80px; border-radius:4px; background:var(--primary); color:white;">4px</div>
+                            <p style="margin-top:12px; font-size:0.9rem;">Small (Tag)</p>
+                        </div>
+                        <div style="text-align:center;">
+                            <div class="visual-box" style="height:80px; min-height:80px; border-radius:8px; background:var(--primary); color:white;">8px</div>
+                            <p style="margin-top:12px; font-size:0.9rem;">Medium (Card)</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. Interaction States -->
+            <!-- 3. Focus Indicator (Accessibility) -->
             <section style="margin-top:60px;">
-                <h2 class="sub-section-title">Interaction States</h2>
-                <p class="section-desc">사용자의 인터랙션에 따른 상태 변화 시각화입니다.</p>
-                <div class="spec-table-container">
-                    <table class="spec-table">
-                        <thead>
-                            <tr>
-                                <th>State</th>
-                                <th>Visual</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Hover</strong></td>
-                                <td><div style="padding:8px 16px; background:#F5F5F5; border-radius:4px; display:inline-block;">Background Darken 5%</div></td>
-                                <td>마우스가 요소 위에 있을 때</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Pressed</strong></td>
-                                <td><div style="padding:8px 16px; background:#E0E0E0; border-radius:4px; display:inline-block; transform:scale(0.98);">Scale 0.98</div></td>
-                                <td>요소를 클릭하거나 터치했을 때</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Focus</strong></td>
-                                <td><div style="padding:8px 16px; border:2px solid #000; border-radius:4px; display:inline-block;">2px Solid Border</div></td>
-                                <td>키보드 탭이나 입력창 활성화 시 (접근성)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Disabled</strong></td>
-                                <td><div style="padding:8px 16px; background:#F5F5F5; color:#CCC; border-radius:4px; display:inline-block;">Opacity 0.4</div></td>
-                                <td>비활성화 상태</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <h2 class="sub-section-title">Focus Ring (Accessibility)</h2>
+                <p class="section-desc">키보드 사용자 및 접근성을 위해 포커스 상태는 명확한 2px 테두리로 표시합니다.</p>
+                <div class="visual-box" style="gap:32px; background:white;">
+                    <button class="btn btn-primary" style="box-shadow: 0 0 0 2px white, 0 0 0 4px #007AFF;">Focused Button</button>
+                    <input type="text" value="Focused Input" style="padding:10px; border:1px solid #007AFF; border-radius:4px; outline:2px solid #007AFF; outline-offset:2px;">
+                </div>
+                <div class="code-block" style="margin-top:16px;">
+                    outline: 2px solid $focus-color;<br>
+                    outline-offset: 2px;
                 </div>
             </section>
 
