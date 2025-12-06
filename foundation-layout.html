@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Foundation</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="foundation-overview.html">Overview</a></li>
+            <li><a href="foundation-color.html">Color</a></li>
+            <li><a href="foundation-typography.html">Typography</a></li>
+            <li><a href="foundation-layout.html" class="active">Layout</a></li>
+            <li><a href="foundation-iconography.html">Iconography</a></li>
+            <li><a href="foundation-object-styles.html">Object Styles</a></li>
+        </ul>
+    </div>
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Layout</h1>
+                <p class="page-desc">
+                    반응형 그리드 시스템을 통해 다양한 디바이스에서 일관된 배치를 제공합니다.<br>
+                    12컬럼 시스템을 기본으로 사용합니다.
+                </p>
+            </div>
+
+            <section>
+                <h2 class="sub-section-title">Grid System</h2>
+                <div class="grid-visual">
+                    <div class="col-visual"></div>
+                    <div class="col-visual"></div>
+                    <div class="col-visual"></div>
+                    <div class="col-visual"></div>
+                    <div class="col-visual" style="display: none;"></div><!-- Mobile hidden example -->
+                    <div class="col-visual" style="display: none;"></div>
+                </div>
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>Breakpoint</th>
+                            <th>Columns</th>
+                            <th>Gutter</th>
+                            <th>Margin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Desktop</strong> (≥ 1200px)</td>
+                            <td>12</td>
+                            <td>24px</td>
+                            <td>Auto</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tablet</strong> (≥ 768px)</td>
+                            <td>8</td>
+                            <td>20px</td>
+                            <td>24px</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mobile</strong> (< 768px)</td>
+                            <td>4</td>
+                            <td>16px</td>
+                            <td>20px</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2 class="sub-section-title">Spacing</h2>
+                <p class="section-desc">요소 간의 간격은 4의 배수(4px, 8px, 12px...)를 기본 단위로 사용합니다.</p>
+                <div class="palette-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="swatch-card" style="text-align:center; padding: 20px;">
+                        <div style="width:16px; height:16px; background:#FFD1D1; margin:0 auto 10px;"></div>
+                        <span class="color-token">16px</span>
+                    </div>
+                    <div class="swatch-card" style="text-align:center; padding: 20px;">
+                        <div style="width:24px; height:24px; background:#FFD1D1; margin:0 auto 10px;"></div>
+                        <span class="color-token">24px</span>
+                    </div>
+                    <div class="swatch-card" style="text-align:center; padding: 20px;">
+                        <div style="width:32px; height:32px; background:#FFD1D1; margin:0 auto 10px;"></div>
+                        <span class="color-token">32px</span>
+                    </div>
+                    <div class="swatch-card" style="text-align:center; padding: 20px;">
+                        <div style="width:48px; height:48px; background:#FFD1D1; margin:0 auto 10px;"></div>
+                        <span class="color-token">48px</span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'foundation'); loadComponent('sidebar-placeholder', 'layout/sidebar-foundation.html', 'foundation-layout.html');</script>
+</body>
+</html>
