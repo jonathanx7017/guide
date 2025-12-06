@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Foundation</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="foundation-overview.html">Overview</a></li>
+            <li><a href="foundation-color.html">Color</a></li>
+            <li><a href="foundation-typography.html" class="active">Typography</a></li>
+            <li><a href="foundation-layout.html">Layout</a></li>
+            <li><a href="foundation-iconography.html">Iconography</a></li>
+            <li><a href="foundation-object-styles.html">Object Styles</a></li>
+        </ul>
+    </div>
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Typography</h1>
+                <p class="page-desc">
+                    타이포그래피는 정보를 명확하게 전달하고 브랜드의 목소리를 대변합니다.<br>
+                    기본 폰트로 Pretendard(국문)와 System Fonts(영문)를 사용합니다.
+                </p>
+            </div>
+
+            <section>
+                <h2 class="sub-section-title">Font Family</h2>
+                <p class="section-desc">OS별 최적화된 시스템 폰트를 우선 사용하며, 웹폰트로 Pretendard를 지원합니다.</p>
+                <div class="font-stack-box">
+                    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Pretendard", "Segoe UI", sans-serif;
+                </div>
+            </section>
+
+            <section>
+                <h2 class="sub-section-title">Type Scale</h2>
+                <div class="type-spec-list">
+                    <div class="type-row">
+                        <div class="type-meta">H1<br>Size: 3.5rem<br>Weight: 800</div>
+                        <div class="type-preview" style="font-size: 3.5rem; font-weight: 800; line-height: 1.2;">Build better products</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta">H2<br>Size: 2.5rem<br>Weight: 800</div>
+                        <div class="type-preview" style="font-size: 2.5rem; font-weight: 800; line-height: 1.3;">Core Foundations</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta">H3<br>Size: 1.5rem<br>Weight: 700</div>
+                        <div class="type-preview" style="font-size: 1.5rem; font-weight: 700; line-height: 1.4;">Section Title</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta">Body 1<br>Size: 1rem<br>Weight: 400</div>
+                        <div class="type-preview" style="font-size: 1rem; font-weight: 400; line-height: 1.6;">
+                            디자인 시스템은 제품 개발의 효율성을 높이고 일관된 사용자 경험을 제공합니다.
+                        </div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta">Body 2<br>Size: 0.9rem<br>Weight: 400</div>
+                        <div class="type-preview" style="font-size: 0.9rem; font-weight: 400; line-height: 1.6; color: var(--text-sub);">
+                            보조적인 설명이나 부가 정보를 표기할 때 사용합니다.
+                        </div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta">Caption<br>Size: 0.8rem<br>Weight: 500</div>
+                        <div class="type-preview" style="font-size: 0.8rem; font-weight: 500; color: var(--text-light);">
+                            CAPTION TEXT
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'foundation'); loadComponent('sidebar-placeholder', 'layout/sidebar-foundation.html', 'foundation-typography.html');</script>
+</body>
+</html>
