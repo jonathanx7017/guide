@@ -2,108 +2,65 @@
 
 /* --- 1. Variables & Reset --- */
 :root {
-    /* Colors (Black Theme) */
     --primary: #000000;
     --primary-dark: #333333;
-    --primary-light-bg: #F4F4F4; /* 아이콘 배경용 연한 회색 */
-    
+    --primary-light-bg: #F4F4F4;
     --text-main: #111111;
     --text-sub: #666666;
     --text-light: #999999;
-    
     --bg-body: #FFFFFF;
     --bg-light: #F7F8FA;
     --border: #E5E5E5;
-    
-    /* Layout Variables */
     --max-width: 1400px;
     --header-height: 64px;
     --sidebar-width: 260px;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Pretendard", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-main);
     background-color: var(--bg-body);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    
-    /* 가로 스크롤 방지 */
-    overflow-x: hidden;
-    width: 100%;
+    overflow-x: hidden; width: 100%;
 }
-
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { border: none; background: none; cursor: pointer; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
 
-/* Common Container */
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-/* --- 2. Header (Global) --- */
+/* --- 2. Header --- */
 header.global-header {
-    position: sticky;
-    top: 0;
-    height: var(--header-height);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    z-index: 1000;
+    position: sticky; top: 0; height: var(--header-height);
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border); z-index: 1000;
 }
-
 .header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    height: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
 }
-
-.logo { 
-    font-weight: 700; font-size: 1.1rem; 
-    display: flex; align-items: center; gap: 10px; 
-    color: var(--text-main); letter-spacing: -0.01em; 
-    z-index: 1001;
-}
+.logo { font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; color: var(--text-main); letter-spacing: -0.01em; z-index: 1001; }
 .logo img { height: 20px; width: auto; display: block; }
-
 .nav-links { display: flex; gap: 32px; font-size: 0.95rem; font-weight: 500; }
 .nav-links a:hover { color: var(--primary); }
 .nav-links a.active { color: var(--primary); font-weight: 700; }
-
 .header-actions { display: flex; gap: 16px; align-items: center; }
-.search-bar {
-    background: var(--bg-light); padding: 8px 16px; border-radius: 20px;
-    display: flex; align-items: center; gap: 8px;
-    color: var(--text-sub); font-size: 0.9rem; width: 200px;
-}
+.search-bar { background: var(--bg-light); padding: 8px 16px; border-radius: 20px; display: flex; align-items: center; gap: 8px; color: var(--text-sub); font-size: 0.9rem; width: 200px; }
 .search-shortcut { font-size: 0.8rem; border: 1px solid #ddd; padding: 2px 6px; border-radius: 4px; }
-
-/* Mobile Menu Overlay */
 .mobile-menu-btn { display: none; font-size: 1.5rem; color: var(--text-main); z-index: 1001; }
 .mobile-menu {
-    display: none; position: absolute; top: var(--header-height); left: 0;
-    width: 100%; background: white; border-bottom: 1px solid var(--border);
-    padding: 24px; flex-direction: column; gap: 24px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    display: none; position: absolute; top: var(--header-height); left: 0; width: 100%;
+    background: white; border-bottom: 1px solid var(--border); padding: 24px;
+    flex-direction: column; gap: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 .mobile-menu.active { display: flex; }
 .mobile-menu .nav-links { flex-direction: column; gap: 16px; font-size: 1.1rem; }
 
-/* --- 3. Mobile Sub Header (Dropdown) --- */
-.mobile-sub-header { display: none; } /* PC에서는 숨김 */
+/* --- 3. Mobile Sub Header --- */
+.mobile-sub-header { display: none; }
 
-/* --- 4. Layout (Sidebar + Content) --- */
+/* --- 4. Layout --- */
 .layout-container { display: flex; max-width: var(--max-width); margin: 0 auto; min-height: calc(100vh - var(--header-height)); }
-
 .sidebar {
     width: var(--sidebar-width); position: sticky; top: var(--header-height);
     height: calc(100vh - var(--header-height)); overflow-y: auto;
@@ -115,7 +72,6 @@ header.global-header {
 .menu-list li a { display: block; padding: 8px 12px; font-size: 0.95rem; color: var(--text-sub); border-radius: 6px; transition: all 0.2s; }
 .menu-list li a:hover { background-color: var(--bg-light); color: var(--text-main); }
 .menu-list li a.current { background-color: #F0F0F0; color: var(--primary); font-weight: 600; }
-
 .main-content { flex: 1; padding: 48px 48px 80px 48px; max-width: 960px; }
 .page-header { margin-bottom: 60px; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
 .page-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
@@ -125,26 +81,17 @@ header.global-header {
 .divider { height: 1px; background: var(--border); margin: 60px 0; }
 .content-footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.9rem; }
 
-/* --- 5. Landing Page Styles --- */
+/* --- 5. Landing Page --- */
 .hero { padding: 120px 0 100px; text-align: center; }
 .hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; line-height: 1.2; }
-.hero p {
-    font-size: 1.25rem; color: var(--text-sub);
-    margin-bottom: 0; /* 버튼이 margin-top으로 밀어냄 */
-    max-width: 600px; margin-left: auto; margin-right: auto;
-}
-.hero-btns { 
-    display: flex; gap: 16px; justify-content: center; 
-    margin-top: 64px; /* 텍스트와 간격 강제 확보 */
-}
-
+.hero p { font-size: 1.25rem; color: var(--text-sub); margin-bottom: 0; max-width: 600px; margin-left: auto; margin-right: auto; }
+.hero-btns { display: flex; gap: 16px; justify-content: center; margin-top: 64px; }
 .btn { padding: 14px 32px; border-radius: 50px; font-weight: 600; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
 .btn-primary { background-color: var(--primary); color: white; }
 .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
 .btn-secondary { background-color: var(--bg-light); color: var(--text-main); }
 .btn-secondary:hover { background-color: #e9ecef; transform: translateY(-2px); }
 .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
-
 .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; }
 .grid-section { padding: 60px 0; }
 .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -154,14 +101,12 @@ header.global-header {
 .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
 .card p { color: var(--text-sub); font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
 .card-link { margin-top: auto; font-weight: 600; font-size: 0.9rem; color: var(--primary); display: flex; align-items: center; gap: 4px; }
-
 .foundations { background-color: var(--bg-light); padding: 80px 0; }
 .foundation-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
 .foundation-item { background: white; border-radius: 12px; padding: 24px; text-align: center; border: 1px solid transparent; transition: 0.2s; display: block; }
 .foundation-item:hover { border-color: var(--primary); }
 .foundation-item i { font-size: 1.5rem; color: var(--text-main); margin-bottom: 12px; display: block; }
 .foundation-item span { font-size: 0.9rem; font-weight: 500; color: var(--text-sub); }
-
 .updates { padding: 80px 0; }
 .update-list { border-top: 1px solid var(--border); }
 .update-item { display: flex; padding: 24px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
@@ -169,53 +114,32 @@ header.global-header {
 .update-content h4 { font-size: 1.1rem; margin-bottom: 4px; }
 .update-content p { color: var(--text-sub); font-size: 0.95rem; }
 .date { margin-left: auto; color: var(--text-sub); font-size: 0.9rem; }
-
 footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px; }
 .footer-content { display: flex; justify-content: space-between; }
 .copyright { color: var(--text-sub); font-size: 0.9rem; }
 
-
-/* --- 6. Foundation Overview Specifics --- */
+/* --- 6. Foundation Overview --- */
 .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .principle-card { padding: 32px 24px; background: var(--bg-light); border: none; }
 .principle-card .p-icon { font-size: 2rem; margin-bottom: 16px; color: var(--primary); }
 .principle-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
 .principle-card p { font-size: 0.95rem; color: var(--text-sub); line-height: 1.5; }
-
 .elements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.element-item {
-    display: flex; align-items: center; padding: 24px;
-    border: 1px solid var(--border); border-radius: 12px; transition: all 0.2s; background: white;
-}
+.element-item { display: flex; align-items: center; padding: 24px; border: 1px solid var(--border); border-radius: 12px; transition: all 0.2s; background: white; }
 .element-item:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.04); transform: translateY(-2px); }
-
-/* Monotone Icons for System Elements */
-.el-icon {
-    width: 48px; height: 48px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; margin-right: 16px; flex-shrink: 0;
-    background-color: var(--primary-light-bg) !important; 
-    color: var(--primary) !important;
-}
-
+.el-icon { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-right: 16px; flex-shrink: 0; background-color: var(--primary-light-bg) !important; color: var(--primary) !important; }
 .el-info { flex: 1; }
 .el-info h4 { font-size: 1.1rem; margin-bottom: 4px; font-weight: 700; }
 .el-info span { font-size: 0.9rem; color: var(--text-sub); }
 .element-item .arrow { color: var(--text-light); font-size: 1.2rem; }
-
 .downloads-section { margin-top: 60px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.download-card {
-    background: var(--bg-light); padding: 32px; border-radius: 16px;
-    display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;
-    min-height: 180px;
-}
+.download-card { background: var(--bg-light); padding: 32px; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; min-height: 180px; }
 .dl-content { width: 100%; margin-bottom: 24px; }
 .dl-content h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .dl-content p { color: var(--text-sub); font-size: 0.9rem; margin: 0; line-height: 1.5; }
 .download-card .btn { align-self: flex-end; margin-top: auto; }
 
-
-/* --- 7. Color Page Specifics --- */
+/* --- 7. Color Page --- */
 .palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
 .swatch-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
 .swatch-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
@@ -225,162 +149,42 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .color-hex { font-family: monospace; color: var(--text-sub); font-size: 0.9rem; display: block; margin-bottom: 8px; }
 .color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
 
-
-/* --- 8. Components Overview Specifics --- */
+/* --- 8. Components Overview --- */
 .comp-category { margin-bottom: 60px; }
 .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.comp-card {
-    background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
-    transition: all 0.2s ease; display: flex; flex-direction: column;
-}
+.comp-card { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s ease; display: flex; flex-direction: column; }
 .comp-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.04); }
-
-/* Component Preview Area (Black Icons + Animation) */
-.comp-preview {
-    height: 120px; background-color: var(--bg-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.5rem; color: var(--primary); /* Black */
-    transition: all 0.3s ease;
-}
+.comp-preview { height: 120px; background-color: var(--bg-light); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--primary); transition: all 0.3s ease; }
 .comp-info { padding: 16px 20px; border-top: 1px solid var(--border); }
 .comp-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
 .comp-info span { font-size: 0.85rem; color: var(--text-sub); display: block; }
-
-/* --- Component Custom Animations (Final v4) --- */
-
-/* 공통 설정 */
-.comp-preview i {
-    display: inline-block;
-    position: relative;
-    z-index: 5;
-    font-style: normal;
-}
-
-/* 1. Button */
+/* Animations */
+.comp-preview i { display: inline-block; position: relative; z-index: 5; font-style: normal; }
 .anim-click { animation: clickAction 1.5s ease-in-out infinite; }
-@keyframes clickAction {
-    0%, 15% { transform: scale(1); }
-    25% { transform: scale(0.7); opacity: 0.9; }
-    35% { transform: scale(1); }
-    100% { transform: scale(1); }
-}
-
-/* 2. FAB */
+@keyframes clickAction { 0%, 15% { transform: scale(1); } 25% { transform: scale(0.7); opacity: 0.9; } 35% { transform: scale(1); } 100% { transform: scale(1); } }
 .anim-spin-fast-pause { animation: spinFastPause 3s ease-in-out infinite; }
-@keyframes spinFastPause {
-    0% { transform: rotate(0deg); }
-    20% { transform: rotate(180deg); }
-    80% { transform: rotate(180deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* 3. Link */
+@keyframes spinFastPause { 0% { transform: rotate(0deg); } 20% { transform: rotate(180deg); } 80% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
 .anim-rotate-loop { animation: rotateLoop 2.5s ease-in-out infinite; }
-@keyframes rotateLoop {
-    0% { transform: rotate(0deg); }
-    30% { transform: rotate(360deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* 4. Text Field */
-.custom-input-icon::before {
-    content: '<   >';
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 300;
-    font-size: 2.5rem;
-    color: var(--primary);
-    letter-spacing: 2px;
-}
-.anim-input-caret::after {
-    content: '';
-    position: absolute;
-    /* [수정] 커서 위치 아래로 조정 (50% -> 55%) */
-    top: 55%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 2px; height: 18px;
-    background-color: var(--primary);
-    animation: caretBlink 1s steps(2, start) infinite;
-}
-@keyframes caretBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-/* 5. Checkbox */
-.anim-check-draw::after {
-    content: '';
-    position: absolute;
-    /* [수정] 체크 크기 축소 및 위치 중앙 정렬 */
-    top: 38%; left: 32%;
-    width: 0; height: 0;
-    border: solid var(--primary);
-    border-width: 0 0 3px 3px;
-    transform: rotate(-45deg);
-    animation: checkDraw 3s ease-in-out infinite;
-}
-@keyframes checkDraw {
-    0%, 20% { width: 0; height: 0; opacity: 0; }
-    25% { width: 0; height: 0; opacity: 1; }
-    30% { width: 12px; height: 0; } /* [수정] 크기 12px로 축소 */
-    35% { width: 12px; height: 6px; } /* [수정] 높이 6px로 축소 */
-    80% { width: 12px; height: 6px; opacity: 1; }
-    90% { width: 12px; height: 6px; opacity: 0; }
-    100% { width: 0; height: 0; opacity: 0; }
-}
-
-/* 6. Radio */
-.anim-radio-dot::after {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 12px; height: 12px;
-    background-color: var(--primary);
-    border-radius: 50%;
-    animation: radioDotAppear 3s ease-in-out infinite;
-}
-@keyframes radioDotAppear {
-    0%, 20% { transform: translate(-50%, -50%) scale(0); }
-    25% { transform: translate(-50%, -50%) scale(1.1); }
-    30% { transform: translate(-50%, -50%) scale(1); }
-    70% { transform: translate(-50%, -50%) scale(1); }
-    80% { transform: translate(-50%, -50%) scale(0); }
-    100% { transform: translate(-50%, -50%) scale(0); }
-}
-
-/* 7. Switch */
-.custom-switch-icon {
-    width: 44px; height: 26px;
-    border: 3px solid var(--primary);
-    border-radius: 20px;
-    box-sizing: border-box;
-    position: relative;
-}
-.anim-switch-knob::after {
-    content: '';
-    position: absolute;
-    top: 50%; left: 3px;
-    transform: translateY(-50%);
-    width: 14px; height: 14px;
-    background-color: var(--primary);
-    border-radius: 50%;
-    animation: switchMove 3s ease-in-out infinite;
-}
-@keyframes switchMove {
-    0%, 20% { left: 3px; }
-    30% { left: 21px; }
-    70% { left: 21px; }
-    80% { left: 3px; }
-    100% { left: 3px; }
-}
-
-/* Spinner */
+@keyframes rotateLoop { 0% { transform: rotate(0deg); } 30% { transform: rotate(360deg); } 100% { transform: rotate(360deg); } }
+.custom-input-icon::before { content: '<   >'; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 300; font-size: 2.5rem; color: var(--primary); letter-spacing: 2px; }
+.anim-input-caret::after { content: ''; position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); width: 2px; height: 18px; background-color: var(--primary); animation: caretBlink 1s steps(2, start) infinite; }
+@keyframes caretBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.anim-check-draw::after { content: ''; position: absolute; top: 38%; left: 32%; width: 0; height: 0; border: solid var(--primary); border-width: 0 0 3px 3px; transform: rotate(-45deg); animation: checkDraw 3s ease-in-out infinite; }
+@keyframes checkDraw { 0%, 20% { width: 0; height: 0; opacity: 0; } 25% { width: 0; height: 0; opacity: 1; } 30% { width: 12px; height: 0; } 35% { width: 12px; height: 6px; } 80% { width: 12px; height: 6px; opacity: 1; } 90% { width: 12px; height: 6px; opacity: 0; } 100% { width: 0; height: 0; opacity: 0; } }
+.anim-radio-dot::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); width: 12px; height: 12px; background-color: var(--primary); border-radius: 50%; animation: radioDotAppear 3s ease-in-out infinite; }
+@keyframes radioDotAppear { 0%, 20% { transform: translate(-50%, -50%) scale(0); } 25% { transform: translate(-50%, -50%) scale(1.1); } 30% { transform: translate(-50%, -50%) scale(1); } 70% { transform: translate(-50%, -50%) scale(1); } 80% { transform: translate(-50%, -50%) scale(0); } 100% { transform: translate(-50%, -50%) scale(0); } }
+.custom-switch-icon { width: 44px; height: 26px; border: 3px solid var(--primary); border-radius: 20px; box-sizing: border-box; position: relative; }
+.anim-switch-knob::after { content: ''; position: absolute; top: 50%; left: 3px; transform: translateY(-50%); width: 14px; height: 14px; background-color: var(--primary); border-radius: 50%; animation: switchMove 3s ease-in-out infinite; }
+@keyframes switchMove { 0%, 20% { left: 3px; } 30% { left: 21px; } 70% { left: 21px; } 80% { left: 3px; } 100% { left: 3px; } }
+.anim-radar::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background-color: var(--primary); border-radius: 50%; z-index: -1; animation: radarPulse 3s ease-out infinite; }
+@keyframes radarPulse { 0%, 20% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; } 21% { opacity: 0.2; } 50% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; } 100% { opacity: 0; } }
+.anim-pop { animation: pop 3s ease-in-out infinite; }
+@keyframes pop { 0%, 100% { transform: scale(0.9); opacity: 0.7; } 50% { transform: scale(1.05); opacity: 1; } }
 .anim-spin { animation: spin 1.5s linear infinite; }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
-/* --- 9. Responsive & Mobile Overrides --- */
+/* --- 9. Responsive --- */
 @media (max-width: 768px) {
-    /* 1. Reset */
     .desktop-only { display: none !important; }
     .mobile-menu-btn { display: block; }
     .sidebar { display: none; }
@@ -389,48 +193,29 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     .header-inner { padding: 0 24px; }
     .container { padding: 0 24px; }
     
-    /* 2. Mobile Sub Header (Visible) */
-    .mobile-sub-header {
-        display: block; position: sticky; top: var(--header-height); z-index: 900;
-        background: white; border-bottom: 1px solid var(--border);
-    }
-    .sub-header-inner {
-        height: 50px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between;
-        cursor: pointer; font-weight: 700; font-size: 1rem;
-    }
-    .sub-menu-list {
-        display: none; background: white; border-top: 1px solid var(--border);
-        padding: 0; list-style: none; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    }
+    .mobile-sub-header { display: block; position: sticky; top: var(--header-height); z-index: 900; background: white; border-bottom: 1px solid var(--border); }
+    .sub-header-inner { height: 50px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-weight: 700; font-size: 1rem; }
+    .sub-menu-list { display: none; background: white; border-top: 1px solid var(--border); padding: 0; list-style: none; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
     .sub-menu-list.active { display: block; }
     .sub-menu-list li a { display: block; padding: 14px 24px; font-size: 0.95rem; color: var(--text-sub); border-bottom: 1px solid #f4f4f4; }
     .sub-menu-list li a.active { color: var(--primary); font-weight: 700; background-color: var(--bg-light); }
     #subArrow { transition: transform 0.2s; font-size: 1.2rem; color: var(--text-sub); }
     #subArrow.rotate { transform: rotate(180deg); }
     
-    /* 3. Typography & Spacing */
     .hero { padding: 80px 0 60px; }
     .hero h1 { font-size: 2.4rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 24px; word-break: keep-all; }
     .hero h1 br { display: none; }
-    .hero p { 
-        font-size: 1.1rem; color: var(--text-sub); padding: 0 10px; line-height: 1.6; 
-        margin-bottom: 48px !important; 
-    }
+    .hero p { font-size: 1.1rem; color: var(--text-sub); padding: 0 10px; line-height: 1.6; margin-bottom: 48px !important; }
     .hero-btns { width: 100%; justify-content: center; margin-top: 10px; }
     .page-title { font-size: 2rem; }
     
-    /* 4. Grids */
     .card-grid { grid-template-columns: 1fr; }
     .foundation-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .principles-grid, .elements-grid, .downloads-section { grid-template-columns: 1fr; gap: 16px; }
     .comp-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    
-    /* 5. Components Adjustments */
     .download-card { flex-direction: column; align-items: flex-start; gap: 20px; }
     .download-card .btn { width: 100%; justify-content: center; align-self: stretch; }
     .comp-preview { height: 100px; font-size: 2rem; }
     .comp-info { padding: 12px 16px; }
-    
-    /* 6. Footer */
     .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
 }
