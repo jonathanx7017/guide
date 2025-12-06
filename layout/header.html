@@ -1,1 +1,31 @@
-
+<div class="header-inner">
+    <a href="index.html" class="logo">
+        <img src="https://newtype.design/img/common/logo.png" alt="Newtype Logo">
+        <span>Design System</span>
+    </a>
+    <nav class="nav-links desktop-only">
+        <a href="foundation-overview.html" data-menu="foundation">Foundation</a>
+        <a href="components-overview.html" data-menu="components">Components</a>
+        <a href="#">Patterns</a>
+        <a href="#">Resources</a>
+    </nav>
+    <div class="header-actions desktop-only">
+        <div class="search-bar">
+            <i class="ri-search-line"></i>
+            <span>Search...</span>
+            <span class="search-shortcut">⌘K</span>
+        </div>
+        <a href="#"><i class="ri-github-fill" style="font-size: 1.5rem;"></i></a>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="ri-menu-line"></i>
+    </button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+    <nav class="nav-links">
+        <a href="foundation-overview.html" data-menu="foundation">Foundation</a>
+        <a href="components-overview.html" data-menu="components">Components</a>
+        <a href="#">Patterns</a>
+        <a href="#">Resources</a>
+    </nav>
+</div>
