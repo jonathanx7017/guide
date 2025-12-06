@@ -23,8 +23,8 @@
             <div class="container">
                 <h1>Build better products,<br>faster.</h1>
                 <p>
-                    Newtype 서비스의 일관된 사용자 경험을 위한 디자인 소스입니다.<br>
-                    디자이너와 개발자를 위한 가이드라인과 리소스를 확인하세요.
+                    Newtype 서비스의 일관된 사용자 경험을 위한 단일 디자인 소스입니다.<br>
+                    디자인 원칙부터 코드 스니펫까지, 제품을 만드는 데 필요한 모든 것을 제공합니다.
                 </p>
                 <div class="hero-btns">
                     <a href="foundation-overview.html" class="btn btn-primary">
@@ -37,66 +37,60 @@
             </div>
         </section>
 
-        <!-- Quick Access Cards -->
+        <!-- Workflow Cards -->
         <section class="grid-section">
             <div class="container">
                 <div class="card-grid">
                     <div class="card">
                         <div class="card-icon"><i class="ri-palette-line"></i></div>
                         <h3>For Designers</h3>
-                        <p>Figma 라이브러리를 연결하고 디자인 원칙과 스타일 가이드를 확인하세요.</p>
+                        <p>Figma 라이브러리를 연결하고, 그리드와 타이포그래피 등 핵심 스타일 가이드를 확인하세요.</p>
                         <span class="card-link">Setup Guide <i class="ri-arrow-right-line"></i></span>
                     </div>
                     <div class="card">
                         <div class="card-icon"><i class="ri-code-s-slash-line"></i></div>
                         <h3>For Developers</h3>
-                        <p>React/Vue 패키지를 설치하고 디자인 토큰과 컴포넌트 API를 확인하세요.</p>
+                        <p>React/Vue 패키지를 설치하고, 디자인 토큰을 활용하여 빠르게 UI를 구축하세요.</p>
                         <span class="card-link">Installation <i class="ri-arrow-right-line"></i></span>
                     </div>
                     <div class="card">
                         <div class="card-icon"><i class="ri-book-open-line"></i></div>
-                        <h3>Guidelines</h3>
-                        <p>접근성, UX 라이팅, 데이터 시각화 등 사용자 경험을 위한 패턴을 익히세요.</p>
-                        <span class="card-link">Read Docs <i class="ri-arrow-right-line"></i></span>
+                        <h3>Accessibility</h3>
+                        <p>모든 사용자를 포용할 수 있도록 WCAG 2.1 표준을 준수하는 가이드라인을 제공합니다.</p>
+                        <span class="card-link">A11y Guidelines <i class="ri-arrow-right-line"></i></span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Foundation Preview (링크 연결됨) -->
+        <!-- Foundation Preview -->
         <section class="foundations">
             <div class="container">
                 <h2 class="section-title">Core Foundations</h2>
                 <div class="foundation-grid">
-                    <!-- 1. Color -->
                     <a href="foundation-color.html" class="foundation-item">
                         <i class="ri-drop-line"></i>
                         <span>Color</span>
                     </a>
-                    <!-- 2. Typography -->
                     <a href="foundation-typography.html" class="foundation-item">
                         <i class="ri-text"></i>
                         <span>Typography</span>
                     </a>
-                    <!-- 3. Layout -->
                     <a href="foundation-layout.html" class="foundation-item">
                         <i class="ri-layout-grid-line"></i>
                         <span>Layout</span>
                     </a>
-                    <!-- 4. Iconography -->
                     <a href="foundation-iconography.html" class="foundation-item">
-                        <i class="ri-emotion-line"></i>
+                        <i class="ri-image-line"></i>
                         <span>Iconography</span>
                     </a>
-                    <!-- 5. Shapes (Object Styles로 연결) -->
                     <a href="foundation-object-styles.html" class="foundation-item">
                         <i class="ri-shape-line"></i>
-                        <span>Shapes</span>
+                        <span>Object Styles</span>
                     </a>
-                    <!-- 6. Elevation (Object Styles로 연결) -->
-                    <a href="foundation-object-styles.html" class="foundation-item">
-                        <i class="ri-stack-line"></i>
-                        <span>Elevation</span>
+                    <a href="#" class="foundation-item">
+                        <i class="ri-accessibility-line"></i>
+                        <span>Accessibility</span>
                     </a>
                 </div>
             </div>
@@ -111,9 +105,46 @@
                         <span class="version">v1.2.0</span>
                         <div class="update-content">
                             <h4>Dark Mode Support</h4>
-                            <p>다크 모드용 시멘틱 컬러 토큰이 전체 시스템에 적용되었습니다.</p>
+                            <p>다크 모드용 시멘틱 컬러 토큰($layer-01, $text-inverse 등)이 추가되었습니다.</p>
                         </div>
                         <span class="date">2024.05.20</span>
                     </div>
                     <div class="update-item">
-                        <span class=
+                        <span class="version">v1.1.5</span>
+                        <div class="update-content">
+                            <h4>New Component: DatePicker</h4>
+                            <p>날짜 범위를 선택할 수 있는 DatePicker 컴포넌트가 추가되었습니다.</p>
+                        </div>
+                        <span class="date">2024.05.02</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    © 2025 newtype imageworks. All rights reserved.
+                </div>
+                <div class="footer-links" style="display: flex; gap: 24px; color: var(--text-sub); font-size: 0.9rem;">
+                    <a href="#">Feedback</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">About</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS 연결 -->
+    <script src="script.js"></script>
+    
+    <!-- Header Load Script -->
+    <script>
+        loadComponent('header-placeholder', 'layout/header.html', null);
+    </script>
+
+</body>
+</html>
