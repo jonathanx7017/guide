@@ -246,7 +246,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .comp-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
 .comp-info span { font-size: 0.85rem; color: var(--text-sub); display: block; }
 
-/* --- Component Custom Animations (Final v3) --- */
+/* --- Component Custom Animations (Final v4) --- */
 
 /* 공통 설정 */
 .comp-preview i {
@@ -256,7 +256,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     font-style: normal;
 }
 
-/* 1. Button: 짧고 강하게 (유지) */
+/* 1. Button */
 .anim-click { animation: clickAction 1.5s ease-in-out infinite; }
 @keyframes clickAction {
     0%, 15% { transform: scale(1); }
@@ -265,7 +265,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     100% { transform: scale(1); }
 }
 
-/* 2. FAB: 회전 (유지) */
+/* 2. FAB */
 .anim-spin-fast-pause { animation: spinFastPause 3s ease-in-out infinite; }
 @keyframes spinFastPause {
     0% { transform: rotate(0deg); }
@@ -274,7 +274,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     100% { transform: rotate(360deg); }
 }
 
-/* 3. Link: 루핑 (유지) */
+/* 3. Link */
 .anim-rotate-loop { animation: rotateLoop 2.5s ease-in-out infinite; }
 @keyframes rotateLoop {
     0% { transform: rotate(0deg); }
@@ -282,12 +282,11 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     100% { transform: rotate(360deg); }
 }
 
-/* 4. Text Field: < > 두께 얇게 수정 */
+/* 4. Text Field */
 .custom-input-icon::before {
     content: '<   >';
-    /* 시스템 기본 폰트 사용해서 깔끔하게 */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 300; /* 얇은 두께 */
+    font-weight: 300;
     font-size: 2.5rem;
     color: var(--primary);
     letter-spacing: 2px;
@@ -295,7 +294,8 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .anim-input-caret::after {
     content: '';
     position: absolute;
-    top: 50%; left: 50%;
+    /* [수정] 커서 위치 아래로 조정 (50% -> 55%) */
+    top: 55%; left: 50%;
     transform: translate(-50%, -50%);
     width: 2px; height: 18px;
     background-color: var(--primary);
@@ -306,12 +306,12 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     50% { opacity: 0; }
 }
 
-/* 5. Checkbox: 체크 위치 위로 올림 */
+/* 5. Checkbox */
 .anim-check-draw::after {
     content: '';
     position: absolute;
-    /* top 수정: 42% -> 36% (위로 올림) */
-    top: 36%; left: 28%;
+    /* [수정] 체크 크기 축소 및 위치 중앙 정렬 */
+    top: 38%; left: 32%;
     width: 0; height: 0;
     border: solid var(--primary);
     border-width: 0 0 3px 3px;
@@ -321,38 +321,37 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 @keyframes checkDraw {
     0%, 20% { width: 0; height: 0; opacity: 0; }
     25% { width: 0; height: 0; opacity: 1; }
-    30% { width: 16px; height: 0; }
-    35% { width: 16px; height: 8px; }
-    80% { width: 16px; height: 8px; opacity: 1; }
-    90% { width: 16px; height: 8px; opacity: 0; }
+    30% { width: 12px; height: 0; } /* [수정] 크기 12px로 축소 */
+    35% { width: 12px; height: 6px; } /* [수정] 높이 6px로 축소 */
+    80% { width: 12px; height: 6px; opacity: 1; }
+    90% { width: 12px; height: 6px; opacity: 0; }
     100% { width: 0; height: 0; opacity: 0; }
 }
 
-/* 6. Radio: 가운데 점 나타났다 사라지기 (재설계) */
-/* 아이콘은 빈 원(ri-radio-button-line) 사용 */
+/* 6. Radio */
 .anim-radio-dot::after {
     content: '';
     position: absolute;
     top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0); /* 시작은 0 */
-    width: 12px; height: 12px; /* 내부 점 크기 */
+    transform: translate(-50%, -50%) scale(0);
+    width: 12px; height: 12px;
     background-color: var(--primary);
     border-radius: 50%;
     animation: radioDotAppear 3s ease-in-out infinite;
 }
 @keyframes radioDotAppear {
-    0%, 20% { transform: translate(-50%, -50%) scale(0); } /* 대기 */
-    25% { transform: translate(-50%, -50%) scale(1.1); } /* 살짝 커짐 (반동) */
-    30% { transform: translate(-50%, -50%) scale(1); }   /* 정상 크기 */
-    70% { transform: translate(-50%, -50%) scale(1); }   /* 유지 */
-    80% { transform: translate(-50%, -50%) scale(0); }   /* 사라짐 */
+    0%, 20% { transform: translate(-50%, -50%) scale(0); }
+    25% { transform: translate(-50%, -50%) scale(1.1); }
+    30% { transform: translate(-50%, -50%) scale(1); }
+    70% { transform: translate(-50%, -50%) scale(1); }
+    80% { transform: translate(-50%, -50%) scale(0); }
     100% { transform: translate(-50%, -50%) scale(0); }
 }
 
-/* 7. Switch: 테두리 두껍게, 텀 조정 */
+/* 7. Switch */
 .custom-switch-icon {
     width: 44px; height: 26px;
-    border: 3px solid var(--primary); /* 두께 2px -> 3px */
+    border: 3px solid var(--primary);
     border-radius: 20px;
     box-sizing: border-box;
     position: relative;
@@ -368,14 +367,14 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     animation: switchMove 3s ease-in-out infinite;
 }
 @keyframes switchMove {
-    0%, 20% { left: 3px; } /* Off 대기 (길게) */
-    30% { left: 21px; }    /* On 이동 */
-    70% { left: 21px; }    /* On 유지 (길게) */
-    80% { left: 3px; }     /* Off 이동 */
+    0%, 20% { left: 3px; }
+    30% { left: 21px; }
+    70% { left: 21px; }
+    80% { left: 3px; }
     100% { left: 3px; }
 }
 
-/* Spinner (유지) */
+/* Spinner */
 .anim-spin { animation: spin 1.5s linear infinite; }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
