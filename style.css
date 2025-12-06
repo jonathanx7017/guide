@@ -219,3 +219,46 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     .comp-info { padding: 12px 16px; }
     .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
 }
+
+/* --- Foundation Detail Pages Styles --- */
+
+/* Typography Page */
+.type-spec-list { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.type-row {
+    display: flex; align-items: baseline; padding: 24px;
+    border-bottom: 1px solid var(--border); background: white;
+}
+.type-row:last-child { border-bottom: none; }
+.type-meta { width: 150px; flex-shrink: 0; color: var(--text-sub); font-size: 0.9rem; font-family: monospace; }
+.type-preview { flex: 1; color: var(--text-main); }
+.font-stack-box { background: var(--bg-light); padding: 24px; border-radius: 12px; font-family: monospace; color: var(--text-sub); word-break: break-all; margin-bottom: 20px; }
+
+/* Layout Page */
+.grid-visual {
+    display: flex; gap: 20px; height: 120px; margin-bottom: 24px;
+    background: #E8F3FF; padding: 0 20px; border-radius: 8px; align-items: center;
+}
+.col-visual { flex: 1; height: 100%; background: #007AFF; opacity: 0.15; border-radius: 4px; }
+.spec-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.spec-table th, .spec-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.spec-table th { color: var(--text-sub); font-weight: 500; background: var(--bg-light); }
+.spec-table td { color: var(--text-main); }
+
+/* Iconography Page */
+.icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 16px; }
+.icon-box {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    aspect-ratio: 1/1; border: 1px solid var(--border); border-radius: 8px;
+    transition: all 0.2s; cursor: pointer;
+}
+.icon-box:hover { border-color: var(--primary); background: var(--bg-light); }
+.icon-box i { font-size: 2rem; color: var(--text-main); margin-bottom: 8px; }
+.icon-box span { font-size: 0.8rem; color: var(--text-sub); }
+
+/* Object Styles Page */
+.radius-grid, .shadow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 32px; }
+.style-box {
+    width: 100%; aspect-ratio: 1/1; background: white; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-sub); font-size: 0.9rem; font-family: monospace;
+}
