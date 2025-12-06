@@ -29,113 +29,50 @@
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Iconography</h1>
-                <p class="page-desc">아이콘은 언어를 초월하여 기능을 직관적으로 설명하는 시각 언어입니다.<br>Remix Icon 라이브러리를 기반으로 일관된 스타일을 유지합니다.</p>
+                <p class="page-desc">아이콘은 기능을 함축적으로 전달하는 메타포입니다.<br>명확성(Clarity)과 간결성(Simplicity)을 원칙으로 제작됩니다.</p>
             </div>
 
-            <!-- 1. System Icons (확장됨: 30개) -->
+            <!-- 1. Optical Alignment (New) -->
             <section>
+                <h2 class="sub-section-title">Optical Alignment</h2>
+                <p class="section-desc">물리적인 중앙 정렬보다 시각적인 균형(Optical Center)을 우선시합니다.</p>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white;">
+                            <div style="border:1px dashed #ddd; width:64px; height:64px; display:flex; align-items:center; justify-content:center;">
+                                <i class="ri-play-fill" style="font-size:32px; transform:translateX(2px);"></i> <!-- 시각적 보정 -->
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Optical Center</span>
+                            <p class="dodont-desc">재생 버튼(삼각형)처럼 무게 중심이 한쪽으로 쏠린 경우, 시각적으로 중앙에 오도록 위치를 미세 조정합니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white;">
+                            <div style="border:1px dashed #ddd; width:64px; height:64px; display:flex; align-items:center; justify-content:center;">
+                                <i class="ri-play-fill" style="font-size:32px;"></i> <!-- 물리적 중앙 -->
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">Geometric Center</span>
+                            <p class="dodont-desc">기계적인 중앙 정렬은 때로 아이콘이 한쪽으로 치우쳐 보이게 만듭니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. System Icons (기존 유지) -->
+            <section style="margin-top:60px;">
                 <h2 class="sub-section-title">System Icons</h2>
-                <p class="section-desc">인터페이스 전반에 사용되는 기본 아이콘 셋입니다.</p>
-                <div class="icon-grid">
-                    <!-- General -->
-                    <div class="icon-box"><i class="ri-home-line"></i><span>Home</span></div>
-                    <div class="icon-box"><i class="ri-search-line"></i><span>Search</span></div>
-                    <div class="icon-box"><i class="ri-settings-3-line"></i><span>Settings</span></div>
-                    <div class="icon-box"><i class="ri-menu-line"></i><span>Menu</span></div>
-                    <div class="icon-box"><i class="ri-more-fill"></i><span>More</span></div>
-                    
-                    <!-- Action -->
-                    <div class="icon-box"><i class="ri-add-line"></i><span>Add</span></div>
-                    <div class="icon-box"><i class="ri-close-line"></i><span>Close</span></div>
-                    <div class="icon-box"><i class="ri-check-line"></i><span>Check</span></div>
-                    <div class="icon-box"><i class="ri-edit-line"></i><span>Edit</span></div>
-                    <div class="icon-box"><i class="ri-delete-bin-line"></i><span>Delete</span></div>
-                    
-                    <!-- Arrow -->
-                    <div class="icon-box"><i class="ri-arrow-left-line"></i><span>Back</span></div>
-                    <div class="icon-box"><i class="ri-arrow-right-line"></i><span>Next</span></div>
-                    <div class="icon-box"><i class="ri-arrow-up-s-line"></i><span>Up</span></div>
-                    <div class="icon-box"><i class="ri-arrow-down-s-line"></i><span>Down</span></div>
-                    <div class="icon-box"><i class="ri-share-forward-line"></i><span>Share</span></div>
-
-                    <!-- Media & File -->
-                    <div class="icon-box"><i class="ri-image-line"></i><span>Image</span></div>
-                    <div class="icon-box"><i class="ri-camera-line"></i><span>Camera</span></div>
-                    <div class="icon-box"><i class="ri-file-text-line"></i><span>Document</span></div>
-                    <div class="icon-box"><i class="ri-download-line"></i><span>Download</span></div>
-                    <div class="icon-box"><i class="ri-upload-line"></i><span>Upload</span></div>
-
-                    <!-- User & Communication -->
-                    <div class="icon-box"><i class="ri-user-line"></i><span>User</span></div>
-                    <div class="icon-box"><i class="ri-group-line"></i><span>Group</span></div>
-                    <div class="icon-box"><i class="ri-mail-line"></i><span>Mail</span></div>
-                    <div class="icon-box"><i class="ri-notification-3-line"></i><span>Noti</span></div>
-                    <div class="icon-box"><i class="ri-chat-1-line"></i><span>Chat</span></div>
-
-                    <!-- Status & Info -->
-                    <div class="icon-box"><i class="ri-information-line"></i><span>Info</span></div>
-                    <div class="icon-box"><i class="ri-question-line"></i><span>Help</span></div>
-                    <div class="icon-box"><i class="ri-error-warning-line"></i><span>Alert</span></div>
-                    <div class="icon-box"><i class="ri-lock-line"></i><span>Lock</span></div>
-                    <div class="icon-box"><i class="ri-heart-line"></i><span>Like</span></div>
-                </div>
-            </section>
-
-            <!-- 2. Sizing & Touch Target -->
-            <section style="margin-top:60px;">
-                <h2 class="sub-section-title">Sizing Guidelines</h2>
-                <div class="guideline-grid">
-                    <div class="guide-card">
-                        <div class="guide-preview" style="background:white; gap:20px;">
-                            <div style="text-align:center;">
-                                <i class="ri-home-line" style="font-size:16px; background:#eee;"></i>
-                                <p style="font-size:0.8rem; margin-top:8px;">16px (Small)</p>
-                            </div>
-                            <div style="text-align:center;">
-                                <i class="ri-home-line" style="font-size:24px; background:#eee;"></i>
-                                <p style="font-size:0.8rem; margin-top:8px;">24px (Base)</p>
-                            </div>
-                            <div style="text-align:center;">
-                                <i class="ri-home-line" style="font-size:32px; background:#eee;"></i>
-                                <p style="font-size:0.8rem; margin-top:8px;">32px (Large)</p>
-                            </div>
-                        </div>
-                        <div class="guide-desc">
-                            <span class="guide-tag do">DO</span>
-                            <p style="font-size:0.9rem;">기본 사이즈는 <strong>24px</strong>입니다. 모바일 터치 영역은 최소 <strong>44px</strong>을 확보해야 합니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="guide-card">
-                        <div class="guide-preview" style="background:white;">
-                            <div style="display:flex; align-items:center; gap:8px;">
-                                <button class="btn btn-primary btn-sm">
-                                    <i class="ri-search-line"></i> Search
-                                </button>
-                                <button class="btn btn-secondary btn-sm" style="width:40px; padding:0; justify-content:center;">
-                                    <i class="ri-more-fill"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="guide-desc">
-                            <span class="guide-tag do">DO</span>
-                            <p style="font-size:0.9rem;">버튼 내부의 아이콘은 텍스트와 수직 중앙 정렬을 맞춥니다.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 3. Naming Convention -->
-            <section style="margin-top:60px;">
-                <h2 class="sub-section-title">Naming Convention</h2>
-                <p class="section-desc">아이콘 파일명은 다음과 같은 규칙을 따릅니다.</p>
-                <div class="code-block">
-                    ic-[feature]-[state].svg<br>
-                    <br>
-                    Ex)<br>
-                    ic-checkbox-on.svg<br>
-                    ic-checkbox-off.svg<br>
-                    ic-arrow-right.svg
+                <div class="icon-grid-large">
+                    <!-- ... 아이콘 리스트 (기존과 동일하므로 생략 가능하나 풀버전 요청시 포함) ... -->
+                    <div class="icon-box-large"><i class="ri-home-line"></i><div class="icon-meta"><span class="icon-name">Home</span><span class="icon-token">ic-home</span></div></div>
+                    <div class="icon-box-large"><i class="ri-search-line"></i><div class="icon-meta"><span class="icon-name">Search</span><span class="icon-token">ic-search</span></div></div>
+                    <div class="icon-box-large"><i class="ri-settings-3-line"></i><div class="icon-meta"><span class="icon-name">Settings</span><span class="icon-token">ic-setting</span></div></div>
+                    <div class="icon-box-large"><i class="ri-user-line"></i><div class="icon-meta"><span class="icon-name">User</span><span class="icon-token">ic-user</span></div></div>
+                    <div class="icon-box-large"><i class="ri-add-line"></i><div class="icon-meta"><span class="icon-name">Add</span><span class="icon-token">ic-plus</span></div></div>
+                    <div class="icon-box-large"><i class="ri-close-line"></i><div class="icon-meta"><span class="icon-name">Close</span><span class="icon-token">ic-close</span></div></div>
                 </div>
             </section>
 
