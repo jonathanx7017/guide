@@ -17,18 +17,112 @@
         <ul class="sub-menu-list" id="mobileSubMenu">
             <li><a href="foundation-overview.html">Overview</a></li>
             <li><a href="foundation-color.html" class="active">Color</a></li>
-            <li><a href="#">Typography</a></li>
-            <li><a href="#">Layout</a></li>
-            <li><a href="#">Iconography</a></li>
+            <li><a href="foundation-typography.html">Typography</a></li>
+            <li><a href="foundation-layout.html">Layout</a></li>
+            <li><a href="foundation-iconography.html">Iconography</a></li>
+            <li><a href="foundation-object-styles.html">Object Styles</a></li>
         </ul>
     </div>
     <div class="layout-container">
         <aside class="sidebar" id="sidebar-placeholder"></aside>
         <main class="main-content">
-            <div class="page-header"><h1 class="page-title">Color</h1><p class="page-desc">컬러는 브랜드의 아이덴티티를 표현하고 정보의 위계와 상태를 전달하는 핵심 요소입니다.<br>Newtype 디자인 시스템은 명확한 목적을 가진 제한된 컬러 팔레트를 사용합니다.</p></div>
-            <section><h2 class="sub-section-title">Primary Brand</h2><p class="section-desc">브랜드의 주요 색상으로 로고, 버튼, 강조 텍스트 등에 사용됩니다.</p><div class="palette-grid"><div class="swatch-card"><div class="swatch-color" style="background-color: #000000;"></div><div class="swatch-info"><span class="color-name">Black</span><span class="color-hex">#000000</span><span class="color-token">--primary</span></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: #333333;"></div><div class="swatch-info"><span class="color-name">Charcoal</span><span class="color-hex">#333333</span><span class="color-token">--primary-dark</span></div></div></div></section>
-            <section><h2 class="sub-section-title">Neutrals</h2><p class="section-desc">텍스트, 배경, 테두리 등 UI 전반의 구조를 잡는 데 사용되는 그레이스케일입니다.</p><div class="palette-grid"><div class="swatch-card"><div class="swatch-color" style="background-color: #111111;"></div><div class="swatch-info"><span class="color-name">Gray 900</span><span class="color-hex">#111111</span><span class="color-token">Title Text</span></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: #666666;"></div><div class="swatch-info"><span class="color-name">Gray 600</span><span class="color-hex">#666666</span><span class="color-token">Body Text</span></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: #999999;"></div><div class="swatch-info"><span class="color-name">Gray 400</span><span class="color-hex">#999999</span><span class="color-token">Disabled</span></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: #E5E5E5; border-bottom: 1px solid #eee;"></div><div class="swatch-info"><span class="color-name">Gray 200</span><span class="color-hex">#E5E5E5</span><span class="color-token">Border</span></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: #F7F8FA; border-bottom: 1px solid #eee;"></div><div class="swatch-info"><span class="color-name">Gray 100</span><span class="color-hex">#F7F8FA</span><span class="color-token">Background</span></div></div></div></section>
-            <section><h2 class="sub-section-title">Semantic (Functional)</h2><p class="section-desc">사용자에게 상태 피드백(성공, 에러, 경고)을 전달할 때 사용하는 기능적 컬러입니다.</p><div class="palette-grid"><div class="swatch-card"><div class="swatch-color" style="background-color: #E02020;"></div><div class="swatch-info"><span class="color-name">Error / Danger</span><span class="color-hex">#E02020</span><span class="color-token">--system-error</span></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: #06C755;"></div><div class="swatch-info"><span class="color-name">Success</span><span class="color-hex">#06C755</span><span class="color-token">--system-success</span></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: #007AFF;"></div><div class="swatch-info"><span class="color-name">Information</span><span class="color-hex">#007AFF</span><span class="color-token">--system-info</span></div></div></div></section>
+            <div class="page-header">
+                <h1 class="page-title">Color</h1>
+                <p class="page-desc">
+                    컬러 시스템은 브랜드의 아이덴티티를 전달하고 정보의 위계를 명확히 합니다.<br>
+                    WCAG 2.1 접근성 기준을 준수하여 모든 사용자에게 일관된 경험을 제공합니다.
+                </p>
+            </div>
+
+            <!-- 1. Primary & Brand -->
+            <section>
+                <h2 class="sub-section-title">Core Palettes</h2>
+                <p class="section-desc">브랜드의 주조색과 보조색입니다. 주요 액션(CTA)과 강조 요소에 사용됩니다.</p>
+                <div class="palette-grid">
+                    <div class="swatch-card">
+                        <div class="swatch-color" style="background-color: #000000;"></div>
+                        <div class="swatch-info"><span class="color-name">Primary Black</span><span class="color-hex">#000000</span><span class="color-token">$brand-01</span></div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="swatch-color" style="background-color: #333333;"></div>
+                        <div class="swatch-info"><span class="color-name">Secondary Charcoal</span><span class="color-hex">#333333</span><span class="color-token">$brand-02</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. UI Colors (Neutral) -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">UI & Backgrounds</h2>
+                <p class="section-desc">배경, 테두리, 텍스트 등 UI의 뼈대를 구성하는 중립적인 색상입니다.</p>
+                <div class="spec-table-container">
+                    <table class="spec-table">
+                        <thead>
+                            <tr>
+                                <th width="25%">Token</th>
+                                <th width="20%">Value</th>
+                                <th>Usage Guidelines</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="token-code">$text-primary</span></td>
+                                <td><span style="color:#111; font-weight:700;">#111111</span></td>
+                                <td>본문 타이틀, 중요한 정보 (가독성 최우선)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">$text-secondary</span></td>
+                                <td><span style="color:#666; font-weight:700;">#666666</span></td>
+                                <td>본문 내용, 부가 설명</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">$text-placeholder</span></td>
+                                <td><span style="color:#999; font-weight:700;">#999999</span></td>
+                                <td>비활성화 텍스트, 입력 필드 플레이스홀더</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">$border-subtle</span></td>
+                                <td><span style="color:#E5E5E5; font-weight:700;">#E5E5E5</span></td>
+                                <td>카드 테두리, 일반적인 구분선</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">$bg-base</span></td>
+                                <td><span style="color:#F7F8FA; font-weight:700;">#F7F8FA</span></td>
+                                <td>페이지 전체 배경 (레이어 0)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. Accessibility & Contrast (Carbon Style) -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Accessibility (Contrast)</h2>
+                <p class="section-desc">텍스트와 배경 간의 명도 대비는 <strong>4.5:1 (WCAG AA)</strong> 이상을 유지해야 합니다.</p>
+                
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:#F7F8FA; flex-direction:column; gap:12px;">
+                            <span style="color:#111; font-size:1.5rem; font-weight:700;">Heading Title</span>
+                            <span style="background:#E8F9EE; color:#06C755; padding:4px 8px; border-radius:4px; font-size:0.8rem; font-weight:600;">Ratio 14.3:1 (Pass)</span>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">DO</span>
+                            <p class="dodont-desc">밝은 배경 위에는 짙은 회색(#111)이나 검정을 사용하여 충분한 대비를 확보합니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:#F7F8FA; flex-direction:column; gap:12px;">
+                            <span style="color:#999; font-size:1.5rem; font-weight:700;">Heading Title</span>
+                            <span style="background:#FFEEEE; color:#E02020; padding:4px 8px; border-radius:4px; font-size:0.8rem; font-weight:600;">Ratio 2.8:1 (Fail)</span>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">DON'T</span>
+                            <p class="dodont-desc">중요한 정보에 연한 회색(#999)을 사용하면 저시력자가 읽기 어렵습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
         </main>
     </div>
