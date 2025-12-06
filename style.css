@@ -246,25 +246,26 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .comp-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
 .comp-info span { font-size: 0.85rem; color: var(--text-sub); display: block; }
 
-/* --- Component Custom Animations (Final) --- */
+/* --- Component Custom Animations (Refined v2) --- */
 
-/* 공통 설정: 아이콘은 가상요소의 기준점 */
+/* 공통 설정: 아이콘 위치 잡기 */
 .comp-preview i {
     display: inline-block;
     position: relative;
-    z-index: 2; /* 아이콘이 항상 위에 오도록 */
+    z-index: 5; /* 아이콘이 최상위 */
+    font-style: normal; /* 커스텀 아이콘용 */
 }
 
-/* 1. Button: 짧고 강하게 딸깍 */
+/* 1. Button: 짧고 강하게 (수정됨) */
 .anim-click { animation: clickAction 1.5s ease-in-out infinite; }
 @keyframes clickAction {
     0%, 15% { transform: scale(1); }
-    25% { transform: scale(0.75); opacity: 0.8; } /* 더 작게 줄임 */
-    35% { transform: scale(1); }   
-    100% { transform: scale(1); }  
+    25% { transform: scale(0.7); opacity: 0.9; } /* 더 작게 */
+    35% { transform: scale(1); }
+    100% { transform: scale(1); }
 }
 
-/* 2. FAB: 빠르게 돌고 멈춤 (기존 유지) */
+/* 2. FAB: 회전 (유지) */
 .anim-spin-fast-pause { animation: spinFastPause 3s ease-in-out infinite; }
 @keyframes spinFastPause {
     0% { transform: rotate(0deg); }
@@ -273,54 +274,68 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     100% { transform: rotate(360deg); }
 }
 
-/* 3. Link: 한 바퀴 돌고 대기 (Loop) */
+/* 3. Link: 루핑 (유지) */
 .anim-rotate-loop { animation: rotateLoop 2.5s ease-in-out infinite; }
 @keyframes rotateLoop {
     0% { transform: rotate(0deg); }
-    30% { transform: rotate(360deg); } /* 빠르게 한 바퀴 */
-    100% { transform: rotate(360deg); } /* 대기 */
+    30% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* 4. Text Field: 가운데 커서만 깜빡임 (Fixed Frame) */
-/* 아이콘 자체는 움직이지 않음 */
-.anim-cursor-blink::after {
+/* 4. Text Field: < > 와 깜빡이는 커서 (New) */
+/* 폰트 아이콘 대신 CSS로 < > 모양을 만듭니다 */
+.custom-input-icon::before {
+    content: '<   >'; /* 괄호 사이에 공백 확보 */
+    font-family: monospace; /* 코드 느낌 폰트 */
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--primary);
+    letter-spacing: 2px;
+}
+/* 가운데 깜빡이는 커서 */
+.anim-input-caret::after {
     content: '';
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 2px; height: 16px; /* 커서 크기 */
+    width: 2px; height: 18px;
     background-color: var(--primary);
-    animation: cursorBlink 1s steps(2, start) infinite;
+    animation: caretBlink 1s steps(2, start) infinite;
 }
-@keyframes cursorBlink {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+@keyframes caretBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-/* 5. Checkbox: 체크 그리기 (Center Aligned) */
+/* 5. Checkbox: 체크 정중앙 보정 (Fixed) */
 .anim-check-draw::after {
     content: '';
     position: absolute;
-    /* 중앙 정렬 좌표 수정 */
-    left: 9px; top: 16px; 
+    /* 좌표 정밀 보정: 40px 아이콘 기준 중앙 */
+    top: 42%; left: 28%;
     width: 0; height: 0;
     border: solid var(--primary);
     border-width: 0 0 3px 3px;
     transform: rotate(-45deg);
-    transform-origin: left bottom;
+    /* transform-origin 제거하고 좌표로 제어 */
     animation: checkDraw 3s ease-in-out infinite;
 }
 @keyframes checkDraw {
-    0%, 15% { width: 0; height: 0; opacity: 0; }
-    20% { width: 0; height: 0; opacity: 1; }
-    25% { width: 14px; height: 0; } /* 빗변 1 */
-    30% { width: 14px; height: 8px; } /* 빗변 2 */
-    80% { width: 14px; height: 8px; opacity: 1; }
-    90% { width: 14px; height: 8px; opacity: 0; }
+    0%, 20% { width: 0; height: 0; opacity: 0; }
+    25% { width: 0; height: 0; opacity: 1; }
+    30% { width: 16px; height: 0; } /* 빗변 1 */
+    35% { width: 16px; height: 8px; } /* 빗변 2 */
+    80% { width: 16px; height: 8px; opacity: 1; }
+    90% { width: 16px; height: 8px; opacity: 0; }
     100% { width: 0; height: 0; opacity: 0; }
 }
 
-/* 6. Radio: 레이더 퍼짐 (Z-index Fix) */
+/* 6. Radio: 레이더 파동 (Z-index Fixed) */
+.anim-radar {
+    /* 부모 컨텍스트 내에서 아이콘이 위로 오도록 설정 */
+    position: relative;
+    z-index: 10; 
+}
 .anim-radar::before {
     content: '';
     position: absolute;
@@ -329,38 +344,45 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     width: 100%; height: 100%;
     background-color: var(--primary);
     border-radius: 50%;
-    z-index: -1; /* 아이콘 바로 뒤 */
+    z-index: -1; /* 아이콘 뒤로 보냄 */
     animation: radarPulse 3s ease-out infinite;
 }
 @keyframes radarPulse {
-    0%, 20% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
-    21% { opacity: 0.2; } /* 투명도 조절 */
+    0%, 20% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    21% { opacity: 0.3; }
     50% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
     100% { opacity: 0; }
 }
 
-/* 7. Switch: 내부 원 이동 (Knob Move) */
-/* 아이콘(프레임)은 고정, 가상요소(원)가 움직임 */
+/* 7. Switch: CSS 드로잉 (No Ghost Icon) */
+/* 아이콘 폰트 사용 안함. CSS로 캡슐 모양 그리기 */
+.custom-switch-icon {
+    width: 44px; height: 24px;
+    border: 2px solid var(--primary);
+    border-radius: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+/* 움직이는 알맹이 */
 .anim-switch-knob::after {
     content: '';
     position: absolute;
-    /* 초기 위치: 왼쪽 (Off) */
-    top: 50%; left: 6px; 
+    top: 50%; left: 4px; /* 초기 위치 */
     transform: translateY(-50%);
-    width: 14px; height: 14px;
+    width: 12px; height: 12px;
     background-color: var(--primary);
     border-radius: 50%;
     animation: switchMove 3s ease-in-out infinite;
 }
 @keyframes switchMove {
-    0%, 20% { left: 6px; } /* Off 대기 */
-    30% { left: 20px; } /* On 이동 (오른쪽) */
-    70% { left: 20px; } /* On 대기 */
-    80% { left: 6px; }  /* Off 이동 (왼쪽) */
-    100% { left: 6px; }
+    0%, 20% { left: 4px; } /* Off */
+    30% { left: 24px; } /* On (이동) */
+    70% { left: 24px; } /* 유지 */
+    80% { left: 4px; }  /* Off (이동) */
+    100% { left: 4px; }
 }
 
-/* Spinner: 기본 회전 (유지) */
+/* Spinner: 기본 유지 */
 .anim-spin { animation: spin 1.5s linear infinite; }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
