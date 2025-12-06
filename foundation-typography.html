@@ -11,7 +11,6 @@
 <body>
     <header class="global-header" id="header-placeholder"></header>
     <div class="mobile-sub-header">
-        <!-- 모바일 서브헤더 (기존 동일) -->
         <div class="sub-header-inner" onclick="toggleSubMenu()">
             <span class="current-page">Foundation</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
         </div>
@@ -24,114 +23,111 @@
             <li><a href="foundation-object-styles.html">Object Styles</a></li>
         </ul>
     </div>
-
     <div class="layout-container">
         <aside class="sidebar" id="sidebar-placeholder"></aside>
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Typography</h1>
-                <p class="page-desc">가독성과 정보 구조를 명확히 하기 위한 타이포그래피 시스템입니다.<br>Pretendard를 기본으로 하며, 명확한 행간과 자간 규칙을 따릅니다.</p>
+                <p class="page-desc">
+                    타이포그래피는 브랜드의 목소리입니다.<br>
+                    Pretendard를 기본 서체로 사용하며, 명확한 위계와 가독성을 위한 체계적인 스케일을 정의합니다.
+                </p>
             </div>
 
             <!-- 1. Font Family -->
             <section>
                 <h2 class="sub-section-title">Typeface</h2>
-                <div class="font-stack-box">
-                    <span style="color:var(--text-main); font-weight:700;">Pretendard</span> (Primary)<br><br>
+                <div class="visual-box" style="align-items: flex-start; flex-direction: column; gap:16px;">
+                    <div style="font-size: 3rem; font-weight: 700;">Pretendard</div>
+                    <div style="font-size: 1.5rem; color: var(--text-sub);">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</div>
+                </div>
+                <div class="code-block">
                     font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
                 </div>
-                <p class="section-desc">
-                    다양한 환경에서 최적의 가독성을 제공하는 <strong>Pretendard</strong>를 메인 폰트로 사용합니다.<br>
-                    숫자는 고정폭(Tabular lining) 기능을 사용하여 데이터 테이블에서의 가독성을 높입니다.
-                </p>
             </section>
 
-            <!-- 2. Type Scale (상세 스펙) -->
-            <section>
-                <h2 class="sub-section-title">Type Scale</h2>
-                <table class="detail-table">
-                    <thead>
-                        <tr>
-                            <th width="20%">Category</th>
-                            <th width="15%">Size</th>
-                            <th width="15%">Line Height</th>
-                            <th width="15%">Weight</th>
-                            <th>Token</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Display 1</strong></td>
-                            <td>48px (3rem)</td>
-                            <td>130%</td>
-                            <td>Bold (700)</td>
-                            <td><span class="token-code">text-display-1</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Heading 1</strong></td>
-                            <td>32px (2rem)</td>
-                            <td>140%</td>
-                            <td>Bold (700)</td>
-                            <td><span class="token-code">text-h1</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Heading 2</strong></td>
-                            <td>24px (1.5rem)</td>
-                            <td>140%</td>
-                            <td>Bold (700)</td>
-                            <td><span class="token-code">text-h2</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Body 1</strong></td>
-                            <td>16px (1rem)</td>
-                            <td>160%</td>
-                            <td>Regular (400)</td>
-                            <td><span class="token-code">text-body-1</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Body 2</strong></td>
-                            <td>14px (0.875rem)</td>
-                            <td>160%</td>
-                            <td>Regular (400)</td>
-                            <td><span class="token-code">text-body-2</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Caption</strong></td>
-                            <td>12px (0.75rem)</td>
-                            <td>150%</td>
-                            <td>Medium (500)</td>
-                            <td><span class="token-code">text-caption</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <!-- 3. Color Usage -->
+            <!-- 2. Type Scale Table -->
             <section style="margin-top:60px;">
-                <h2 class="sub-section-title">Color Usage</h2>
-                <div class="guideline-grid">
-                    <div class="guide-card">
-                        <div class="guide-preview" style="background:white; flex-direction:column; align-items:flex-start; padding:24px;">
-                            <h3 style="color:#111; margin-bottom:8px;">Primary Text</h3>
-                            <p style="color:#666;">Secondary description text.</p>
-                            <span style="color:#999; font-size:0.8rem; margin-top:16px;">Tertiary / Placeholder</span>
-                        </div>
-                        <div class="guide-desc">
-                            <span class="guide-tag do">DO</span>
-                            <p style="font-size:0.9rem;">정보의 중요도에 따라 텍스트 컬러 농도를 조절하여 위계를 표현합니다.</p>
-                        </div>
-                    </div>
-                    <div class="guide-card">
-                        <div class="guide-preview" style="background:white; flex-direction:column; align-items:flex-start; padding:24px;">
-                            <h3 style="color:#111; margin-bottom:8px;">Too many colors</h3>
-                            <p style="color:#007AFF;">Distracting links everywhere.</p>
-                            <span style="color:#E02020; font-size:0.8rem; margin-top:16px;">Alert text without context</span>
-                        </div>
-                        <div class="guide-desc">
-                            <span class="guide-tag dont">DON'T</span>
-                            <p style="font-size:0.9rem;">의미 없는 유채색 사용을 지양합니다. 색상은 기능(링크, 에러)을 나타낼 때만 사용합니다.</p>
-                        </div>
-                    </div>
+                <h2 class="sub-section-title">Type Scale</h2>
+                <p class="section-desc">정보의 중요도에 따라 9단계의 스케일을 사용합니다.</p>
+                
+                <div class="spec-table-container">
+                    <table class="spec-table">
+                        <thead>
+                            <tr>
+                                <th width="20%">Role</th>
+                                <th width="30%">Example</th>
+                                <th>Specs</th>
+                                <th>Token</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Display 01</td>
+                                <td><span class="spec-preview-text" style="font-size:3rem; font-weight:800; line-height:1.2;">Hero Title</span></td>
+                                <td>48px (3rem) / Bold / 130%</td>
+                                <td><span class="token-code">text-display-1</span></td>
+                            </tr>
+                            <tr>
+                                <td>Heading 01</td>
+                                <td><span class="spec-preview-text" style="font-size:2rem; font-weight:700; line-height:1.35;">Page Title</span></td>
+                                <td>32px (2rem) / Bold / 135%</td>
+                                <td><span class="token-code">text-h1</span></td>
+                            </tr>
+                            <tr>
+                                <td>Heading 02</td>
+                                <td><span class="spec-preview-text" style="font-size:1.5rem; font-weight:700; line-height:1.4;">Section Title</span></td>
+                                <td>24px (1.5rem) / Bold / 140%</td>
+                                <td><span class="token-code">text-h2</span></td>
+                            </tr>
+                            <tr>
+                                <td>Heading 03</td>
+                                <td><span class="spec-preview-text" style="font-size:1.25rem; font-weight:600; line-height:1.5;">Sub Section</span></td>
+                                <td>20px (1.25rem) / SemiBold / 150%</td>
+                                <td><span class="token-code">text-h3</span></td>
+                            </tr>
+                            <tr>
+                                <td>Body 01</td>
+                                <td><span class="spec-preview-text" style="font-size:1rem; font-weight:400; line-height:1.6;">Default body text for reading.</span></td>
+                                <td>16px (1rem) / Regular / 160%</td>
+                                <td><span class="token-code">text-body-1</span></td>
+                            </tr>
+                            <tr>
+                                <td>Body 02</td>
+                                <td><span class="spec-preview-text" style="font-size:0.875rem; font-weight:400; line-height:1.6;">Secondary text or description.</span></td>
+                                <td>14px (0.875rem) / Regular / 160%</td>
+                                <td><span class="token-code">text-body-2</span></td>
+                            </tr>
+                            <tr>
+                                <td>Caption</td>
+                                <td><span class="spec-preview-text" style="font-size:0.75rem; font-weight:500; line-height:1.5;">Helper text / Label</span></td>
+                                <td>12px (0.75rem) / Medium / 150%</td>
+                                <td><span class="token-code">text-caption</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. Usage Example (Hierarchy) -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Hierarchy Example</h2>
+                <div class="type-example-box">
+                    <span class="type-label">Heading 01</span>
+                    <h1 style="font-size:2rem; font-weight:700; margin-bottom:16px;">Design System Principles</h1>
+                    
+                    <span class="type-label">Body 01</span>
+                    <p style="font-size:1rem; line-height:1.6; color:#444; margin-bottom:24px; max-width:600px;">
+                        디자인 시스템은 제품을 만드는 팀원들이 효율적으로 소통하고, 사용자에게 일관된 경험을 제공하기 위한 약속입니다.
+                    </p>
+
+                    <span class="type-label">Heading 03</span>
+                    <h3 style="font-size:1.25rem; font-weight:600; margin-bottom:12px;">Why we need this?</h3>
+                    
+                    <span class="type-label">Body 02</span>
+                    <p style="font-size:0.875rem; line-height:1.6; color:#666; max-width:600px;">
+                        시스템이 없다면 디자이너마다 버튼의 크기가 다르고, 개발자마다 사용하는 컬러 코드가 달라질 수 있습니다. 이는 제품의 품질 저하로 이어집니다.
+                    </p>
                 </div>
             </section>
 
