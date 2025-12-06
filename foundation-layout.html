@@ -11,7 +11,6 @@
 <body>
     <header class="global-header" id="header-placeholder"></header>
     <div class="mobile-sub-header">
-        <!-- 모바일 서브헤더 (기존 동일) -->
         <div class="sub-header-inner" onclick="toggleSubMenu()">
             <span class="current-page">Foundation</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
         </div>
@@ -30,109 +29,145 @@
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Layout</h1>
-                <p class="page-desc">
-                    반응형 그리드 시스템은 다양한 디바이스 환경에서 일관된 배치와 비율을 제공합니다.<br>
-                    12컬럼 시스템을 기본으로 하며, 4px 간격 규칙을 따릅니다.
-                </p>
+                <p class="page-desc">반응형 그리드와 일관된 간격 규칙을 통해 시각적 안정감을 제공합니다.</p>
             </div>
 
-            <!-- 1. Breakpoints -->
+            <!-- 1. Grid System -->
             <section>
-                <h2 class="sub-section-title">Breakpoints</h2>
-                <p class="section-desc">디바이스 해상도에 따른 레이아웃 변경 기준점입니다.</p>
-                <table class="detail-table">
-                    <thead>
-                        <tr>
-                            <th>Device</th>
-                            <th>Range</th>
-                            <th>Container Width</th>
-                            <th>Token</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Mobile</strong></td>
-                            <td>0 ~ 767px</td>
-                            <td>100% (Fluid)</td>
-                            <td><span class="token-code">@media (max-width: 768px)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Tablet</strong></td>
-                            <td>768px ~ 1199px</td>
-                            <td>720px ~ 960px</td>
-                            <td><span class="token-code">@media (min-width: 768px)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Desktop</strong></td>
-                            <td>1200px ~</td>
-                            <td>1200px (Fixed)</td>
-                            <td><span class="token-code">@media (min-width: 1200px)</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <!-- 2. Grid System -->
-            <section style="margin-top:60px;">
                 <h2 class="sub-section-title">Grid System</h2>
-                <p class="section-desc">화면을 세로로 나누는 컬럼(Column) 구조입니다.</p>
-                <div class="grid-visual">
-                    <div class="col-visual"></div>
-                    <div class="col-visual"></div>
-                    <div class="col-visual"></div>
-                    <div class="col-visual"></div>
-                    <div class="col-visual"></div>
-                    <div class="col-visual"></div>
-                    <div class="col-visual mobile-hide" style="display:block"></div>
-                    <div class="col-visual mobile-hide" style="display:block"></div>
+                <div class="visual-box grid-pattern" style="align-items:stretch; gap:20px; padding:20px 40px;">
+                    <!-- 12 Columns Visual -->
+                    <div style="flex:1; background:rgba(0,122,255,0.1); border:1px dashed #007AFF; height:100px; display:flex; align-items:center; justify-content:center; color:#007AFF; font-weight:700;">Col</div>
+                    <div style="flex:1; background:rgba(0,122,255,0.1); border:1px dashed #007AFF; height:100px; display:flex; align-items:center; justify-content:center; color:#007AFF; font-weight:700;">Col</div>
+                    <div style="flex:1; background:rgba(0,122,255,0.1); border:1px dashed #007AFF; height:100px; display:flex; align-items:center; justify-content:center; color:#007AFF; font-weight:700;">Col</div>
+                    <div style="flex:1; background:rgba(0,122,255,0.1); border:1px dashed #007AFF; height:100px; display:flex; align-items:center; justify-content:center; color:#007AFF; font-weight:700;">Col</div>
+                    <div style="width:24px; height:100%; position:absolute; right:20px; top:0; background:rgba(255,0,0,0.1); display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:red; transform:rotate(90deg);">Margin</div>
                 </div>
-                <table class="detail-table">
+                
+                <table class="spec-table">
                     <thead>
                         <tr>
+                            <th>Breakpoint</th>
                             <th>Columns</th>
-                            <th>Gutter (간격)</th>
-                            <th>Margin (외부 여백)</th>
+                            <th>Gutter</th>
+                            <th>Margin</th>
+                            <th>Device</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>12</strong> (Desktop)</td>
+                            <td><strong>Desktop</strong> (≥ 1200px)</td>
+                            <td>12</td>
                             <td>24px</td>
-                            <td>Auto (Centered)</td>
+                            <td>Auto</td>
+                            <td>PC, Laptop</td>
                         </tr>
                         <tr>
-                            <td><strong>4</strong> (Mobile)</td>
+                            <td><strong>Tablet</strong> (≥ 768px)</td>
+                            <td>8</td>
+                            <td>20px</td>
+                            <td>32px</td>
+                            <td>iPad, Galaxy Tab</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mobile</strong> (< 768px)</td>
+                            <td>4</td>
                             <td>16px</td>
                             <td>20px</td>
+                            <td>iPhone, Android</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
 
-            <!-- 3. Spacing Scale -->
+            <!-- 2. Spacing System -->
             <section style="margin-top:60px;">
-                <h2 class="sub-section-title">Spacing Scale</h2>
-                <p class="section-desc">모든 여백과 크기는 <strong>4px (0.25rem)</strong>의 배수를 사용합니다.</p>
-                <div class="palette-grid" style="grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));">
-                    <div class="swatch-card" style="text-align:center; padding:20px;">
-                        <div style="width:4px; height:4px; background:#FF5252; margin:0 auto 10px;"></div>
-                        <span class="color-name">4px</span>
-                        <span class="token-code">space-1</span>
+                <h2 class="sub-section-title">Spacing System (4px Rule)</h2>
+                <p class="section-desc">모든 여백(Padding, Margin)은 <strong>4px의 배수</strong>를 사용합니다.</p>
+                
+                <div class="spec-table-container">
+                    <table class="spec-table">
+                        <thead>
+                            <tr>
+                                <th>Token</th>
+                                <th>Value</th>
+                                <th>Visual</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="token-code">space-1</span></td>
+                                <td>4px</td>
+                                <td><div class="spacing-block" style="width:4px;"></div></td>
+                                <td>아이콘과 텍스트 사이</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">space-2</span></td>
+                                <td>8px</td>
+                                <td><div class="spacing-block" style="width:8px;">8</div></td>
+                                <td>관련된 요소 간격 (Compact)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">space-3</span></td>
+                                <td>12px</td>
+                                <td><div class="spacing-block" style="width:12px;">12</div></td>
+                                <td>요소 간격 (Standard)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">space-4</span></td>
+                                <td>16px</td>
+                                <td><div class="spacing-block" style="width:16px;">16</div></td>
+                                <td>패딩 (Card, Input)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">space-6</span></td>
+                                <td>24px</td>
+                                <td><div class="spacing-block" style="width:24px;">24</div></td>
+                                <td>섹션 내부 간격</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">space-8</span></td>
+                                <td>32px</td>
+                                <td><div class="spacing-block" style="width:32px;">32</div></td>
+                                <td>큰 섹션 구분</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. Usage Guidelines -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Spacing Usage</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual">
+                            <div style="background:white; padding:16px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                                <div style="width:100px; height:12px; background:#eee; margin-bottom:8px;"></div>
+                                <div style="width:100px; height:12px; background:#eee;"></div>
+                                <!-- 8px gap indicator -->
+                                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:8px; height:8px; background:rgba(255,0,0,0.3);"></div>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">DO</span>
+                            <p class="dodont-desc">관련성이 높은 요소끼리는 좁은 간격(8px)을 사용합니다.</p>
+                        </div>
                     </div>
-                    <div class="swatch-card" style="text-align:center; padding:20px;">
-                        <div style="width:8px; height:8px; background:#FF5252; margin:0 auto 10px;"></div>
-                        <span class="color-name">8px</span>
-                        <span class="token-code">space-2</span>
-                    </div>
-                    <div class="swatch-card" style="text-align:center; padding:20px;">
-                        <div style="width:16px; height:16px; background:#FF5252; margin:0 auto 10px;"></div>
-                        <span class="color-name">16px</span>
-                        <span class="token-code">space-4</span>
-                    </div>
-                    <div class="swatch-card" style="text-align:center; padding:20px;">
-                        <div style="width:24px; height:24px; background:#FF5252; margin:0 auto 10px;"></div>
-                        <span class="color-name">24px</span>
-                        <span class="token-code">space-6</span>
+                    <div class="dodont-card">
+                        <div class="dodont-visual">
+                            <div style="background:white; padding:16px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                                <div style="width:100px; height:12px; background:#eee; margin-bottom:23px;"></div>
+                                <div style="width:100px; height:12px; background:#eee;"></div>
+                                <!-- Random gap indicator -->
+                                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:23px; height:23px; background:rgba(255,0,0,0.3);"></div>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">DON'T</span>
+                            <p class="dodont-desc">13px, 23px 등 애매한 홀수 간격 사용을 피합니다.</p>
+                        </div>
                     </div>
                 </div>
             </section>
