@@ -11,6 +11,7 @@
 <body>
     <header class="global-header" id="header-placeholder"></header>
     <div class="mobile-sub-header">
+        <!-- 모바일 서브헤더 (기존 동일) -->
         <div class="sub-header-inner" onclick="toggleSubMenu()">
             <span class="current-page">Foundation</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
         </div>
@@ -23,52 +24,84 @@
             <li><a href="foundation-object-styles.html">Object Styles</a></li>
         </ul>
     </div>
+
     <div class="layout-container">
         <aside class="sidebar" id="sidebar-placeholder"></aside>
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Layout</h1>
                 <p class="page-desc">
-                    반응형 그리드 시스템을 통해 다양한 디바이스에서 일관된 배치를 제공합니다.<br>
-                    12컬럼 시스템을 기본으로 사용합니다.
+                    반응형 그리드 시스템은 다양한 디바이스 환경에서 일관된 배치와 비율을 제공합니다.<br>
+                    12컬럼 시스템을 기본으로 하며, 4px 간격 규칙을 따릅니다.
                 </p>
             </div>
 
+            <!-- 1. Breakpoints -->
             <section>
+                <h2 class="sub-section-title">Breakpoints</h2>
+                <p class="section-desc">디바이스 해상도에 따른 레이아웃 변경 기준점입니다.</p>
+                <table class="detail-table">
+                    <thead>
+                        <tr>
+                            <th>Device</th>
+                            <th>Range</th>
+                            <th>Container Width</th>
+                            <th>Token</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mobile</strong></td>
+                            <td>0 ~ 767px</td>
+                            <td>100% (Fluid)</td>
+                            <td><span class="token-code">@media (max-width: 768px)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tablet</strong></td>
+                            <td>768px ~ 1199px</td>
+                            <td>720px ~ 960px</td>
+                            <td><span class="token-code">@media (min-width: 768px)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Desktop</strong></td>
+                            <td>1200px ~</td>
+                            <td>1200px (Fixed)</td>
+                            <td><span class="token-code">@media (min-width: 1200px)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 2. Grid System -->
+            <section style="margin-top:60px;">
                 <h2 class="sub-section-title">Grid System</h2>
+                <p class="section-desc">화면을 세로로 나누는 컬럼(Column) 구조입니다.</p>
                 <div class="grid-visual">
                     <div class="col-visual"></div>
                     <div class="col-visual"></div>
                     <div class="col-visual"></div>
                     <div class="col-visual"></div>
-                    <div class="col-visual" style="display: none;"></div><!-- Mobile hidden example -->
-                    <div class="col-visual" style="display: none;"></div>
+                    <div class="col-visual"></div>
+                    <div class="col-visual"></div>
+                    <div class="col-visual mobile-hide" style="display:block"></div>
+                    <div class="col-visual mobile-hide" style="display:block"></div>
                 </div>
-                <table class="spec-table">
+                <table class="detail-table">
                     <thead>
                         <tr>
-                            <th>Breakpoint</th>
                             <th>Columns</th>
-                            <th>Gutter</th>
-                            <th>Margin</th>
+                            <th>Gutter (간격)</th>
+                            <th>Margin (외부 여백)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Desktop</strong> (≥ 1200px)</td>
-                            <td>12</td>
+                            <td><strong>12</strong> (Desktop)</td>
                             <td>24px</td>
-                            <td>Auto</td>
+                            <td>Auto (Centered)</td>
                         </tr>
                         <tr>
-                            <td><strong>Tablet</strong> (≥ 768px)</td>
-                            <td>8</td>
-                            <td>20px</td>
-                            <td>24px</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Mobile</strong> (< 768px)</td>
-                            <td>4</td>
+                            <td><strong>4</strong> (Mobile)</td>
                             <td>16px</td>
                             <td>20px</td>
                         </tr>
@@ -76,25 +109,30 @@
                 </table>
             </section>
 
-            <section>
-                <h2 class="sub-section-title">Spacing</h2>
-                <p class="section-desc">요소 간의 간격은 4의 배수(4px, 8px, 12px...)를 기본 단위로 사용합니다.</p>
-                <div class="palette-grid" style="grid-template-columns: repeat(4, 1fr);">
-                    <div class="swatch-card" style="text-align:center; padding: 20px;">
-                        <div style="width:16px; height:16px; background:#FFD1D1; margin:0 auto 10px;"></div>
-                        <span class="color-token">16px</span>
+            <!-- 3. Spacing Scale -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Spacing Scale</h2>
+                <p class="section-desc">모든 여백과 크기는 <strong>4px (0.25rem)</strong>의 배수를 사용합니다.</p>
+                <div class="palette-grid" style="grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));">
+                    <div class="swatch-card" style="text-align:center; padding:20px;">
+                        <div style="width:4px; height:4px; background:#FF5252; margin:0 auto 10px;"></div>
+                        <span class="color-name">4px</span>
+                        <span class="token-code">space-1</span>
                     </div>
-                    <div class="swatch-card" style="text-align:center; padding: 20px;">
-                        <div style="width:24px; height:24px; background:#FFD1D1; margin:0 auto 10px;"></div>
-                        <span class="color-token">24px</span>
+                    <div class="swatch-card" style="text-align:center; padding:20px;">
+                        <div style="width:8px; height:8px; background:#FF5252; margin:0 auto 10px;"></div>
+                        <span class="color-name">8px</span>
+                        <span class="token-code">space-2</span>
                     </div>
-                    <div class="swatch-card" style="text-align:center; padding: 20px;">
-                        <div style="width:32px; height:32px; background:#FFD1D1; margin:0 auto 10px;"></div>
-                        <span class="color-token">32px</span>
+                    <div class="swatch-card" style="text-align:center; padding:20px;">
+                        <div style="width:16px; height:16px; background:#FF5252; margin:0 auto 10px;"></div>
+                        <span class="color-name">16px</span>
+                        <span class="token-code">space-4</span>
                     </div>
-                    <div class="swatch-card" style="text-align:center; padding: 20px;">
-                        <div style="width:48px; height:48px; background:#FFD1D1; margin:0 auto 10px;"></div>
-                        <span class="color-token">48px</span>
+                    <div class="swatch-card" style="text-align:center; padding:20px;">
+                        <div style="width:24px; height:24px; background:#FF5252; margin:0 auto 10px;"></div>
+                        <span class="color-name">24px</span>
+                        <span class="token-code">space-6</span>
                     </div>
                 </div>
             </section>
