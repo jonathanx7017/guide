@@ -4,81 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newtype Design System</title>
-    
-    <!-- Fonts & Icons -->
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    
-    <!-- CSS 연결 -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Header -->
-    <header class="global-header">
-        <div class="header-inner">
-            <a href="index.html" class="logo">
-                <img src="https://newtype.design/img/common/logo.png" alt="Newtype Logo">
-                <span>Design System</span>
-            </a>
-            
-            <!-- Desktop Nav -->
-            <nav class="nav-links desktop-only">
-                <!-- [수정] Overview 페이지로 연결 -->
-                <a href="foundation-overview.html">Foundation</a>
-                <a href="components-overview.html">Components</a>
-                <a href="#">Patterns</a>
-                <a href="#">Resources</a>
-            </nav>
-
-            <div class="header-actions desktop-only">
-                <div class="search-bar">
-                    <i class="ri-search-line"></i>
-                    <span>Search...</span>
-                    <span class="search-shortcut">⌘K</span>
-                </div>
-                <a href="#"><i class="ri-github-fill" style="font-size: 1.5rem;"></i></a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="ri-menu-line"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div class="mobile-menu" id="mobileMenu">
-            <nav class="nav-links">
-                <!-- [수정] 모바일 메뉴도 Overview 페이지로 연결 -->
-                <a href="foundation-overview.html">Foundation</a>
-                <a href="components-overview.html">Components</a>
-                <a href="#">Patterns</a>
-                <a href="#">Resources</a>
-            </nav>
-        </div>
-    </header>
-
+    <header class="global-header" id="header-placeholder"></header>
     <main>
-        <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <h1>Build better products,<br>faster.</h1>
-                <p>
-                    Newtype 서비스의 일관된 사용자 경험을 위한 디자인 소스입니다.<br>
-                    디자이너와 개발자를 위한 가이드라인과 리소스를 확인하세요.
-                </p>
+                <p>Newtype 서비스의 일관된 사용자 경험을 위한 디자인 소스입니다.<br>디자이너와 개발자를 위한 가이드라인과 리소스를 확인하세요.</p>
                 <div class="hero-btns">
-                    <a href="foundation-overview.html" class="btn btn-primary">
-                        Get Started <i class="ri-arrow-right-line"></i>
-                    </a>
-                    <a href="#" class="btn btn-secondary">
-                        <i class="ri-figma-line"></i> UI Kit
-                    </a>
+                    <a href="foundation-overview.html" class="btn btn-primary">Get Started <i class="ri-arrow-right-line"></i></a>
+                    <a href="#" class="btn btn-secondary"><i class="ri-figma-line"></i> UI Kit</a>
                 </div>
             </div>
         </section>
-
-        <!-- Quick Access Cards -->
         <section class="grid-section">
             <div class="container">
                 <div class="card-grid">
@@ -103,86 +45,48 @@
                 </div>
             </div>
         </section>
-
-        <!-- Foundation Preview -->
         <section class="foundations">
             <div class="container">
                 <h2 class="section-title">Core Foundations</h2>
                 <div class="foundation-grid">
-                    <!-- Color 페이지는 존재하므로 직접 연결 -->
-                    <a href="foundation-color.html" class="foundation-item">
-                        <i class="ri-drop-line"></i>
-                        <span>Color</span>
-                    </a>
-                    <a href="#" class="foundation-item">
-                        <i class="ri-text"></i>
-                        <span>Typography</span>
-                    </a>
-                    <a href="#" class="foundation-item">
-                        <i class="ri-layout-grid-line"></i>
-                        <span>Layout</span>
-                    </a>
-                    <a href="#" class="foundation-item">
-                        <i class="ri-emotion-line"></i>
-                        <span>Iconography</span>
-                    </a>
-                    <a href="#" class="foundation-item">
-                        <i class="ri-shape-line"></i>
-                        <span>Shapes</span>
-                    </a>
-                    <!-- Elevation 아이콘 업데이트 (Stack) -->
-                    <a href="#" class="foundation-item">
-                        <i class="ri-stack-line"></i>
-                        <span>Elevation</span>
-                    </a>
+                    <a href="foundation-color.html" class="foundation-item"><i class="ri-drop-line"></i><span>Color</span></a>
+                    <a href="#" class="foundation-item"><i class="ri-text"></i><span>Typography</span></a>
+                    <a href="#" class="foundation-item"><i class="ri-layout-grid-line"></i><span>Layout</span></a>
+                    <a href="#" class="foundation-item"><i class="ri-emotion-line"></i><span>Iconography</span></a>
+                    <a href="#" class="foundation-item"><i class="ri-shape-line"></i><span>Shapes</span></a>
+                    <a href="#" class="foundation-item"><i class="ri-stack-line"></i><span>Elevation</span></a>
                 </div>
             </div>
         </section>
-
-        <!-- Updates -->
         <section class="updates">
             <div class="container">
                 <h2 class="section-title">Latest Updates</h2>
                 <div class="update-list">
                     <div class="update-item">
                         <span class="version">v1.2.0</span>
-                        <div class="update-content">
-                            <h4>Dark Mode Support</h4>
-                            <p>다크 모드용 시멘틱 컬러 토큰이 전체 시스템에 적용되었습니다.</p>
-                        </div>
+                        <div class="update-content"><h4>Dark Mode Support</h4><p>다크 모드용 시멘틱 컬러 토큰이 전체 시스템에 적용되었습니다.</p></div>
                         <span class="date">2024.05.20</span>
                     </div>
                     <div class="update-item">
                         <span class="version">v1.1.5</span>
-                        <div class="update-content">
-                            <h4>New Component: DatePicker</h4>
-                            <p>날짜 범위를 선택할 수 있는 DatePicker 컴포넌트가 추가되었습니다.</p>
-                        </div>
+                        <div class="update-content"><h4>New Component: DatePicker</h4><p>날짜 범위를 선택할 수 있는 DatePicker 컴포넌트가 추가되었습니다.</p></div>
                         <span class="date">2024.05.02</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="copyright">
-                    © 2025 newtype imageworks. All rights reserved.
-                </div>
+                <div class="copyright">© 2025 newtype imageworks. All rights reserved.</div>
                 <div class="footer-links" style="display: flex; gap: 24px; color: var(--text-sub); font-size: 0.9rem;">
-                    <a href="#">Feedback</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">About</a>
+                    <a href="#">Feedback</a><a href="#">Privacy</a><a href="#">About</a>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- JS 연결 -->
     <script src="script.js"></script>
-
+    <script>loadComponent('header-placeholder', 'layout/header.html', null);</script>
 </body>
 </html>
