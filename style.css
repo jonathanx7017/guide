@@ -246,37 +246,107 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .comp-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
 .comp-info span { font-size: 0.85rem; color: var(--text-sub); display: block; }
 
-/* Component Animations */
-.comp-preview i { display: inline-block; }
+/* --- Component Custom Animations (Refined) --- */
 
-.anim-press { animation: press 2s ease-in-out infinite; }
-@keyframes press { 0%, 100% { transform: scale(1); } 50% { transform: scale(0.85); opacity: 0.8; } }
+/* 기본 설정 */
+.comp-preview i {
+    display: inline-block;
+    position: relative; /* 가상 요소 배치를 위해 필수 */
+    z-index: 1;
+}
 
-.anim-rotate-quarter { animation: rotateQuarter 3s ease-in-out infinite; }
-@keyframes rotateQuarter { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(90deg); } }
+/* 1. Button: 딸깍 (Click) */
+.anim-click { animation: clickAction 3s ease-in-out infinite; }
+@keyframes clickAction {
+    0%, 10% { transform: scale(1); }
+    15% { transform: scale(0.9); } /* 꾹 누름 */
+    20% { transform: scale(1); }   /* 뗌 */
+    100% { transform: scale(1); }  /* 대기 */
+}
 
-.anim-shake { animation: shake 3s ease-in-out infinite; }
-@keyframes shake { 0%, 100% { transform: rotate(0deg); } 40% { transform: rotate(-10deg); } 60% { transform: rotate(10deg); } }
+/* 2. FAB: 빠르게 회전 후 대기 (Spin Fast & Pause) */
+.anim-spin-fast-pause { animation: spinFastPause 3s ease-in-out infinite; }
+@keyframes spinFastPause {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(180deg); } /* 휙 돌고 */
+    80% { transform: rotate(180deg); } /* 멈춰있다가 */
+    100% { transform: rotate(360deg); } /* 다시 휙 */
+}
 
-.anim-blink { animation: blink 1.5s step-start infinite; }
-@keyframes blink { 50% { opacity: 0.3; } }
+/* 3. Link: 빠르게 흔들리고 쉬기 (Rush Shake) */
+.anim-shake-rush { animation: shakeRush 3s ease-in-out infinite; }
+@keyframes shakeRush {
+    0%, 20% { transform: rotate(0deg); }
+    22% { transform: rotate(-15deg); }
+    24% { transform: rotate(15deg); }
+    26% { transform: rotate(-15deg); }
+    28% { transform: rotate(15deg); }
+    30% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
 
-.anim-bounce { animation: bounce 2s ease-in-out infinite; }
-@keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+/* 4. Text Field: 깜빡임 (Caret Blink) */
+.anim-caret { animation: caretBlink 1s step-end infinite; }
+@keyframes caretBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
 
-.anim-pulse { animation: pulse 2s infinite; }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); border-radius: 50%; } 70% { box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); border-radius: 50%; } 100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); border-radius: 50%; } }
+/* 5. Checkbox: 라인 그리기 (Line Draw) - 핵심 */
+/* 아이콘 자체는 가만히 있고, 가상요소(::after)로 체크를 그립니다 */
+.anim-check-draw::after {
+    content: '';
+    position: absolute;
+    left: 20%; top: 45%;
+    width: 0; height: 0; /* 시작은 없음 */
+    border: solid var(--primary);
+    border-width: 0 0 3px 3px; /* 체크 모양 두께 */
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    animation: checkDraw 3s ease-in-out infinite;
+}
+@keyframes checkDraw {
+    0%, 10% { width: 0; height: 0; opacity: 0; }
+    15% { width: 0; height: 0; opacity: 1; }
+    20% { width: 12px; height: 0; } /* 아래로 그리기 */
+    25% { width: 12px; height: 6px; } /* 위로 그리기 */
+    80% { width: 12px; height: 6px; opacity: 1; }
+    90% { width: 12px; height: 6px; opacity: 0; } /* 사라짐 */
+    100% { width: 0; height: 0; opacity: 0; }
+}
 
-.anim-toggle { animation: toggle 3s ease-in-out infinite; }
-@keyframes toggle { 0%, 100% { transform: translateX(-4px); opacity: 0.6; } 50% { transform: translateX(4px); opacity: 1; } }
+/* 6. Radio: 레이더 퍼짐 (Radar Ripple) */
+.anim-radar::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%; height: 100%;
+    background-color: var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    z-index: -1; /* 아이콘 뒤로 */
+    animation: radarPulse 3s ease-out infinite;
+}
+@keyframes radarPulse {
+    0%, 20% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    21% { opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(2); opacity: 0; } /* 넓게 퍼지며 사라짐 */
+    100% { opacity: 0; }
+}
 
-.anim-slide-up { animation: slideUp 3s ease-in-out infinite; }
-@keyframes slideUp { 0%, 100% { transform: translateY(5px); opacity: 0.7; } 50% { transform: translateY(-5px); opacity: 1; } }
+/* 7. Switch: 내부 원만 딸깍 (Toggle Snap) */
+/* 폰트 아이콘 전체를 180도 돌리면, 프레임은 그대로고 원만 반대로 가는 착시 효과 */
+.anim-toggle-snap { animation: toggleSnap 3s ease-in-out infinite; }
+@keyframes toggleSnap {
+    0%, 20% { transform: rotate(0deg); }
+    25% { transform: rotate(180deg); } /* 딸깍 (On) */
+    75% { transform: rotate(180deg); } /* 대기 */
+    80% { transform: rotate(0deg); } /* 딸깍 (Off) */
+    100% { transform: rotate(0deg); }
+}
 
-.anim-pop { animation: pop 3s ease-in-out infinite; }
-@keyframes pop { 0%, 100% { transform: scale(0.9); opacity: 0.7; } 50% { transform: scale(1.05); opacity: 1; } }
-
-.anim-spin { animation: spin 2s linear infinite; }
+/* Spinner: 기본 회전 */
+.anim-spin { animation: spin 1.5s linear infinite; }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
 
