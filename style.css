@@ -283,3 +283,82 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 @media (max-width: 768px) {
     .guideline-grid { grid-template-columns: 1fr; }
 }
+/* --- [New] Rich Documentation Styles --- */
+
+/* 1. Spec Visualizer (시각적 예시 박스) */
+.visual-box {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    min-height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+.visual-box.grid-pattern {
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* 2. Token Code Block */
+.code-block {
+    background: #2D2D2D;
+    color: #FFF;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: 'Menlo', 'Monaco', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    margin-top: 12px;
+}
+.token-name { color: #FF79C6; }
+.token-value { color: #8BE9FD; }
+
+/* 3. Detailed Spec Table */
+.spec-table-container { overflow-x: auto; margin-bottom: 40px; border: 1px solid var(--border); border-radius: 12px; }
+.spec-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+.spec-table th { text-align: left; background: #FAFAFA; padding: 16px; font-weight: 600; color: var(--text-main); border-bottom: 1px solid var(--border); }
+.spec-table td { padding: 16px; border-bottom: 1px solid var(--border); color: var(--text-sub); font-size: 0.95rem; vertical-align: top; }
+.spec-table tr:last-child td { border-bottom: none; }
+.spec-preview-text { color: var(--text-main); display: block; margin-bottom: 8px; }
+
+/* 4. Do & Don't Grid */
+.dodont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+.dodont-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.dodont-visual { height: 180px; background: var(--bg-light); display: flex; align-items: center; justify-content: center; position: relative; }
+.dodont-content { padding: 20px; }
+.dodont-tag { display: inline-block; font-size: 0.8rem; font-weight: 700; padding: 4px 8px; border-radius: 4px; margin-bottom: 8px; }
+.dodont-tag.do { background: #E8F9EE; color: #06C755; } /* Green */
+.dodont-tag.dont { background: #FFEEEE; color: #E02020; } /* Red */
+.dodont-desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.5; }
+
+/* 5. Typography Example */
+.type-example-box { border: 1px solid var(--border); padding: 40px; border-radius: 12px; margin-bottom: 24px; }
+.type-label { display: inline-block; margin-bottom: 8px; font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* 6. Layout Visuals */
+.spacing-guide { display: flex; gap: 4px; align-items: center; }
+.spacing-block { height: 40px; background: #FFD1D1; display: flex; align-items: center; justify-content: center; color: #D32F2F; font-size: 0.8rem; font-weight: 600; border-radius: 4px; }
+
+/* 7. Icon Grid (Refined) */
+.icon-grid-large { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 24px; margin-bottom: 40px; }
+.icon-box-large {
+    border: 1px solid var(--border); border-radius: 12px; padding: 32px 16px;
+    display: flex; flex-direction: column; align-items: center; gap: 16px; transition: 0.2s;
+}
+.icon-box-large:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.icon-box-large i { font-size: 2rem; color: var(--text-main); }
+.icon-meta { text-align: center; }
+.icon-name { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 4px; }
+.icon-token { font-size: 0.75rem; color: var(--text-light); font-family: monospace; background: var(--bg-light); padding: 2px 6px; border-radius: 4px; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .dodont-grid { grid-template-columns: 1fr; }
+    .visual-box { padding: 20px; }
+}
