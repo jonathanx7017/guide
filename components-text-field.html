@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Field - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Components</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="components-overview.html">Overview</a></li>
+            <li><a href="components-button.html">Button</a></li>
+            <li><a href="components-text-field.html" class="active">Text Field</a></li>
+            <li><a href="#">Navigation</a></li>
+            <li><a href="#">Feedback</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Text Field</h1>
+                <p class="page-desc">
+                    사용자가 한 줄의 텍스트를 입력할 수 있는 필드입니다.<br>
+                    레이블, 입력 영역, 도움말 텍스트로 구성되며 상태에 따라 명확한 피드백을 제공합니다.
+                </p>
+            </div>
+
+            <!-- 1. States -->
+            <section>
+                <h2 class="sub-section-title">States</h2>
+                <div class="visual-box grid-pattern" style="align-items: flex-start; justify-content: space-around; flex-wrap: wrap; gap: 40px; padding: 60px;">
+                    
+                    <!-- Default -->
+                    <div class="input-group">
+                        <label class="input-label">Label</label>
+                        <input type="text" class="input-field" placeholder="Placeholder">
+                        <p class="input-helper">Helper text</p>
+                    </div>
+
+                    <!-- Focused -->
+                    <div class="input-group">
+                        <label class="input-label" style="color:var(--primary);">Label (Focused)</label>
+                        <input type="text" class="input-field" value="Input text" style="border-color:var(--primary); box-shadow:0 0 0 3px rgba(0,0,0,0.1);">
+                    </div>
+
+                    <!-- Error -->
+                    <div class="input-group">
+                        <label class="input-label" style="color:#E02020;">Label (Error)</label>
+                        <input type="text" class="input-field error" value="Invalid input">
+                        <p class="input-helper error-text"><i class="ri-error-warning-fill"></i> Error message</p>
+                    </div>
+
+                    <!-- Disabled -->
+                    <div class="input-group">
+                        <label class="input-label" style="color:#999;">Label (Disabled)</label>
+                        <input type="text" class="input-field" disabled placeholder="Disabled" value="Disabled Value">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Anatomy -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Anatomy</h2>
+                <div class="visual-box" style="background:white; border:none; padding: 0;">
+                    <div class="input-group" style="position:relative; margin: 40px;">
+                        
+                        <!-- 1. Label -->
+                        <span class="anatomy-marker" style="top:-10px; left:-25px;">1</span>
+                        <label class="input-label">Email Address</label>
+                        
+                        <!-- 2. Container -->
+                        <span class="anatomy-marker" style="top:35px; left:-25px;">2</span>
+                        <div style="position:relative;">
+                            <input type="text" class="input-field" placeholder="name@example.com">
+                            <!-- 3. Icon -->
+                            <span class="anatomy-marker" style="top:10px; right:10px;">3</span>
+                            <i class="ri-mail-line" style="position:absolute; right:12px; top:12px; color:#999;"></i>
+                        </div>
+
+                        <!-- 4. Helper Text -->
+                        <span class="anatomy-marker" style="bottom:-5px; left:-25px;">4</span>
+                        <p class="input-helper">We’ll never share your email.</p>
+                    </div>
+                </div>
+                <table class="detail-table">
+                    <thead>
+                        <tr>
+                            <th>Number</th>
+                            <th>Element</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="anatomy-marker" style="position:static;">1</span></td>
+                            <td><strong>Label</strong></td>
+                            <td>입력할 정보가 무엇인지 명확하게 알려줍니다.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="anatomy-marker" style="position:static;">2</span></td>
+                            <td><strong>Container</strong></td>
+                            <td>입력 영역입니다. 48px(Medium) 높이를 기본으로 합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="anatomy-marker" style="position:static;">3</span></td>
+                            <td><strong>Trailing Icon</strong> (Optional)</td>
+                            <td>입력 값 지우기, 비밀번호 보기 등의 기능을 수행합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="anatomy-marker" style="position:static;">4</span></td>
+                            <td><strong>Helper Text</strong> (Optional)</td>
+                            <td>추가 설명이나 에러 메시지를 표시합니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 3. Validation Guidelines -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Validation</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; padding:32px;">
+                            <div class="input-group">
+                                <label class="input-label" style="color:#E02020;">Password</label>
+                                <input type="password" class="input-field error" value="123">
+                                <p class="input-helper error-text"><i class="ri-error-warning-fill"></i> 비밀번호는 8자 이상이어야 합니다.</p>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Specific</span>
+                            <p class="dodont-desc">에러 메시지는 "잘못된 입력입니다" 보다는 "8자 이상이어야 합니다"와 같이 구체적인 해결책을 제시해야 합니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; padding:32px;">
+                            <div class="input-group">
+                                <label class="input-label" style="color:#E02020;">Password</label>
+                                <input type="password" class="input-field error" value="123">
+                                <p class="input-helper error-text">Error!</p>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">Vague</span>
+                            <p class="dodont-desc">사용자가 무엇을 틀렸는지 알 수 없는 모호한 에러 메시지는 피하세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-text-field.html');</script>
+</body>
+</html>
