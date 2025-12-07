@@ -67,7 +67,7 @@ header.global-header {
 .mobile-menu.active { display: flex; }
 .mobile-menu .nav-links { flex-direction: column; gap: 16px; font-size: 1.1rem; }
 
-/* Mobile Sub Header (Dropdown) */
+/* Mobile Sub Header */
 .mobile-sub-header { display: none; }
 
 /* --- 3. Layout (Sidebar + Content) --- */
@@ -94,18 +94,16 @@ header.global-header {
 .divider { height: 1px; background: var(--border); margin: 60px 0; }
 .content-footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.9rem; }
 
-/* --- 4. Landing Page Styles --- */
+/* --- 4. Landing Page --- */
 .hero { padding: 120px 0 100px; text-align: center; }
 .hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; line-height: 1.2; }
 .hero p {
     font-size: 1.25rem; color: var(--text-sub);
-    margin-bottom: 0; /* 버튼 마진으로 간격 조정 */
-    max-width: 800px; /* PC 너비 확장 */
-    margin-left: auto; margin-right: auto;
-    word-break: keep-all; /* 단어 끊김 방지 */
+    margin-bottom: 0; max-width: 800px; margin-left: auto; margin-right: auto;
+    word-break: keep-all; line-height: 1.6;
 }
 .hero-btns { display: flex; gap: 16px; justify-content: center; margin-top: 64px; }
-.desktop-br { display: block; } /* PC 줄바꿈 */
+.desktop-br { display: block; } 
 
 .btn { padding: 14px 32px; border-radius: 50px; font-weight: 600; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
 .btn-primary { background-color: var(--primary); color: white; }
@@ -149,7 +147,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .code-block { background: #2D2D2D; color: #FFF; padding: 16px; border-radius: 8px; font-family: 'Menlo', 'Monaco', monospace; font-size: 0.85rem; line-height: 1.5; overflow-x: auto; margin-top: 12px; }
 .token-name { color: #FF79C6; } .token-value { color: #8BE9FD; }
 
-/* Tables (Horizontal Scroll) */
+/* Tables */
 .spec-table-container { overflow-x: auto; margin-bottom: 40px; border: 1px solid var(--border); border-radius: 12px; -webkit-overflow-scrolling: touch; width: 100%; }
 .spec-table { width: 100%; border-collapse: collapse; min-width: 600px; }
 .spec-table th { text-align: left; background: #FAFAFA; padding: 16px; font-weight: 600; color: var(--text-main); border-bottom: 1px solid var(--border); white-space: nowrap; }
@@ -191,7 +189,11 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .color-hex { font-family: monospace; color: var(--text-sub); font-size: 0.9rem; display: block; margin-bottom: 8px; }
 .color-token { font-family: monospace; font-size: 0.8rem; color: var(--text-light); background: var(--bg-light); padding: 4px 6px; border-radius: 4px; display: inline-block; }
 
-/* --- 6. Foundation Overview Specifics --- */
+/* Visual Grids */
+.radius-grid, .shadow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 32px; }
+.style-box { width: 100%; aspect-ratio: 1/1; background: white; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); font-size: 0.9rem; font-family: monospace; }
+
+/* --- 6. Foundation Overview --- */
 .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .principle-card { padding: 32px 24px; background: var(--bg-light); border: none; }
 .principle-card .p-icon { font-size: 2rem; margin-bottom: 16px; color: var(--primary); }
@@ -212,7 +214,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .dl-content p { color: var(--text-sub); font-size: 0.9rem; margin: 0; line-height: 1.5; }
 .download-card .btn { align-self: flex-end; margin-top: auto; }
 
-/* --- 7. Components Overview Specifics --- */
+/* --- 7. Components Overview --- */
 .comp-category { margin-bottom: 60px; }
 .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .comp-card { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s ease; display: flex; flex-direction: column; }
@@ -222,40 +224,24 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .comp-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
 .comp-info span { font-size: 0.85rem; color: var(--text-sub); display: block; }
 
-/* --- 8. Component Animations (Final v4) --- */
+/* Animations */
 .comp-preview i { display: inline-block; position: relative; z-index: 5; font-style: normal; }
-
-/* Button */
 .anim-click { animation: clickAction 1.5s ease-in-out infinite; }
 @keyframes clickAction { 0%, 15% { transform: scale(1); } 25% { transform: scale(0.7); opacity: 0.9; } 35% { transform: scale(1); } 100% { transform: scale(1); } }
-
-/* FAB */
 .anim-spin-fast-pause { animation: spinFastPause 3s ease-in-out infinite; }
 @keyframes spinFastPause { 0% { transform: rotate(0deg); } 20% { transform: rotate(180deg); } 80% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
-
-/* Link */
 .anim-rotate-loop { animation: rotateLoop 2.5s ease-in-out infinite; }
 @keyframes rotateLoop { 0% { transform: rotate(0deg); } 30% { transform: rotate(360deg); } 100% { transform: rotate(360deg); } }
-
-/* Text Field */
 .custom-input-icon::before { content: '<   >'; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 300; font-size: 2.5rem; color: var(--primary); letter-spacing: 2px; }
 .anim-input-caret::after { content: ''; position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); width: 2px; height: 18px; background-color: var(--primary); animation: caretBlink 1s steps(2, start) infinite; }
 @keyframes caretBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-/* Checkbox */
 .anim-check-draw::after { content: ''; position: absolute; top: 38%; left: 32%; width: 0; height: 0; border: solid var(--primary); border-width: 0 0 3px 3px; transform: rotate(-45deg); animation: checkDraw 3s ease-in-out infinite; }
 @keyframes checkDraw { 0%, 20% { width: 0; height: 0; opacity: 0; } 25% { width: 0; height: 0; opacity: 1; } 30% { width: 12px; height: 0; } 35% { width: 12px; height: 6px; } 80% { width: 12px; height: 6px; opacity: 1; } 90% { width: 12px; height: 6px; opacity: 0; } 100% { width: 0; height: 0; opacity: 0; } }
-
-/* Radio */
 .anim-radio-dot::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); width: 12px; height: 12px; background-color: var(--primary); border-radius: 50%; animation: radioDotAppear 3s ease-in-out infinite; }
 @keyframes radioDotAppear { 0%, 20% { transform: translate(-50%, -50%) scale(0); } 25% { transform: translate(-50%, -50%) scale(1.1); } 30% { transform: translate(-50%, -50%) scale(1); } 70% { transform: translate(-50%, -50%) scale(1); } 80% { transform: translate(-50%, -50%) scale(0); } 100% { transform: translate(-50%, -50%) scale(0); } }
-
-/* Switch */
 .custom-switch-icon { width: 44px; height: 26px; border: 3px solid var(--primary); border-radius: 20px; box-sizing: border-box; position: relative; }
 .anim-switch-knob::after { content: ''; position: absolute; top: 50%; left: 3px; transform: translateY(-50%); width: 14px; height: 14px; background-color: var(--primary); border-radius: 50%; animation: switchMove 3s ease-in-out infinite; }
 @keyframes switchMove { 0%, 20% { left: 3px; } 30% { left: 21px; } 70% { left: 21px; } 80% { left: 3px; } 100% { left: 3px; } }
-
-/* Animations for Foundation Overview (if used) */
 .anim-radar::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background-color: var(--primary); border-radius: 50%; z-index: -1; animation: radarPulse 3s ease-out infinite; }
 @keyframes radarPulse { 0%, 20% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; } 21% { opacity: 0.2; } 50% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; } 100% { opacity: 0; } }
 .anim-pop { animation: pop 3s ease-in-out infinite; }
@@ -265,13 +251,12 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .anim-spin { animation: spin 1.5s linear infinite; }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
-
-/* --- 9. Responsive & Mobile Overrides --- */
+/* --- 9. Responsive & Mobile Overrides (Fixed) --- */
 @media (max-width: 768px) {
     /* Reset & Visibility */
     .desktop-only { display: none !important; }
     .mobile-menu-btn { display: block; }
-    .desktop-br { display: none; } /* Mobile line break handling */
+    .desktop-br { display: none; }
     
     /* Layout */
     .sidebar { display: none; }
@@ -280,7 +265,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     .header-inner { padding: 0 24px; }
     .container { padding: 0 24px; }
     
-    /* Mobile Header & Menu */
+    /* Mobile Header */
     .mobile-sub-header { display: block; position: sticky; top: var(--header-height); z-index: 900; background: white; border-bottom: 1px solid var(--border); }
     .sub-header-inner { height: 50px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-weight: 700; font-size: 1rem; }
     .sub-menu-list { display: none; background: white; border-top: 1px solid var(--border); padding: 0; list-style: none; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
@@ -290,7 +275,48 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     #subArrow { transition: transform 0.2s; font-size: 1.2rem; color: var(--text-sub); }
     #subArrow.rotate { transform: rotate(180deg); }
     
-    /* Typography & Spacing */
+    /* Typography */
     .hero { padding: 80px 0 60px; }
     .hero h1 { font-size: 2.4rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 24px; word-break: keep-all; }
-    .hero h1 br { display: none;
+    .hero h1 br { display: none; }
+    .hero p { font-size: 1.1rem; color: var(--text-sub); padding: 0 10px; line-height: 1.6; margin-bottom: 48px !important; width: 100%; max-width: 100%; word-break: keep-all; }
+    .hero-btns { width: 100%; justify-content: center; margin-top: 10px; }
+    .page-title { font-size: 2rem; }
+    
+    /* Force 1 Column Grids on Mobile (Fixed with !important) */
+    .card-grid, 
+    .principles-grid, 
+    .elements-grid, 
+    .downloads-section, 
+    .dodont-grid,
+    .palette-grid,
+    .radius-grid,
+    .shadow-grid,
+    .icon-grid-large { 
+        grid-template-columns: 1fr !important; 
+        gap: 24px; 
+    }
+    
+    /* Exceptions: Small Icon Grids & Visuals */
+    .foundation-grid, 
+    .comp-grid,
+    .icon-grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px; 
+    }
+    
+    /* Visual Box Stacking */
+    .visual-box { 
+        flex-direction: column !important; 
+        align-items: stretch !important; 
+        height: auto !important; 
+        min-height: auto !important;
+        padding: 20px !important;
+    }
+    
+    .download-card { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .download-card .btn { width: 100%; justify-content: center; align-self: stretch; }
+    .comp-preview { height: 100px; font-size: 2rem; }
+    .comp-info { padding: 12px 16px; }
+    .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
+}
