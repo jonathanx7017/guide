@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Components</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="components-overview.html">Overview</a></li>
+            <li><a href="components-button.html" class="active">Button</a></li>
+            <li><a href="components-text-field.html">Text Field</a></li>
+            <li><a href="#">Navigation</a></li>
+            <li><a href="#">Feedback</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Button</h1>
+                <p class="page-desc">
+                    버튼은 사용자가 클릭이나 탭을 통해 작업을 수행하게 하는 주요 인터랙션 요소입니다.<br>
+                    중요도에 따라 Primary, Secondary, Tertiary 스타일을 구분하여 사용합니다.
+                </p>
+            </div>
+
+            <!-- 1. Types (Variants) -->
+            <section>
+                <h2 class="sub-section-title">Types</h2>
+                <p class="section-desc">기능의 우선순위에 따라 버튼 스타일을 구분합니다.</p>
+                <div class="visual-box" style="background:white; align-items:flex-start; flex-direction:column; gap:32px;">
+                    
+                    <!-- Primary -->
+                    <div style="width:100%;">
+                        <h4 style="margin-bottom:12px;">Primary</h4>
+                        <div class="demo-box">
+                            <button class="btn btn-primary">Button</button>
+                            <button class="btn btn-primary"><i class="ri-add-line"></i> Icon</button>
+                        </div>
+                        <p style="font-size:0.9rem; color:#666; margin-top:8px;">화면에서 가장 중요한 단 하나의 주요 액션에 사용합니다. (예: 저장, 구매, 로그인)</p>
+                    </div>
+
+                    <!-- Secondary -->
+                    <div style="width:100%;">
+                        <h4 style="margin-bottom:12px;">Secondary</h4>
+                        <div class="demo-box">
+                            <button class="btn btn-secondary">Button</button>
+                            <button class="btn btn-secondary"><i class="ri-pencil-line"></i> Edit</button>
+                        </div>
+                        <p style="font-size:0.9rem; color:#666; margin-top:8px;">주요 액션을 보조하거나, 대안적인 액션에 사용합니다. (예: 취소, 뒤로가기)</p>
+                    </div>
+
+                    <!-- Tertiary (Text) -->
+                    <div style="width:100%;">
+                        <h4 style="margin-bottom:12px;">Tertiary (Ghost)</h4>
+                        <div class="demo-box">
+                            <button class="btn" style="padding:10px 16px; background:transparent; color:#666; border:1px solid transparent;">Button</button>
+                            <button class="btn" style="padding:10px 16px; background:transparent; color:#666; border:1px solid transparent;"><i class="ri-arrow-right-line"></i> Link</button>
+                        </div>
+                        <p style="font-size:0.9rem; color:#666; margin-top:8px;">배경 없이 텍스트로만 구성되며, 중요도가 낮은 액션에 사용합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Sizes -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Sizes</h2>
+                <div class="visual-box" style="background:#F7F8FA; gap:24px; align-items:center;">
+                    <div style="text-align:center;">
+                        <button class="btn btn-primary" style="height:56px; font-size:1.1rem; padding:0 40px;">Large</button>
+                        <p style="margin-top:12px; font-size:0.85rem; font-family:monospace;">H:56px</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <button class="btn btn-primary" style="height:48px; font-size:1rem;">Medium</button>
+                        <p style="margin-top:12px; font-size:0.85rem; font-family:monospace;">H:48px (Default)</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <button class="btn btn-primary" style="height:36px; font-size:0.9rem; padding:0 20px;">Small</button>
+                        <p style="margin-top:12px; font-size:0.85rem; font-family:monospace;">H:36px</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. States -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">States</h2>
+                <div class="spec-table-container">
+                    <table class="spec-table">
+                        <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>Visual</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Enabled</td>
+                                <td><button class="btn btn-primary">Submit</button></td>
+                                <td>기본 상태입니다.</td>
+                            </tr>
+                            <tr>
+                                <td>Hover</td>
+                                <td><button class="btn btn-primary" style="background:var(--primary-dark); transform:translateY(-2px);">Submit</button></td>
+                                <td>마우스 커서가 올라갔을 때 (배경색 어둡게, Y축 이동)</td>
+                            </tr>
+                            <tr>
+                                <td>Pressed</td>
+                                <td><button class="btn btn-primary" style="transform:scale(0.96);">Submit</button></td>
+                                <td>클릭하는 순간 (Scale 0.96 축소)</td>
+                            </tr>
+                            <tr>
+                                <td>Disabled</td>
+                                <td><button class="btn" disabled style="background:#E5E5E5; color:#999; cursor:not-allowed;">Submit</button></td>
+                                <td>비활성화 상태 (Opacity 처리, 클릭 불가)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 4. Usage Guidelines -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Usage Guidelines</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; gap:16px;">
+                            <button class="btn btn-secondary">Cancel</button>
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">DO</span>
+                            <p class="dodont-desc">화면 당 하나의 Primary 버튼만 사용하여 사용자의 주요 행동을 유도하세요.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; gap:16px;">
+                            <button class="btn btn-primary">Cancel</button>
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">DON'T</span>
+                            <p class="dodont-desc">Primary 버튼을 남발하면 사용자가 무엇을 눌러야 할지 혼란스러워합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-button.html');</script>
+</body>
+</html>
