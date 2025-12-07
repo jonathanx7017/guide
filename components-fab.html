@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAB - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Components</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="components-overview.html">Overview</a></li>
+            <li><a href="components-button.html">Button</a></li>
+            <li><a href="components-fab.html" class="active">FAB</a></li>
+            <li><a href="components-text-field.html">Text Field</a></li>
+            <li><a href="components-selection-controls.html">Selection Controls</a></li>
+            <li><a href="components-switch.html">Switch</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Floating Action Button</h1>
+                <p class="page-desc">
+                    FAB는 화면에서 가장 중요하고 빈번하게 사용되는 단 하나의 주요 동작을 수행합니다.<br>
+                    보통 화면의 우측 하단에 고정되어 떠 있습니다.
+                </p>
+            </div>
+
+            <!-- 1. Variants -->
+            <section>
+                <h2 class="sub-section-title">Variants</h2>
+                <div class="visual-box" style="background:white; gap:48px;">
+                    <div style="text-align:center;">
+                        <button class="demo-fab"><i class="ri-add-line"></i></button>
+                        <p style="margin-top:16px; font-weight:700;">Regular</p>
+                        <span style="font-size:0.85rem; color:#666;">Icon only (56x56)</span>
+                    </div>
+                    <div style="text-align:center;">
+                        <button class="demo-fab extended"><i class="ri-add-line"></i> New Chat</button>
+                        <p style="margin-top:16px; font-weight:700;">Extended</p>
+                        <span style="font-size:0.85rem; color:#666;">Icon + Text (Height 56)</span>
+                    </div>
+                    <div style="text-align:center;">
+                        <button class="demo-fab" style="width:40px; height:40px; font-size:20px;"><i class="ri-add-line"></i></button>
+                        <p style="margin-top:16px; font-weight:700;">Mini</p>
+                        <span style="font-size:0.85rem; color:#666;">Small screens (40x40)</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Placement -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Placement</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:#F4F7FC; position:relative;">
+                            <!-- Mockup Screen -->
+                            <div style="width:140px; height:220px; background:white; border:1px solid #ddd; position:relative; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+                                <div style="height:20px; background:#eee; width:100%;"></div>
+                                <div style="height:10px; background:#eee; width:60%; margin:10px;"></div>
+                                <div style="height:10px; background:#eee; width:80%; margin:10px;"></div>
+                                <!-- FAB -->
+                                <div style="width:32px; height:32px; background:var(--primary); border-radius:50%; position:absolute; bottom:16px; right:16px; color:white; display:flex; align-items:center; justify-content:center;"><i class="ri-add-line"></i></div>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Bottom Right</span>
+                            <p class="dodont-desc">모바일 화면에서 엄지손가락이 닿기 쉬운 우측 하단에 배치하는 것이 표준입니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:#F4F7FC; position:relative;">
+                            <div style="width:140px; height:220px; background:white; border:1px solid #ddd; position:relative; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+                                <div style="height:20px; background:#eee; width:100%;"></div>
+                                <!-- FAB Top Left -->
+                                <div style="width:32px; height:32px; background:var(--primary); border-radius:50%; position:absolute; top:30px; left:16px; color:white; display:flex; align-items:center; justify-content:center;"><i class="ri-add-line"></i></div>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">Top Left</span>
+                            <p class="dodont-desc">상단이나 좌측에 배치하면 콘텐츠를 가리거나 손이 닿기 어려워 사용성이 떨어집니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-fab.html');</script>
+</body>
+</html>
