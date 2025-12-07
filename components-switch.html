@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Components</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="components-overview.html">Overview</a></li>
+            <li><a href="components-button.html">Button</a></li>
+            <li><a href="components-fab.html">FAB</a></li>
+            <li><a href="components-text-field.html">Text Field</a></li>
+            <li><a href="components-selection-controls.html">Selection Controls</a></li>
+            <li><a href="components-switch.html" class="active">Switch</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Switch</h1>
+                <p class="page-desc">
+                    단일 설정의 상태를 켜거나 끌 때(On/Off) 사용합니다.<br>
+                    설정 변경이 즉시 적용되는 경우에 적합합니다.
+                </p>
+            </div>
+
+            <!-- 1. States -->
+            <section>
+                <h2 class="sub-section-title">States</h2>
+                <div class="visual-box" style="background:white; gap:40px;">
+                    <div style="text-align:center;">
+                        <label class="demo-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <p style="margin-top:12px; font-size:0.9rem;">Off</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <label class="demo-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <p style="margin-top:12px; font-size:0.9rem;">On</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <label class="demo-switch">
+                            <input type="checkbox" disabled>
+                            <span class="slider" style="background:#eee;"></span>
+                        </label>
+                        <p style="margin-top:12px; font-size:0.9rem; color:#999;">Disabled</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Anatomy -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Anatomy</h2>
+                <div class="visual-box" style="background:white;">
+                    <div class="anatomy-box">
+                        <label class="demo-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span class="anatomy-marker" style="top:-10px; left:0;">1</span>
+                        <span class="anatomy-marker" style="top:50%; right:-10px; transform:translateY(-50%);">2</span>
+                    </div>
+                </div>
+                <table class="detail-table">
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Track</strong></td>
+                            <td>스위치의 배경 영역입니다. 상태에 따라 색상이 변경됩니다. (Off: Gray, On: Primary)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Thumb (Handle)</strong></td>
+                            <td>사용자가 드래그하거나 탭하여 이동시키는 원형 컨트롤입니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 3. Usage -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Switch vs Checkbox</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; flex-direction:column; gap:16px;">
+                            <div style="display:flex; justify-content:space-between; width:200px; align-items:center;">
+                                <span>Dark Mode</span>
+                                <label class="demo-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Instant Action</span>
+                            <p class="dodont-desc">설정을 변경하는 즉시 시스템에 반영될 때 Switch를 사용합니다. (예: 와이파이, 다크모드)</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; flex-direction:column; gap:16px;">
+                            <div style="display:flex; gap:8px; align-items:center;">
+                                <label class="demo-checkbox"><input type="checkbox"><span class="checkmark"><i class="ri-check-line"></i></span></label>
+                                <span>I agree to terms</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="margin-top:10px;">Submit</button>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Confirmation</span>
+                            <p class="dodont-desc">제출 버튼을 눌러야 적용되는 폼(Form) 양식이나 동의 항목에는 Checkbox를 사용합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-switch.html');</script>
+</body>
+</html>
