@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Controls - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Components</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="components-overview.html">Overview</a></li>
+            <li><a href="components-button.html">Button</a></li>
+            <li><a href="components-fab.html">FAB</a></li>
+            <li><a href="components-text-field.html">Text Field</a></li>
+            <li><a href="components-selection-controls.html" class="active">Selection Controls</a></li>
+            <li><a href="components-switch.html">Switch</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Selection Controls</h1>
+                <p class="page-desc">
+                    사용자가 옵션을 선택할 수 있게 하는 컨트롤입니다.<br>
+                    다중 선택에는 Checkbox를, 단일 선택에는 Radio button을 사용합니다.
+                </p>
+            </div>
+
+            <!-- 1. Checkbox -->
+            <section>
+                <h2 class="sub-section-title">Checkbox</h2>
+                <p class="section-desc">목록에서 하나 이상의 항목을 선택하거나, 설정을 켜고 끌 때 사용합니다.</p>
+                <div class="visual-box" style="background:white; gap:32px;">
+                    <label class="demo-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"><i class="ri-check-line"></i></span>
+                        Unchecked
+                    </label>
+                    <label class="demo-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="checkmark"><i class="ri-check-line"></i></span>
+                        Checked
+                    </label>
+                    <label class="demo-checkbox">
+                        <input type="checkbox" disabled checked>
+                        <span class="checkmark" style="background:#eee; border-color:#ddd; color:#999;"><i class="ri-check-line"></i></span>
+                        Disabled
+                    </label>
+                </div>
+            </section>
+
+            <!-- 2. Radio Button -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Radio Button</h2>
+                <p class="section-desc">상호 배타적인 옵션 중 하나만 선택해야 할 때 사용합니다.</p>
+                <div class="visual-box" style="background:white; gap:32px;">
+                    <label class="demo-radio">
+                        <input type="radio" name="radio-demo">
+                        <span class="radiomark"></span>
+                        Option A
+                    </label>
+                    <label class="demo-radio">
+                        <input type="radio" name="radio-demo" checked>
+                        <span class="radiomark"></span>
+                        Option B
+                    </label>
+                    <label class="demo-radio">
+                        <input type="radio" name="radio-demo" disabled>
+                        <span class="radiomark" style="background:#eee;"></span>
+                        Disabled
+                    </label>
+                </div>
+            </section>
+
+            <!-- 3. Usage Guidelines -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Usage Guidelines</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; flex-direction:column; gap:12px; align-items:flex-start; padding-left:30%;">
+                            <label class="demo-checkbox"><input type="checkbox" checked><span class="checkmark"><i class="ri-check-line"></i></span> Apple</label>
+                            <label class="demo-checkbox"><input type="checkbox" checked><span class="checkmark"><i class="ri-check-line"></i></span> Banana</label>
+                            <label class="demo-checkbox"><input type="checkbox"><span class="checkmark"><i class="ri-check-line"></i></span> Orange</label>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">DO</span>
+                            <p class="dodont-desc">다중 선택이 가능한 경우 Checkbox를 사용합니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; flex-direction:column; gap:12px; align-items:flex-start; padding-left:30%;">
+                            <label class="demo-checkbox"><input type="checkbox" checked style="border-radius:50%;"><span class="checkmark" style="border-radius:50%;"><i class="ri-check-line"></i></span> Yes</label>
+                            <label class="demo-checkbox"><input type="checkbox"><span class="checkmark" style="border-radius:50%;"><i class="ri-check-line"></i></span> No</label>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">DON'T</span>
+                            <p class="dodont-desc">Checkbox를 Radio처럼 보이게(원형) 만들지 마세요. 혼동을 줍니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-selection-controls.html');</script>
+</body>
+</html>
