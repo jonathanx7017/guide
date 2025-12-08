@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header"><!-- ... --></div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Spinner</h1>
+                <p class="page-desc">콘텐츠 로딩 중임을 알려주는 상태 표시입니다. 대기 시간이 짧을 때 사용합니다.</p>
+            </div>
+
+            <!-- 1. Sizes -->
+            <section>
+                <h2 class="sub-section-title">Sizes</h2>
+                <div class="visual-box" style="background:white; gap:40px;">
+                    <div style="text-align:center;">
+                        <i class="ri-loader-4-line anim-spin" style="font-size:16px; color:var(--primary);"></i>
+                        <p style="margin-top:12px; font-size:0.85rem;">Small (16px)</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <i class="ri-loader-4-line anim-spin" style="font-size:24px; color:var(--primary);"></i>
+                        <p style="margin-top:12px; font-size:0.85rem;">Medium (24px)</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <i class="ri-loader-4-line anim-spin" style="font-size:48px; color:var(--primary);"></i>
+                        <p style="margin-top:12px; font-size:0.85rem;">Large (48px)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Usage -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Context</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white;">
+                            <button class="btn btn-primary" style="gap:8px;">
+                                <i class="ri-loader-4-line anim-spin"></i> Saving...
+                            </button>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Button</span>
+                            <p class="dodont-desc">버튼 내부에서 작업이 진행 중임을 알릴 때 사용합니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; display:flex; align-items:center; justify-content:center;">
+                            <div style="width:200px; height:120px; background:#F4F7FC; border-radius:8px; display:flex; align-items:center; justify-content:center;">
+                                <i class="ri-loader-4-line anim-spin" style="font-size:32px;"></i>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Content Area</span>
+                            <p class="dodont-desc">특정 영역의 데이터가 로드될 때 해당 영역 중앙에 표시합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-spinner.html');</script>
+</body>
+</html>
