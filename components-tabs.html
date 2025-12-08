@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header"><!-- ... 생략 (JS로 로드됨을 가정하거나 복붙) ... --></div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Tabs</h1>
+                <p class="page-desc">관련된 콘텐츠 그룹을 동일한 계층에서 전환할 때 사용합니다.</p>
+            </div>
+
+            <section>
+                <h2 class="sub-section-title">Default Style</h2>
+                <div class="visual-box" style="background:white; align-items:flex-start; flex-direction:column;">
+                    <div class="demo-tabs">
+                        <div class="demo-tab-item active">Overview</div>
+                        <div class="demo-tab-item">Settings</div>
+                        <div class="demo-tab-item">Activity</div>
+                    </div>
+                    <div style="padding:24px; color:var(--text-sub); font-size:0.9rem;">
+                        Content area for Overview...
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Usage Guidelines</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; align-items:flex-start; padding:20px;">
+                            <div class="demo-tabs" style="border:none;">
+                                <div class="demo-tab-item active">Tab 1</div>
+                                <div class="demo-tab-item">Tab 2</div>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">DO</span>
+                            <p class="dodont-desc">탭은 2개에서 5개 사이의 항목을 전환할 때 가장 효과적입니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:white; align-items:flex-start; padding:20px;">
+                            <div class="demo-tabs" style="flex-wrap:wrap;">
+                                <div class="demo-tab-item">Link 1</div>
+                                <div class="demo-tab-item">Link 2 (Goes to other page)</div>
+                            </div>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">DON'T</span>
+                            <p class="dodont-desc">탭을 눌렀을 때 완전히 다른 페이지로 이동시키지 마세요. 탭은 같은 컨텍스트 내에서의 전환입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-tabs.html');</script>
+</body>
+</html>
