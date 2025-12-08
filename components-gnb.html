@@ -1,32 +1,97 @@
-<div class="menu-group">
-    <div class="menu-title">General</div>
-    <ul class="menu-list">
-        <li><a href="components-overview.html" data-page="components-overview.html">Overview</a></li>
-    </ul>
-</div>
-<div class="menu-group">
-    <div class="menu-title">Actions & Inputs</div>
-    <ul class="menu-list">
-        <li><a href="components-button.html" data-page="components-button.html">Button</a></li>
-        <li><a href="components-fab.html" data-page="components-fab.html">Floating Action Button</a></li>
-        <li><a href="components-text-field.html" data-page="components-text-field.html">Text Field</a></li>
-        <li><a href="components-selection-controls.html" data-page="components-selection-controls.html">Selection Controls</a></li>
-        <li><a href="components-switch.html" data-page="components-switch.html">Switch</a></li>
-    </ul>
-</div>
-<div class="menu-group">
-    <div class="menu-title">Navigation</div>
-    <ul class="menu-list">
-        <li><a href="components-gnb.html" data-page="components-gnb.html">GNB</a></li>
-        <li><a href="components-tabs.html" data-page="components-tabs.html">Tabs</a></li>
-        <li><a href="components-breadcrumb.html" data-page="components-breadcrumb.html">Breadcrumb</a></li>
-    </ul>
-</div>
-<div class="menu-group">
-    <div class="menu-title">Feedback</div>
-    <ul class="menu-list">
-        <li><a href="components-modal.html" data-page="components-modal.html">Modal</a></li>
-        <li><a href="components-toast.html" data-page="components-toast.html">Toast</a></li>
-        <li><a href="components-spinner.html" data-page="components-spinner.html">Spinner</a></li>
-    </ul>
-</div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GNB - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Components</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="components-overview.html">Overview</a></li>
+            <li><a href="components-button.html">Button</a></li>
+            <li><a href="components-gnb.html" class="active">GNB</a></li>
+            <li><a href="components-modal.html">Modal</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">GNB (Global Navigation Bar)</h1>
+                <p class="page-desc">
+                    사이트 최상단에 위치하여 전체적인 계층 구조를 보여주고,<br>
+                    주요 기능으로의 이동을 돕는 내비게이션 바입니다.
+                </p>
+            </div>
+
+            <!-- 1. Structure -->
+            <section>
+                <h2 class="sub-section-title">Structure</h2>
+                <div class="visual-box" style="background:#F4F7FC; padding:40px;">
+                    <div class="demo-gnb" style="box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                        <div style="display:flex; align-items:center; gap:24px;">
+                            <div class="demo-gnb-logo"></div>
+                            <div class="demo-gnb-menu">
+                                <div class="demo-menu-item active"></div>
+                                <div class="demo-menu-item"></div>
+                                <div class="demo-menu-item"></div>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:12px;">
+                            <div style="width:24px; height:24px; background:#eee; border-radius:50%;"></div>
+                            <div style="width:24px; height:24px; background:#eee; border-radius:50%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Anatomy -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Anatomy</h2>
+                <div class="visual-box" style="background:white; border:none; padding:0;">
+                    <div style="position:relative; width:100%;">
+                        <div class="demo-gnb" style="border:1px solid #ddd;">
+                            <div style="display:flex; align-items:center; gap:30px;">
+                                <span style="font-weight:700;">Logo</span>
+                                <div style="display:flex; gap:20px; font-size:0.9rem; color:#666;">
+                                    <span style="color:#000; font-weight:600;">Menu 1</span>
+                                    <span>Menu 2</span>
+                                    <span>Menu 3</span>
+                                </div>
+                            </div>
+                            <div style="display:flex; gap:16px;">
+                                <i class="ri-search-line"></i>
+                                <i class="ri-user-line"></i>
+                            </div>
+                        </div>
+                        <span class="anatomy-marker" style="top:50%; left:20px; transform:translateY(-50%);">1</span>
+                        <span class="anatomy-marker" style="top:50%; left:120px; transform:translateY(-50%);">2</span>
+                        <span class="anatomy-marker" style="top:50%; right:20px; transform:translateY(-50%);">3</span>
+                    </div>
+                </div>
+                <table class="detail-table">
+                    <thead><tr><th>Element</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1. Brand Logo</strong></td><td>홈으로 이동하는 기능을 하며, 브랜드 아이덴티티를 나타냅니다.</td></tr>
+                        <tr><td><strong>2. Navigation Links</strong></td><td>주요 페이지로 이동하는 메뉴입니다. 현재 위치를 Active 상태로 표시합니다.</td></tr>
+                        <tr><td><strong>3. Utilities</strong></td><td>검색, 알림, 프로필 등 전역적인 기능을 배치합니다.</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-gnb.html');</script>
+</body>
+</html>
