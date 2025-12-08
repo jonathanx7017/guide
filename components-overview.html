@@ -4,35 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Components - Newtype Design System</title>
+    
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- CSS 연결 -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- 1. Global Header -->
     <header class="global-header" id="header-placeholder"></header>
+
+    <!-- 2. Mobile Sub Header -->
     <div class="mobile-sub-header">
         <div class="sub-header-inner" onclick="toggleSubMenu()">
-            <span class="current-page">Components</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+            <span class="current-page">Components</span>
+            <i class="ri-arrow-down-s-line" id="subArrow"></i>
         </div>
         <ul class="sub-menu-list" id="mobileSubMenu">
             <li><a href="components-overview.html" class="active">Overview</a></li>
-            <li><a href="#">Button</a></li>
-            <li><a href="#">Input / Form</a></li>
-            <li><a href="#">Navigation</a></li>
-            <li><a href="#">Feedback</a></li>
+            <li><a href="components-button.html">Button</a></li>
+            <li><a href="components-text-field.html">Text Field</a></li>
+            <li><a href="components-selection-controls.html">Selection Controls</a></li>
+            <li><a href="components-gnb.html">Navigation</a></li>
+            <li><a href="components-modal.html">Feedback</a></li>
         </ul>
     </div>
+
     <div class="layout-container">
+        <!-- Desktop Sidebar -->
         <aside class="sidebar" id="sidebar-placeholder"></aside>
+
+        <!-- Main Content -->
         <main class="main-content">
-            <div class="page-header"><h1 class="page-title">Components</h1><p class="page-desc">컴포넌트는 UI를 구성하는 재사용 가능한 블록입니다.<br>각 컴포넌트는 직관적인 인터랙션과 일관된 디자인 언어를 담고 있습니다.</p></div>
-            <section class="comp-category"><h2 class="sub-section-title">Actions</h2><div class="comp-grid"><a href="#" class="comp-card"><div class="comp-preview"><i class="ri-cursor-fill anim-click"></i></div><div class="comp-info"><h4>Button</h4><span>Trigger an action</span></div></a><a href="#" class="comp-card"><div class="comp-preview"><i class="ri-add-circle-fill anim-spin-fast-pause"></i></div><div class="comp-info"><h4>FAB</h4><span>Floating Action Button</span></div></a><a href="#" class="comp-card"><div class="comp-preview"><i class="ri-link anim-rotate-loop"></i></div><div class="comp-info"><h4>Link</h4><span>Hyperlink text</span></div></a></div></section>
-            <section class="comp-category"><h2 class="sub-section-title">Forms & Inputs</h2><div class="comp-grid"><a href="#" class="comp-card"><div class="comp-preview"><i class="custom-input-icon anim-input-caret"></i></div><div class="comp-info"><h4>Text Field</h4><span>User text input</span></div></a><a href="#" class="comp-card"><div class="comp-preview"><i class="ri-checkbox-blank-circle-line anim-check-draw"></i></div><div class="comp-info"><h4>Checkbox</h4><span>Multi-selection</span></div></a><a href="#" class="comp-card"><div class="comp-preview"><i class="ri-radio-button-line anim-radio-dot"></i></div><div class="comp-info"><h4>Radio</h4><span>Single selection</span></div></a><a href="#" class="comp-card"><div class="comp-preview"><i class="custom-switch-icon anim-switch-knob"></i></div><div class="comp-info"><h4>Switch</h4><span>On/Off toggle</span></div></a></div></section>
-            <section class="comp-category"><h2 class="sub-section-title">Feedback</h2><div class="comp-grid"><a href="#" class="comp-card"><div class="comp-preview"><i class="ri-chat-4-line"></i></div><div class="comp-info"><h4>Toast</h4><span>Temporary notification</span></div></a><a href="#" class="comp-card"><div class="comp-preview"><i class="ri-window-line"></i></div><div class="comp-info"><h4>Modal</h4><span>Dialog window</span></div></a><a href="#" class="comp-card"><div class="comp-preview"><i class="ri-loader-4-line anim-spin"></i></div><div class="comp-info"><h4>Spinner</h4><span>Loading state</span></div></a></div></section>
-            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+            <div class="page-header">
+                <h1 class="page-title">Components</h1>
+                <p class="page-desc">
+                    컴포넌트는 UI를 구성하는 재사용 가능한 블록입니다.<br>
+                    각 컴포넌트는 직관적인 인터랙션과 일관된 디자인 언어를 담고 있습니다.
+                </p>
+            </div>
+            
+            <!-- Category 1: Actions & Inputs -->
+            <section class="comp-category">
+                <h2 class="sub-section-title">Actions & Inputs</h2>
+                <div class="comp-grid">
+                    <a href="components-button.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-cursor-fill anim-click"></i></div>
+                        <div class="comp-info"><h4>Button</h4><span>Trigger an action</span></div>
+                    </a>
+                    <a href="components-fab.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-add-circle-fill anim-spin-fast-pause"></i></div>
+                        <div class="comp-info"><h4>FAB</h4><span>Floating Action Button</span></div>
+                    </a>
+                    <a href="#" class="comp-card"> <!-- Link 페이지는 예시용이라 별도 파일 없음 (필요시 생성) -->
+                        <div class="comp-preview"><i class="ri-link anim-rotate-loop"></i></div>
+                        <div class="comp-info"><h4>Link</h4><span>Hyperlink text</span></div>
+                    </a>
+                    <a href="components-text-field.html" class="comp-card">
+                        <div class="comp-preview"><i class="custom-input-icon anim-input-caret"></i></div>
+                        <div class="comp-info"><h4>Text Field</h4><span>User text input</span></div>
+                    </a>
+                    <a href="components-selection-controls.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-checkbox-blank-circle-line anim-check-draw"></i></div>
+                        <div class="comp-info"><h4>Checkbox</h4><span>Multi-selection</span></div>
+                    </a>
+                    <a href="components-selection-controls.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-radio-button-line anim-radio-dot"></i></div>
+                        <div class="comp-info"><h4>Radio</h4><span>Single selection</span></div>
+                    </a>
+                    <a href="components-switch.html" class="comp-card">
+                        <div class="comp-preview"><i class="custom-switch-icon anim-switch-knob"></i></div>
+                        <div class="comp-info"><h4>Switch</h4><span>On/Off toggle</span></div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Category 2: Navigation (링크 연결됨) -->
+            <section class="comp-category">
+                <h2 class="sub-section-title">Navigation</h2>
+                <div class="comp-grid">
+                    <a href="components-gnb.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-menu-line"></i></div>
+                        <div class="comp-info"><h4>GNB</h4><span>Global Navigation Bar</span></div>
+                    </a>
+                    <a href="components-tabs.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-folder-open-line"></i></div>
+                        <div class="comp-info"><h4>Tabs</h4><span>Switching views</span></div>
+                    </a>
+                    <a href="components-breadcrumb.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-arrow-right-s-line"></i></div>
+                        <div class="comp-info"><h4>Breadcrumb</h4><span>Page hierarchy</span></div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Category 3: Feedback (링크 연결됨) -->
+            <section class="comp-category">
+                <h2 class="sub-section-title">Feedback</h2>
+                <div class="comp-grid">
+                    <a href="components-toast.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-chat-4-line anim-slide-up"></i></div>
+                        <div class="comp-info"><h4>Toast</h4><span>Temporary notification</span></div>
+                    </a>
+                    <a href="components-modal.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-window-line anim-pop"></i></div>
+                        <div class="comp-info"><h4>Modal</h4><span>Dialog window</span></div>
+                    </a>
+                    <a href="components-spinner.html" class="comp-card">
+                        <div class="comp-preview"><i class="ri-loader-4-line anim-spin"></i></div>
+                        <div class="comp-info"><h4>Spinner</h4><span>Loading state</span></div>
+                    </a>
+                </div>
+            </section>
+
+            <div class="content-footer">
+                © 2025 newtype imageworks. All rights reserved.
+            </div>
         </main>
     </div>
+
+    <!-- JS 연결 -->
     <script src="script.js"></script>
-    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-overview.html');</script>
+    <script>
+        loadComponent('header-placeholder', 'layout/header.html', 'components');
+        loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-overview.html');
+    </script>
 </body>
 </html>
