@@ -429,3 +429,76 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .demo-toast.success { background: #E8F9EE; color: #06C755; border: 1px solid #06C755; }
 .demo-toast.error { background: #FFEEEE; color: #E02020; border: 1px solid #E02020; }
 .demo-toast i { font-size: 1.2rem; }
+
+/* --- [Missing] Navigation & Feedback Demo Styles --- */
+
+/* 1. GNB Demo */
+.demo-gnb { 
+    width: 100%; height: 56px; background: white; 
+    border-bottom: 1px solid #ddd; 
+    display: flex; align-items: center; justify-content: space-between; 
+    padding: 0 20px; box-sizing: border-box;
+}
+.demo-gnb-logo { width: 80px; height: 16px; background: #333; border-radius: 4px; }
+.demo-gnb-menu { display: flex; gap: 16px; }
+.demo-menu-item { width: 60px; height: 12px; background: #eee; border-radius: 2px; }
+.demo-menu-item.active { background: var(--primary); }
+
+/* 2. Tabs Demo */
+.demo-tabs { display: flex; border-bottom: 1px solid #ddd; width: 100%; }
+.demo-tab-item { 
+    padding: 12px 24px; cursor: pointer; color: var(--text-sub); 
+    font-weight: 500; border-bottom: 2px solid transparent; transition: 0.2s; 
+}
+.demo-tab-item:hover { color: var(--text-main); background: var(--bg-light); }
+.demo-tab-item.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 700; }
+
+/* 3. Breadcrumb Demo */
+.demo-breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-sub); }
+.demo-breadcrumb span.current { color: var(--text-main); font-weight: 600; }
+.demo-breadcrumb i { font-size: 1rem; color: #ccc; }
+
+/* 4. Modal Demo */
+.demo-modal-overlay { 
+    position: relative; width: 100%; height: 300px; 
+    background: rgba(0,0,0,0.5); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; 
+}
+.demo-modal { 
+    background: white; width: 320px; border-radius: 12px; padding: 24px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+    display: flex; flex-direction: column; align-items: stretch;
+}
+.demo-modal-header { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: #111; }
+.demo-modal-body { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 24px; line-height: 1.5; }
+.demo-modal-actions { display: flex; justify-content: flex-end; gap: 12px; }
+
+/* 5. Toast Demo */
+.demo-toast { 
+    display: flex; align-items: center; gap: 12px; padding: 16px 20px; 
+    background: #333; color: white; border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); min-width: 300px;
+}
+.demo-toast.success { background: #E8F9EE; color: #06C755; border: 1px solid #06C755; }
+.demo-toast.error { background: #FFEEEE; color: #E02020; border: 1px solid #E02020; }
+.demo-toast i { font-size: 1.2rem; }
+
+/* 6. Spinner & Form Demo Fixes */
+.input-group { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.input-label { font-size: 0.85rem; font-weight: 600; color: var(--text-main); }
+.input-field {
+    width: 100%; padding: 10px 12px;
+    border: 1px solid var(--border); border-radius: 8px;
+    font-size: 0.95rem; font-family: inherit; color: var(--text-main);
+    background: #fff; transition: all 0.2s;
+}
+.input-field:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,0,0,0.1); }
+.input-helper { font-size: 0.8rem; color: var(--text-sub); margin-top: 4px; }
+.input-helper.error-text { color: #E02020; display: flex; align-items: center; gap: 4px; }
+.anatomy-box { position: relative; display: inline-block; }
+.anatomy-marker {
+    position: absolute; width: 20px; height: 20px; background: #E83E8C; color: white;
+    border-radius: 50%; font-size: 0.75rem; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 10;
+}
