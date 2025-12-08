@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header"><!-- ... --></div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Modal</h1>
+                <p class="page-desc">현재 작업을 중단하고 사용자에게 중요한 정보를 알리거나 결정을 요구할 때 사용합니다.</p>
+            </div>
+
+            <!-- 1. Structure -->
+            <section>
+                <h2 class="sub-section-title">Structure</h2>
+                <div class="visual-box grid-pattern">
+                    <div class="demo-modal-overlay">
+                        <div class="demo-modal">
+                            <div class="demo-modal-header">Delete Item?</div>
+                            <div class="demo-modal-body">
+                                Are you sure you want to delete this item? This action cannot be undone.
+                            </div>
+                            <div class="demo-modal-actions">
+                                <button class="btn btn-secondary btn-sm">Cancel</button>
+                                <button class="btn btn-primary btn-sm" style="background:#E02020; border-color:#E02020;">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Anatomy -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Anatomy</h2>
+                <table class="detail-table">
+                    <thead><tr><th>Element</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1. Scrim (Overlay)</strong></td><td>배경을 어둡게 처리하여 모달에 집중하게 합니다. 클릭 시 닫히게 할 수 있습니다.</td></tr>
+                        <tr><td><strong>2. Title</strong></td><td>모달의 목적을 간결하게 설명합니다.</td></tr>
+                        <tr><td><strong>3. Body</strong></td><td>상세 내용이나 추가 설명을 제공합니다.</td></tr>
+                        <tr><td><strong>4. Actions</strong></td><td>주로 '취소'와 '확인' 버튼으로 구성되며 우측 정렬합니다.</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'components'); loadComponent('sidebar-placeholder', 'layout/sidebar-components.html', 'components-modal.html');</script>
+</body>
+</html>
