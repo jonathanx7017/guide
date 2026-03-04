@@ -1,4 +1,33 @@
-<main class="main-content">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    
+    <!-- Mobile Sub Header -->
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Resources</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="resources-overview.html" class="active">Overview</a></li>
+            <li><a href="#">UI Kits</a></li>
+            <li><a href="#">Icons</a></li>
+            <li><a href="#">Fonts</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        
+       <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Resources</h1>
                 <p class="page-desc">
@@ -88,3 +117,12 @@
 
             <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
         </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        loadComponent('header-placeholder', 'layout/header.html', 'resources'); // Active Menu: Resources (패턴, 리소스 메뉴는 헤더에 아직 없으므로 아래 설명 참조)
+        loadComponent('sidebar-placeholder', 'layout/sidebar-resources.html', 'resources-overview.html');
+    </script>
+</body>
+</html>
