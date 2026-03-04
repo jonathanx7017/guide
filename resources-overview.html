@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources - Newtype Design System</title>
-    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="global-header" id="header-placeholder"></header>
-    
-    <!-- Mobile Sub Header -->
-    <div class="mobile-sub-header">
-        <div class="sub-header-inner" onclick="toggleSubMenu()">
-            <span class="current-page">Resources</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
-        </div>
-        <ul class="sub-menu-list" id="mobileSubMenu">
-            <li><a href="resources-overview.html" class="active">Overview</a></li>
-            <li><a href="#">UI Kits</a></li>
-            <li><a href="#">Icons</a></li>
-            <li><a href="#">Fonts</a></li>
-        </ul>
-    </div>
-
-    <div class="layout-container">
-        <aside class="sidebar" id="sidebar-placeholder"></aside>
-        
-        <main class="main-content">
+<main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Resources</h1>
                 <p class="page-desc">
@@ -40,17 +11,21 @@
             <section class="comp-category">
                 <h2 class="sub-section-title">Downloads</h2>
                 <div class="downloads-section">
+                    <!-- Figma UI Kit -->
                     <div class="download-card">
                         <div class="dl-content">
+                            <!-- [수정 1] 아이콘 추가 -->
                             <div class="resource-icon-box" style="margin-bottom:16px;">
                                 <i class="ri-figma-fill" style="color:#F24E1E;"></i>
                             </div>
                             <h3>Figma UI Kit</h3>
                             <p>모든 컴포넌트와 스타일이 정의된 Figma 라이브러리 파일입니다. (v1.2.0)</p>
                         </div>
+                        <!-- [수정 2] 버튼 블랙으로 통일 -->
                         <button class="btn btn-primary btn-sm">Download .fig <i class="ri-download-line"></i></button>
                     </div>
                     
+                    <!-- Icon Pack -->
                     <div class="download-card">
                         <div class="dl-content">
                             <div class="resource-icon-box" style="margin-bottom:16px;">
@@ -59,9 +34,11 @@
                             <h3>Icon Pack</h3>
                             <p>SVG 및 PNG 포맷의 시스템 아이콘 전체 세트입니다.</p>
                         </div>
-                        <button class="btn btn-secondary btn-sm">Download .zip <i class="ri-download-line"></i></button>
+                        <!-- [수정 2] 버튼 블랙으로 통일 -->
+                        <button class="btn btn-primary btn-sm">Download .zip <i class="ri-download-line"></i></button>
                     </div>
 
+                    <!-- Font -->
                     <div class="download-card">
                         <div class="dl-content">
                             <div class="resource-icon-box" style="margin-bottom:16px;">
@@ -70,7 +47,8 @@
                             <h3>Pretendard Font</h3>
                             <p>시스템 기본 서체인 Pretendard 폰트 패밀리입니다.</p>
                         </div>
-                        <button class="btn btn-secondary btn-sm">Go to Github <i class="ri-external-link-line"></i></button>
+                        <!-- [수정 2] 버튼 블랙으로 통일 -->
+                        <button class="btn btn-primary btn-sm">Go to Github <i class="ri-external-link-line"></i></button>
                     </div>
                 </div>
             </section>
@@ -79,6 +57,7 @@
             <section class="comp-category" style="margin-top:60px;">
                 <h2 class="sub-section-title">For Developers</h2>
                 <div class="downloads-section">
+                    <!-- NPM Package (Dark Black) -->
                     <div class="download-card" style="background:#2D2D2D; color:white;">
                         <div class="dl-content">
                             <div class="resource-icon-box" style="margin-bottom:16px; background:#444; border:none; color:white;">
@@ -91,27 +70,21 @@
                         <button class="btn btn-primary btn-sm" style="background:white; color:black;">View Package <i class="ri-arrow-right-line"></i></button>
                     </div>
 
-                    <div class="download-card" style="background:#FF4785; color:white;">
+                    <!-- Storybook (Dark Gray) -->
+                    <!-- [수정 3] 배경색 변경: #FF4785(핑크) -> #404040(다크그레이) -->
+                    <div class="download-card" style="background:#404040; color:white;">
                         <div class="dl-content">
-                            <div class="resource-icon-box" style="margin-bottom:16px; background:rgba(255,255,255,0.2); border:none; color:white;">
+                            <div class="resource-icon-box" style="margin-bottom:16px; background:rgba(255,255,255,0.1); border:none; color:white;">
                                 <i class="ri-book-open-line"></i>
                             </div>
                             <h3 style="color:white;">Storybook</h3>
-                            <p style="color:rgba(255,255,255,0.8);">컴포넌트의 실제 동작과 Props를 테스트할 수 있는 문서입니다.</p>
+                            <p style="color:rgba(255,255,255,0.7);">컴포넌트의 실제 동작과 Props를 테스트할 수 있는 문서입니다.</p>
                         </div>
-                        <button class="btn btn-primary btn-sm" style="background:white; color:#FF4785;">Open Storybook <i class="ri-external-link-line"></i></button>
+                        <!-- 버튼은 어두운 배경 위이므로 흰색 버튼 유지 -->
+                        <button class="btn btn-primary btn-sm" style="background:white; color:black;">Open Storybook <i class="ri-external-link-line"></i></button>
                     </div>
                 </div>
             </section>
 
             <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
         </main>
-    </div>
-
-    <script src="script.js"></script>
-    <script>
-        loadComponent('header-placeholder', 'layout/header.html', 'resources'); // Active Menu: Resources (패턴, 리소스 메뉴는 헤더에 아직 없으므로 아래 설명 참조)
-        loadComponent('sidebar-placeholder', 'layout/sidebar-resources.html', 'resources-overview.html');
-    </script>
-</body>
-</html>
