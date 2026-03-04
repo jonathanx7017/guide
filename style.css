@@ -391,48 +391,66 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
 }
 
-/* --- [Fixed] Patterns Demo Styles --- */
+/* --- [Fixed v2] Patterns Demo Styles --- */
 
-/* 1. Login Form Pattern */
+/* 1. Login Form Pattern (미니어처 사이즈로 조정) */
 .demo-login {
-    width: 200px; 
-    padding: 20px; 
+    width: 160px; 
+    padding: 16px; 
     background: white; 
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
     border: 1px solid var(--border);
     display: flex; 
     flex-direction: column; 
-    gap: 10px;
+    gap: 8px; /* 간격 좁힘 */
     
-    /* [핵심 수정] 프리뷰 박스 안에 들어오도록 75% 축소 */
-    transform: scale(0.75); 
+    /* [핵심] 전체 크기를 60%로 줄여서 박스 안에 여유있게 배치 */
+    transform: scale(0.6); 
+    transform-origin: center center;
 }
 
-.demo-skeleton-text { height: 8px; background: #eee; border-radius: 4px; width: 40%; }
-.demo-skeleton-input { height: 32px; background: #f4f7fc; border-radius: 6px; border: 1px solid #e5e5e5; }
-.demo-skeleton-btn { height: 32px; background: var(--primary); border-radius: 6px; margin-top: 4px; }
+/* 내부 요소들도 작게 수정 */
+.demo-skeleton-text { 
+    height: 6px; 
+    background: #eee; 
+    border-radius: 3px; 
+    width: 40%; 
+}
+.demo-skeleton-input { 
+    height: 24px; /* 높이 축소 */
+    background: #f4f7fc; 
+    border-radius: 4px; 
+    border: 1px solid #e5e5e5; 
+}
+.demo-skeleton-btn { 
+    height: 24px; /* 높이 축소 */
+    background: var(--primary); 
+    border-radius: 4px; 
+    margin-top: 4px; 
+}
 
 /* 2. Empty State Pattern */
 .demo-empty {
     display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
-    /* 얘도 살짝 줄여서 비율 맞춤 */
-    transform: scale(0.85);
+    transform: scale(0.85); /* 비율 유지 */
 }
 .demo-empty-icon {
-    width: 48px; height: 48px; background: #f4f7fc; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-size: 24px; color: #999;
+    width: 40px; height: 40px; /* 아이콘 박스 축소 */
+    background: #f4f7fc; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 20px; color: #999;
 }
-.demo-empty-line { height: 8px; background: #eee; border-radius: 4px; width: 80px; }
+.demo-empty-line { height: 6px; background: #eee; border-radius: 3px; width: 80px; }
 .demo-empty-line.short { width: 50px; }
 
 /* 3. Search Pattern */
 .demo-search {
-    width: 200px; height: 36px; border: 1px solid var(--primary); border-radius: 20px;
-    display: flex; align-items: center; padding: 0 12px; gap: 8px; background: white;
+    width: 180px; height: 32px; /* 사이즈 축소 */
+    border: 1px solid var(--primary); border-radius: 16px;
+    display: flex; align-items: center; padding: 0 10px; gap: 8px; background: white;
 }
-.demo-search i { font-size: 16px; color: var(--primary); }
-.demo-search-cursor { width: 1px; height: 16px; background: var(--primary); animation: caretBlink 1s infinite; }
+.demo-search i { font-size: 14px; color: var(--primary); }
+.demo-search-cursor { width: 1px; height: 14px; background: var(--primary); animation: caretBlink 1s infinite; }
 
 /* Resources Icon Box */
 .resource-icon-box {
