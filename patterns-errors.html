@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errors - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Patterns</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="patterns-overview.html">Overview</a></li>
+            <li><a href="patterns-login.html">Login Form</a></li>
+            <li><a href="patterns-search.html">Search</a></li>
+            <li><a href="patterns-settings.html">Settings</a></li>
+            <li><a href="patterns-empty-states.html">Empty States</a></li>
+            <li><a href="patterns-errors.html" class="active">Errors</a></li>
+            <li><a href="patterns-onboarding.html">Onboarding</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Errors</h1>
+                <p class="page-desc">오류 발생 시 사용자에게 명확한 원인과 해결 방법을 안내합니다.</p>
+            </div>
+
+            <section>
+                <h2 class="sub-section-title">Inline Error</h2>
+                <div class="visual-box" style="background:white; align-items:flex-start; padding:40px;">
+                    <div class="input-group">
+                        <label class="input-label" style="color:#E02020;">Username</label>
+                        <input type="text" class="input-field error" value="user@name">
+                        <p class="input-helper error-text"><i class="ri-error-warning-fill"></i> 유효하지 않은 이메일 형식입니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Global Alert</h2>
+                <div class="visual-box" style="background:white; flex-direction:column; gap:16px;">
+                    <div style="width:100%; max-width:400px; padding:16px; background:#FFEEEE; border:1px solid #E02020; border-radius:8px; display:flex; gap:12px; color:#E02020;">
+                        <i class="ri-error-warning-fill" style="margin-top:2px;"></i>
+                        <div>
+                            <strong style="display:block; margin-bottom:4px;">Connection Lost</strong>
+                            <span style="font-size:0.9rem;">Please check your internet connection.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'patterns'); loadComponent('sidebar-placeholder', 'layout/sidebar-patterns.html', 'patterns-errors.html');</script>
+</body>
+</html>

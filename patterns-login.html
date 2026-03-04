@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Patterns</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="patterns-overview.html">Overview</a></li>
+            <li><a href="patterns-login.html" class="active">Login Form</a></li>
+            <li><a href="patterns-search.html">Search</a></li>
+            <li><a href="patterns-settings.html">Settings</a></li>
+            <li><a href="patterns-empty-states.html">Empty States</a></li>
+            <li><a href="patterns-errors.html">Errors</a></li>
+            <li><a href="patterns-onboarding.html">Onboarding</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Login Form</h1>
+                <p class="page-desc">사용자가 서비스에 접근하기 위한 인증 패턴입니다.</p>
+            </div>
+
+            <!-- Structure -->
+            <section>
+                <h2 class="sub-section-title">Structure</h2>
+                <div class="visual-box grid-pattern">
+                    <div style="background:white; padding:40px; border-radius:12px; border:1px solid var(--border); width:100%; max-width:360px; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
+                        <h3 style="margin-bottom:24px; text-align:center;">Welcome Back</h3>
+                        <div class="input-group" style="margin-bottom:16px;">
+                            <label class="input-label">Email</label>
+                            <input type="text" class="input-field" placeholder="Enter your email">
+                        </div>
+                        <div class="input-group" style="margin-bottom:24px;">
+                            <label class="input-label">Password</label>
+                            <input type="password" class="input-field" placeholder="Enter your password">
+                        </div>
+                        <button class="btn btn-primary" style="width:100%; justify-content:center;">Sign In</button>
+                        <p style="margin-top:16px; text-align:center; font-size:0.85rem; color:#666;">Forgot password? <a href="#" style="color:var(--primary); font-weight:600;">Reset</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Best Practices</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Feedback</span>
+                            <p class="dodont-desc">로그인 실패 시 아이디/비밀번호 중 무엇이 틀렸는지 모호하게 표시하여 보안을 유지하되, 입력값은 보존합니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Social Login</span>
+                            <p class="dodont-desc">소셜 로그인 옵션은 이메일 로그인 하단에 배치하여 대안을 제공합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'patterns'); loadComponent('sidebar-placeholder', 'layout/sidebar-patterns.html', 'patterns-login.html');</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty States - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Patterns</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="patterns-overview.html">Overview</a></li>
+            <li><a href="patterns-login.html">Login Form</a></li>
+            <li><a href="patterns-search.html">Search</a></li>
+            <li><a href="patterns-settings.html">Settings</a></li>
+            <li><a href="patterns-empty-states.html" class="active">Empty States</a></li>
+            <li><a href="patterns-errors.html">Errors</a></li>
+            <li><a href="patterns-onboarding.html">Onboarding</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Empty States</h1>
+                <p class="page-desc">보여줄 데이터가 없을 때, 사용자에게 상황을 설명하고 다음 행동을 유도합니다.</p>
+            </div>
+
+            <section>
+                <h2 class="sub-section-title">Basic Empty State</h2>
+                <div class="visual-box" style="background:white; border:1px solid #eee;">
+                    <div class="demo-empty" style="transform:scale(1);">
+                        <div class="demo-empty-icon" style="width:64px; height:64px; font-size:32px;"><i class="ri-inbox-line"></i></div>
+                        <h4 style="margin:0;">No messages yet</h4>
+                        <p style="margin:0; font-size:0.9rem; color:#666; max-width:240px;">When you receive new messages, they will appear here.</p>
+                        <button class="btn btn-primary btn-sm" style="margin-top:16px;">Refresh</button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'patterns'); loadComponent('sidebar-placeholder', 'layout/sidebar-patterns.html', 'patterns-empty-states.html');</script>
+</body>
+</html>
