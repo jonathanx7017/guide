@@ -391,21 +391,33 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
     .footer-content { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
 }
 
-/* --- [New] Patterns Demo Styles --- */
+/* --- [Fixed] Patterns Demo Styles --- */
 
 /* 1. Login Form Pattern */
 .demo-login {
-    width: 200px; padding: 20px; background: white; border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid var(--border);
-    display: flex; flex-direction: column; gap: 12px;
+    width: 200px; 
+    padding: 20px; 
+    background: white; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+    border: 1px solid var(--border);
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px;
+    
+    /* [핵심 수정] 프리뷰 박스 안에 들어오도록 75% 축소 */
+    transform: scale(0.75); 
 }
+
 .demo-skeleton-text { height: 8px; background: #eee; border-radius: 4px; width: 40%; }
 .demo-skeleton-input { height: 32px; background: #f4f7fc; border-radius: 6px; border: 1px solid #e5e5e5; }
 .demo-skeleton-btn { height: 32px; background: var(--primary); border-radius: 6px; margin-top: 4px; }
 
 /* 2. Empty State Pattern */
 .demo-empty {
-    display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
+    /* 얘도 살짝 줄여서 비율 맞춤 */
+    transform: scale(0.85);
 }
 .demo-empty-icon {
     width: 48px; height: 48px; background: #f4f7fc; border-radius: 50%;
@@ -416,7 +428,7 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 
 /* 3. Search Pattern */
 .demo-search {
-    width: 220px; height: 36px; border: 1px solid var(--primary); border-radius: 20px;
+    width: 200px; height: 36px; border: 1px solid var(--primary); border-radius: 20px;
     display: flex; align-items: center; padding: 0 12px; gap: 8px; background: white;
 }
 .demo-search i { font-size: 16px; color: var(--primary); }
