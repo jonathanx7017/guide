@@ -30,21 +30,111 @@
         <main class="main-content">
             <div class="page-header">
                 <h1 class="page-title">Onboarding</h1>
-                <p class="page-desc">새로운 기능을 소개하거나 사용 방법을 안내하는 툴팁 패턴입니다.</p>
+                <p class="page-desc">
+                    사용자가 새로운 기능을 발견하거나 제품의 가치를 빠르게 이해할 수 있도록 돕는 가이드 패턴입니다.<br>
+                    과도한 방해를 피하고 필요한 순간에만 맥락에 맞게 제공해야 합니다.
+                </p>
             </div>
 
+            <!-- 1. Feature Tour (Coach Mark) -->
             <section>
-                <h2 class="sub-section-title">Feature Tour</h2>
-                <div class="visual-box" style="background:white; padding-top:80px;">
-                    <div class="demo-onboarding-wrapper">
-                        <div class="demo-tooltip">
-                            <strong style="display:block; margin-bottom:4px;">New Feature!</strong>
-                            You can now export your data directly from here.
-                            <div style="margin-top:12px; display:flex; justify-content:flex-end;">
-                                <button style="background:transparent; color:white; border:none; font-size:0.8rem; font-weight:700; cursor:pointer;">Got it</button>
+                <h2 class="sub-section-title">Feature Tour (Coach Mark)</h2>
+                <p class="section-desc">특정 요소에 집중하도록 하이라이트하고 설명을 제공합니다.</p>
+                
+                <!-- [수정] 높이와 패딩을 넉넉하게 주어 툴팁이 잘리지 않게 함 -->
+                <div class="visual-box" style="background:#F4F7FC; padding-top:100px; padding-bottom:60px; align-items:flex-start; overflow:visible;">
+                    
+                    <!-- Mockup Toolbar -->
+                    <div style="background:white; padding:12px 20px; border-radius:8px; display:flex; gap:16px; box-shadow:0 2px 10px rgba(0,0,0,0.05); align-items:center;">
+                        <div style="width:24px; height:24px; background:#eee; border-radius:4px;"></div>
+                        <div style="width:100px; height:12px; background:#eee; border-radius:4px;"></div>
+                        <div style="width:1px; height:24px; background:#ddd; margin:0 8px;"></div>
+                        
+                        <!-- Target Element -->
+                        <div class="demo-onboarding-wrapper">
+                            <button class="btn btn-primary btn-sm"><i class="ri-magic-line"></i> AI Generate</button>
+                            
+                            <!-- Tooltip -->
+                            <div class="demo-tooltip">
+                                <div class="tooltip-header">
+                                    <strong>New AI Feature!</strong>
+                                    <i class="ri-close-line" style="cursor:pointer; opacity:0.7;"></i>
+                                </div>
+                                <p>Generate content instantly with our new AI tools.</p>
+                                <div class="tooltip-footer">
+                                    <span style="font-size:0.75rem; opacity:0.7;">1 of 3</span>
+                                    <button class="btn-text">Next</button>
+                                </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary"><i class="ri-download-line"></i> Export</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Anatomy -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Anatomy</h2>
+                <table class="detail-table">
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Container</strong></td>
+                            <td>내용을 담는 팝오버 컨테이너입니다. 배경색과 대비되는 색상(주로 다크 모드)을 사용합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Title & Body</strong></td>
+                            <td>짧고 명확한 헤드라인과 기능의 이점을 설명하는 본문으로 구성됩니다.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Navigation</strong></td>
+                            <td>단계가 있는 경우 'Next/Prev' 버튼과 인디케이터(1/3)를 포함합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Beak (Tail)</strong></td>
+                            <td>설명하고 있는 대상을 명확히 가리키는 화살표입니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 3. Pulsing Dot (Subtle Hint) -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Subtle Hint (Pulse)</h2>
+                <p class="section-desc">사용자의 작업을 방해하지 않으면서 새로운 기능이 있음을 은유적으로 알립니다.</p>
+                <div class="visual-box" style="background:white; gap:40px;">
+                    <div style="position:relative;">
+                        <i class="ri-notification-3-line" style="font-size:24px; color:#333;"></i>
+                        <!-- Pulse Dot -->
+                        <div class="pulsing-dot"></div>
+                    </div>
+                    <div style="position:relative;">
+                        <button class="btn btn-secondary">Settings</button>
+                        <!-- Pulse Dot on Corner -->
+                        <div class="pulsing-dot" style="top:-4px; right:-4px;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Usage Guidelines -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Best Practices</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">One by One</span>
+                            <p class="dodont-desc">한 번에 하나의 정보만 전달하세요. 화면을 툴팁으로 도배하면 사용자는 모든 창을 닫아버립니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Dismissible</span>
+                            <p class="dodont-desc">사용자가 언제든 온보딩을 종료할 수 있도록 '건너뛰기(Skip)'나 '닫기' 버튼을 반드시 제공해야 합니다.</p>
+                        </div>
                     </div>
                 </div>
             </section>
