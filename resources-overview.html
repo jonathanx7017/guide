@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterns - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    
+    <!-- Mobile Sub Header -->
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Patterns</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="patterns-overview.html" class="active">Overview</a></li>
+            <li><a href="#">Login Form</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Empty States</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Patterns</h1>
+                <p class="page-desc">
+                    패턴은 특정 사용자 과업을 해결하기 위한 컴포넌트들의 조합입니다.<br>
+                    반복되는 문제를 해결하는 검증된 UI/UX 솔루션을 제공합니다.
+                </p>
+            </div>
+            
+            <!-- Category 1: User Input -->
+            <section class="comp-category">
+                <h2 class="sub-section-title">User Input</h2>
+                <div class="comp-grid">
+                    <a href="#" class="comp-card">
+                        <div class="comp-preview">
+                            <!-- Login Form Visual -->
+                            <div class="demo-login">
+                                <div class="demo-skeleton-text"></div>
+                                <div class="demo-skeleton-input"></div>
+                                <div class="demo-skeleton-text"></div>
+                                <div class="demo-skeleton-input"></div>
+                                <div class="demo-skeleton-btn"></div>
+                            </div>
+                        </div>
+                        <div class="comp-info">
+                            <h4>Login Form</h4>
+                            <span>Authentication layout</span>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="comp-card">
+                        <div class="comp-preview">
+                            <!-- Search Bar Visual -->
+                            <div class="demo-search">
+                                <i class="ri-search-line"></i>
+                                <div class="demo-search-cursor"></div>
+                            </div>
+                        </div>
+                        <div class="comp-info">
+                            <h4>Search</h4>
+                            <span>Global search & results</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Category 2: Feedback & Status -->
+            <section class="comp-category">
+                <h2 class="sub-section-title">Feedback & Status</h2>
+                <div class="comp-grid">
+                    <a href="#" class="comp-card">
+                        <div class="comp-preview">
+                            <!-- Empty State Visual -->
+                            <div class="demo-empty">
+                                <div class="demo-empty-icon"><i class="ri-inbox-line"></i></div>
+                                <div class="demo-empty-line"></div>
+                                <div class="demo-empty-line short"></div>
+                            </div>
+                        </div>
+                        <div class="comp-info">
+                            <h4>Empty States</h4>
+                            <span>No data display</span>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="comp-card">
+                        <div class="comp-preview">
+                            <div class="demo-empty" style="gap:8px;">
+                                <i class="ri-error-warning-fill" style="font-size:32px; color:#E02020;"></i>
+                                <div class="demo-empty-line" style="background:#FFEEEE; width:100px;"></div>
+                            </div>
+                        </div>
+                        <div class="comp-info">
+                            <h4>Error Handling</h4>
+                            <span>Form validation & alerts</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        loadComponent('header-placeholder', 'layout/header.html', 'patterns'); // Active Menu: Patterns
+        loadComponent('sidebar-placeholder', 'layout/sidebar-patterns.html', 'patterns-overview.html');
+    </script>
+</body>
+</html>
