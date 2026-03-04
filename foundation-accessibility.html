@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Foundation</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="foundation-overview.html">Overview</a></li>
+            <li><a href="foundation-color.html">Color</a></li>
+            <li><a href="foundation-typography.html">Typography</a></li>
+            <li><a href="foundation-layout.html">Layout</a></li>
+            <li><a href="foundation-iconography.html">Iconography</a></li>
+            <li><a href="foundation-object-styles.html">Object Styles</a></li>
+            <li><a href="foundation-accessibility.html" class="active">Accessibility</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Accessibility</h1>
+                <p class="page-desc">
+                    우리는 모든 사용자가 신체적, 환경적 제약 없이 제품을 사용할 수 있도록<br>
+                    WCAG 2.1 (AA Level) 표준을 준수합니다.
+                </p>
+            </div>
+
+            <!-- 1. Principles -->
+            <section>
+                <h2 class="sub-section-title">Core Principles</h2>
+                <div class="principles-grid">
+                    <div class="card principle-card">
+                        <div class="p-icon"><i class="ri-eye-line"></i></div>
+                        <h3>Perceivable</h3>
+                        <p>정보와 UI 요소는 사용자가 인지할 수 있는 방식으로 표시되어야 합니다. (대체 텍스트, 명도 대비)</p>
+                    </div>
+                    <div class="card principle-card">
+                        <div class="p-icon"><i class="ri-cursor-line"></i></div>
+                        <h3>Operable</h3>
+                        <p>모든 기능은 키보드만으로도 조작 가능해야 하며, 발작을 유발하는 요소를 피해야 합니다.</p>
+                    </div>
+                    <div class="card principle-card">
+                        <div class="p-icon"><i class="ri-smartphone-line"></i></div>
+                        <h3>Robust</h3>
+                        <p>보조 기술(스크린 리더 등)을 포함한 다양한 사용자 에이전트가 콘텐츠를 안정적으로 해석해야 합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Contrast Ratio -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Color Contrast</h2>
+                <p class="section-desc">텍스트와 배경 간의 명도 대비는 최소 <strong>4.5:1</strong>을 유지해야 합니다.</p>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:#F7F8FA; flex-direction:column; gap:12px;">
+                            <span style="color:#111; font-size:1.5rem; font-weight:700;">Readable Text</span>
+                            <span style="background:#E8F9EE; color:#06C755; padding:4px 8px; border-radius:4px; font-size:0.8rem; font-weight:600;">Ratio 14.3:1 (Pass)</span>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">DO</span>
+                            <p class="dodont-desc">충분한 대비를 가진 색상 조합을 사용하여 저시력자도 쉽게 읽을 수 있게 합니다.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-visual" style="background:#F7F8FA; flex-direction:column; gap:12px;">
+                            <span style="color:#CCC; font-size:1.5rem; font-weight:700;">Low Contrast</span>
+                            <span style="background:#FFEEEE; color:#E02020; padding:4px 8px; border-radius:4px; font-size:0.8rem; font-weight:600;">Ratio 1.8:1 (Fail)</span>
+                        </div>
+                        <div class="dodont-content">
+                            <span class="dodont-tag dont">DON'T</span>
+                            <p class="dodont-desc">장식적인 요소가 아니라면, 텍스트에 연한 회색을 사용하지 마세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Focus State -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Keyboard Focus</h2>
+                <div class="visual-box" style="background:white; gap:32px;">
+                    <button class="btn btn-primary" style="outline:3px solid #007AFF; outline-offset:2px;">Focus Ring</button>
+                    <input type="text" class="input-field" value="Input Focus" style="border-color:#007AFF; box-shadow:0 0 0 3px rgba(0,122,255,0.2);">
+                </div>
+                <div class="code-block" style="margin-top:16px;">
+                    /* Default Focus Style */<br>
+                    :focus-visible {<br>
+                    &nbsp;&nbsp;outline: 3px solid var(--system-focus);<br>
+                    &nbsp;&nbsp;outline-offset: 2px;<br>
+                    }
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'foundation'); loadComponent('sidebar-placeholder', 'layout/sidebar-foundation.html', 'foundation-accessibility.html');</script>
+</body>
+</html>
