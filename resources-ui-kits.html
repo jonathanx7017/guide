@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Kits - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Resources</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="resources-overview.html">Overview</a></li>
+            <li><a href="resources-ui-kits.html" class="active">UI Kits</a></li>
+            <li><a href="resources-icons.html">Icons</a></li>
+            <li><a href="resources-fonts.html">Fonts</a></li>
+            <li><a href="resources-tools.html">Tools</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">UI Kits</h1>
+                <p class="page-desc">디자인 작업을 위한 최신 라이브러리 파일입니다.<br>Figma와 Sketch 포맷을 지원합니다.</p>
+            </div>
+
+            <!-- 1. Main Library -->
+            <section>
+                <h2 class="sub-section-title">Web Library</h2>
+                <div class="downloads-section">
+                    <div class="download-card">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px;">
+                                <!-- Figma SVG -->
+                                <svg width="24" height="36" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:28px;">
+                                    <path d="M6 36C9.31371 36 12 33.3137 12 30V24H6C2.68629 24 0 26.6863 0 30C0 33.3137 2.68629 36 6 36Z" fill="#0ACF83"/>
+                                    <path d="M0 18C0 14.6863 2.68629 12 6 12H12V24H6C2.68629 24 0 21.3137 0 18Z" fill="#A259FF"/>
+                                    <path d="M0 6C0 2.68629 2.68629 0 6 0H12V12H6C2.68629 12 0 9.31371 0 6Z" fill="#F24E1E"/>
+                                    <path d="M12 0H18C21.3137 0 24 2.68629 24 6C24 9.31371 21.3137 12 18 12H12V0Z" fill="#FF7262"/>
+                                    <path d="M12 12H18C21.3137 12 24 14.6863 24 18C24 21.3137 21.3137 24 18 24H12V12Z" fill="#1ABCFE"/>
+                                </svg>
+                            </div>
+                            <h3>Figma Web Library</h3>
+                            <p>컴포넌트, 스타일, 아이콘이 포함된 메인 라이브러리입니다.</p>
+                            <span style="font-size:0.8rem; color:#999; margin-top:8px; display:block;">v1.2.0 (Updated 2 days ago)</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Download .fig <i class="ri-download-line"></i></button>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px;">
+                                <i class="ri-vip-diamond-fill" style="color:#FDAD00;"></i>
+                            </div>
+                            <h3>Sketch Library</h3>
+                            <p>Sketch 사용자를 위한 레거시 라이브러리입니다.</p>
+                            <span style="font-size:0.8rem; color:#999; margin-top:8px; display:block;">v1.0.5 (Maintenance Mode)</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Download .sketch <i class="ri-download-line"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Changelog -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Changelog</h2>
+                <div class="spec-table-container">
+                    <table class="spec-table">
+                        <thead>
+                            <tr>
+                                <th width="15%">Version</th>
+                                <th width="20%">Date</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="token-code">v1.2.0</span></td>
+                                <td>2024.05.20</td>
+                                <td>Dark Mode 토큰 추가 및 DatePicker 컴포넌트 신규 배포</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">v1.1.5</span></td>
+                                <td>2024.04.10</td>
+                                <td>Button 컴포넌트의 Hover 상태 컬러 수정 (접근성 개선)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="token-code">v1.0.0</span></td>
+                                <td>2024.01.01</td>
+                                <td>Initial Release</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'resources'); loadComponent('sidebar-placeholder', 'layout/sidebar-resources.html', 'resources-ui-kits.html');</script>
+</body>
+</html>

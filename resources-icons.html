@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icons - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Resources</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="resources-overview.html">Overview</a></li>
+            <li><a href="resources-ui-kits.html">UI Kits</a></li>
+            <li><a href="resources-icons.html" class="active">Icons</a></li>
+            <li><a href="resources-fonts.html">Fonts</a></li>
+            <li><a href="resources-tools.html">Tools</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Icons</h1>
+                <p class="page-desc">시스템에서 사용하는 모든 아이콘 에셋을 다운로드할 수 있습니다.</p>
+            </div>
+
+            <section>
+                <h2 class="sub-section-title">Icon Pack</h2>
+                <div class="visual-box" style="background:white; padding:40px; border:1px solid var(--border);">
+                    <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; opacity:0.6;">
+                        <i class="ri-home-line" style="font-size:32px;"></i>
+                        <i class="ri-user-line" style="font-size:32px;"></i>
+                        <i class="ri-settings-3-line" style="font-size:32px;"></i>
+                        <i class="ri-search-line" style="font-size:32px;"></i>
+                        <i class="ri-notification-3-line" style="font-size:32px;"></i>
+                        <i class="ri-add-circle-fill" style="font-size:32px;"></i>
+                    </div>
+                    <div style="margin-top:24px; text-align:center;">
+                        <h3 style="margin-bottom:8px;">All System Icons</h3>
+                        <p style="color:#666; font-size:0.9rem; margin-bottom:24px;">SVG (Vector) 및 PNG (Raster) 포맷이 포함되어 있습니다.</p>
+                        <button class="btn btn-primary">Download All .zip <i class="ri-download-line"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Usage</h2>
+                <div class="dodont-grid">
+                    <div class="dodont-card">
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">Vector First</span>
+                            <p class="dodont-desc">가능한 한 SVG 포맷을 사용하여 해상도 저하 없이 선명한 아이콘을 제공하세요.</p>
+                        </div>
+                    </div>
+                    <div class="dodont-card">
+                        <div class="dodont-content">
+                            <span class="dodont-tag do">CDN</span>
+                            <p class="dodont-desc">개발 시에는 개별 이미지 파일보다 Remix Icon CDN을 활용하는 것을 권장합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'resources'); loadComponent('sidebar-placeholder', 'layout/sidebar-resources.html', 'resources-icons.html');</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools & Plugins - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Resources</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="resources-overview.html">Overview</a></li>
+            <li><a href="resources-ui-kits.html">UI Kits</a></li>
+            <li><a href="resources-icons.html">Icons</a></li>
+            <li><a href="resources-fonts.html">Fonts</a></li>
+            <li><a href="resources-tools.html" class="active">Tools</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Tools & Plugins</h1>
+                <p class="page-desc">디자인 및 개발 워크플로우를 가속화하는 유용한 도구들입니다.</p>
+            </div>
+
+            <!-- 1. Figma Plugins -->
+            <section>
+                <h2 class="sub-section-title">Figma Plugins</h2>
+                <div class="downloads-section">
+                    <div class="download-card">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px;">
+                                <i class="ri-contrast-2-line"></i>
+                            </div>
+                            <h3>Contrast Checker</h3>
+                            <p>디자인의 명도 대비(Accessibility)를 실시간으로 검사합니다.</p>
+                        </div>
+                        <button class="btn btn-secondary btn-sm">Install Plugin <i class="ri-external-link-line"></i></button>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px;">
+                                <i class="ri-layout-grid-line"></i>
+                            </div>
+                            <h3>Grid Generator</h3>
+                            <p>반응형 그리드 시스템을 자동으로 생성해주는 도구입니다.</p>
+                        </div>
+                        <button class="btn btn-secondary btn-sm">Install Plugin <i class="ri-external-link-line"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Web Tools -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Web Tools</h2>
+                <div class="downloads-section">
+                    <div class="download-card">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px;">
+                                <i class="ri-code-s-slash-line"></i>
+                            </div>
+                            <h3>Token Converter</h3>
+                            <p>디자인 토큰(JSON)을 CSS/SCSS/Android 포맷으로 변환합니다.</p>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Launch Tool <i class="ri-arrow-right-line"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'resources'); loadComponent('sidebar-placeholder', 'layout/sidebar-resources.html', 'resources-tools.html');</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts - Newtype Design System</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="global-header" id="header-placeholder"></header>
+    <div class="mobile-sub-header">
+        <div class="sub-header-inner" onclick="toggleSubMenu()">
+            <span class="current-page">Resources</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+        </div>
+        <ul class="sub-menu-list" id="mobileSubMenu">
+            <li><a href="resources-overview.html">Overview</a></li>
+            <li><a href="resources-ui-kits.html">UI Kits</a></li>
+            <li><a href="resources-icons.html">Icons</a></li>
+            <li><a href="resources-fonts.html" class="active">Fonts</a></li>
+            <li><a href="resources-tools.html">Tools</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-container">
+        <aside class="sidebar" id="sidebar-placeholder"></aside>
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Fonts</h1>
+                <p class="page-desc">시스템 기본 서체인 Pretendard를 다운로드하거나 웹폰트로 적용하세요.</p>
+            </div>
+
+            <!-- 1. Pretendard -->
+            <section>
+                <h2 class="sub-section-title">Pretendard</h2>
+                <div class="visual-box" style="background:white; flex-direction:column; align-items:flex-start; gap:24px; padding:40px;">
+                    <div>
+                        <span style="font-size:4rem; font-weight:900;">Aa</span>
+                        <h3 style="font-size:2rem; font-weight:700;">Pretendard</h3>
+                    </div>
+                    <div style="width:100%; display:grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap:16px;">
+                        <div><span style="font-weight:100;">Thin</span></div>
+                        <div><span style="font-weight:300;">Light</span></div>
+                        <div><span style="font-weight:400;">Regular</span></div>
+                        <div><span style="font-weight:500;">Medium</span></div>
+                        <div><span style="font-weight:700;">Bold</span></div>
+                        <div><span style="font-weight:900;">Black</span></div>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top:16px;">Download Font Family <i class="ri-download-line"></i></button>
+                </div>
+            </section>
+
+            <!-- 2. Web Font Implementation -->
+            <section style="margin-top:60px;">
+                <h2 class="sub-section-title">Web Font CDN</h2>
+                <p class="section-desc">HTML의 head 태그 내에 아래 코드를 추가하여 사용합니다.</p>
+                <div class="code-block">
+                    &lt;link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" /&gt;
+                </div>
+                <div class="code-block" style="margin-top:16px;">
+                    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+                </div>
+            </section>
+
+            <div class="content-footer">© 2025 newtype imageworks. All rights reserved.</div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>loadComponent('header-placeholder', 'layout/header.html', 'resources'); loadComponent('sidebar-placeholder', 'layout/sidebar-resources.html', 'resources-fonts.html');</script>
+</body>
+</html>
