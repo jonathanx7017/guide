@@ -479,16 +479,82 @@ footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 40px;
 .demo-result-item:hover { background: var(--bg-light); }
 .demo-result-item i { color: var(--text-sub); }
 
-/* Onboarding Tooltip Demo */
-.demo-onboarding-wrapper { position: relative; padding: 40px; }
-.demo-tooltip {
-    position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
-    background: #333; color: white; padding: 12px 16px; border-radius: 8px;
-    font-size: 0.85rem; width: 200px; margin-bottom: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+/* --- [Fixed] Onboarding & Tooltip Styles --- */
+
+/* Wrapper: 위치 기준점 */
+.demo-onboarding-wrapper { 
+    position: relative; 
+    /* 중요: 툴팁이 튀어나와도 잘리지 않도록 설정 */
+    overflow: visible; 
 }
+
+/* Tooltip Body */
+.demo-tooltip {
+    position: absolute; 
+    bottom: 100%; /* 버튼 위로 배치 */
+    left: 50%; 
+    transform: translateX(-50%);
+    background: #2D2D2D; /* 다크 모드 */
+    color: white; 
+    padding: 16px; 
+    border-radius: 8px;
+    font-size: 0.9rem; 
+    width: 240px; 
+    margin-bottom: 14px; /* 버튼과 간격 */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 100;
+    text-align: left;
+}
+
+/* Tooltip Tail (Beak) */
 .demo-tooltip::after {
-    content: ''; position: absolute; top: 100%; left: 50%; margin-left: -6px;
-    border-width: 6px; border-style: solid;
-    border-color: #333 transparent transparent transparent;
+    content: ''; 
+    position: absolute; 
+    top: 100%; 
+    left: 50%; 
+    margin-left: -6px;
+    border-width: 6px; 
+    border-style: solid;
+    border-color: #2D2D2D transparent transparent transparent;
+}
+
+/* Tooltip Content Layout */
+.tooltip-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+}
+.demo-tooltip p {
+    color: #ccc; margin: 0 0 12px 0; line-height: 1.4; font-size: 0.85rem;
+}
+.tooltip-footer {
+    display: flex; justify-content: space-between; align-items: center;
+}
+.btn-text {
+    background: none; border: none; color: white; font-weight: 700; cursor: pointer; padding: 0; font-size: 0.85rem;
+}
+.btn-text:hover { text-decoration: underline; }
+
+
+/* [New] Pulsing Dot Animation */
+.pulsing-dot {
+    position: absolute;
+    top: -2px; right: -2px;
+    width: 10px; height: 10px;
+    background-color: #E02020; /* Red dot */
+    border-radius: 50%;
+    z-index: 10;
+}
+.pulsing-dot::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #E02020;
+    border-radius: 50%;
+    animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    z-index: -1;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
 }
