@@ -41,8 +41,8 @@
                 <h2 class="sub-section-title">Feature Tour (Coach Mark)</h2>
                 <p class="section-desc">특정 요소에 집중하도록 하이라이트하고 설명을 제공합니다.</p>
                 
-                <!-- [수정] 높이와 패딩을 넉넉하게 주어 툴팁이 잘리지 않게 함 -->
-                <div class="visual-box" style="background:#F4F7FC; padding-top:100px; padding-bottom:60px; align-items:flex-start; overflow:visible;">
+                <!-- [수정] padding-top을 180px로 늘려 툴팁 공간 확보 -->
+                <div class="visual-box" style="background:#F4F7FC; padding-top:180px; padding-bottom:60px; align-items:flex-start; overflow:visible;">
                     
                     <!-- Mockup Toolbar -->
                     <div style="background:white; padding:12px 20px; border-radius:8px; display:flex; gap:16px; box-shadow:0 2px 10px rgba(0,0,0,0.05); align-items:center;">
@@ -51,7 +51,7 @@
                         <div style="width:1px; height:24px; background:#ddd; margin:0 8px;"></div>
                         
                         <!-- Target Element -->
-                        <div class="demo-onboarding-wrapper">
+                        <div class="demo-onboarding-wrapper" style="padding:0;">
                             <button class="btn btn-primary btn-sm"><i class="ri-magic-line"></i> AI Generate</button>
                             
                             <!-- Tooltip -->
@@ -74,47 +74,50 @@
             <!-- 2. Anatomy -->
             <section style="margin-top:60px;">
                 <h2 class="sub-section-title">Anatomy</h2>
-                <table class="detail-table">
-                    <thead>
-                        <tr>
-                            <th>Element</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>1. Container</strong></td>
-                            <td>내용을 담는 팝오버 컨테이너입니다. 배경색과 대비되는 색상(주로 다크 모드)을 사용합니다.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>2. Title & Body</strong></td>
-                            <td>짧고 명확한 헤드라인과 기능의 이점을 설명하는 본문으로 구성됩니다.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>3. Navigation</strong></td>
-                            <td>단계가 있는 경우 'Next/Prev' 버튼과 인디케이터(1/3)를 포함합니다.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>4. Beak (Tail)</strong></td>
-                            <td>설명하고 있는 대상을 명확히 가리키는 화살표입니다.</td>
-                        </tr>
-                    </tbody>
-                </table>
+                
+                <div class="spec-table-container">
+                    <!-- [수정] 클래스명 spec-table로 변경 및 너비 조정 -->
+                    <table class="spec-table">
+                        <thead>
+                            <tr>
+                                <th width="20%">Element</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Container</strong></td>
+                                <!-- [수정] 줄바꿈 허용 (white-space: normal) -->
+                                <td style="white-space: normal;">내용을 담는 팝오버 컨테이너입니다. 배경색과 대비되는 색상(주로 다크 모드)을 사용합니다.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Title & Body</strong></td>
+                                <td style="white-space: normal;">짧고 명확한 헤드라인과 기능의 이점을 설명하는 본문으로 구성됩니다.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Navigation</strong></td>
+                                <td style="white-space: normal;">단계가 있는 경우 'Next/Prev' 버튼과 인디케이터(1/3)를 포함합니다.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Beak (Tail)</strong></td>
+                                <td style="white-space: normal;">설명하고 있는 대상을 명확히 가리키는 화살표입니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
-            <!-- 3. Pulsing Dot (Subtle Hint) -->
+            <!-- 3. Pulsing Dot -->
             <section style="margin-top:60px;">
                 <h2 class="sub-section-title">Subtle Hint (Pulse)</h2>
                 <p class="section-desc">사용자의 작업을 방해하지 않으면서 새로운 기능이 있음을 은유적으로 알립니다.</p>
                 <div class="visual-box" style="background:white; gap:40px;">
                     <div style="position:relative;">
                         <i class="ri-notification-3-line" style="font-size:24px; color:#333;"></i>
-                        <!-- Pulse Dot -->
                         <div class="pulsing-dot"></div>
                     </div>
                     <div style="position:relative;">
                         <button class="btn btn-secondary">Settings</button>
-                        <!-- Pulse Dot on Corner -->
                         <div class="pulsing-dot" style="top:-4px; right:-4px;"></div>
                     </div>
                 </div>
