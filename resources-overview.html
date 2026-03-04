@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patterns - Newtype Design System</title>
+    <title>Resources - Newtype Design System</title>
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -14,13 +14,13 @@
     <!-- Mobile Sub Header -->
     <div class="mobile-sub-header">
         <div class="sub-header-inner" onclick="toggleSubMenu()">
-            <span class="current-page">Patterns</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
+            <span class="current-page">Resources</span><i class="ri-arrow-down-s-line" id="subArrow"></i>
         </div>
         <ul class="sub-menu-list" id="mobileSubMenu">
-            <li><a href="patterns-overview.html" class="active">Overview</a></li>
-            <li><a href="#">Login Form</a></li>
-            <li><a href="#">Search</a></li>
-            <li><a href="#">Empty States</a></li>
+            <li><a href="resources-overview.html" class="active">Overview</a></li>
+            <li><a href="#">UI Kits</a></li>
+            <li><a href="#">Icons</a></li>
+            <li><a href="#">Fonts</a></li>
         </ul>
     </div>
 
@@ -29,81 +29,78 @@
         
         <main class="main-content">
             <div class="page-header">
-                <h1 class="page-title">Patterns</h1>
+                <h1 class="page-title">Resources</h1>
                 <p class="page-desc">
-                    패턴은 특정 사용자 과업을 해결하기 위한 컴포넌트들의 조합입니다.<br>
-                    반복되는 문제를 해결하는 검증된 UI/UX 솔루션을 제공합니다.
+                    디자이너와 개발자의 생산성을 높여주는 도구 모음입니다.<br>
+                    최신 버전의 UI Kit와 폰트, 아이콘 에셋을 다운로드하세요.
                 </p>
             </div>
             
-            <!-- Category 1: User Input -->
+            <!-- 1. Downloads -->
             <section class="comp-category">
-                <h2 class="sub-section-title">User Input</h2>
-                <div class="comp-grid">
-                    <a href="#" class="comp-card">
-                        <div class="comp-preview">
-                            <!-- Login Form Visual -->
-                            <div class="demo-login">
-                                <div class="demo-skeleton-text"></div>
-                                <div class="demo-skeleton-input"></div>
-                                <div class="demo-skeleton-text"></div>
-                                <div class="demo-skeleton-input"></div>
-                                <div class="demo-skeleton-btn"></div>
+                <h2 class="sub-section-title">Downloads</h2>
+                <div class="downloads-section">
+                    <div class="download-card">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px;">
+                                <i class="ri-figma-fill" style="color:#F24E1E;"></i>
                             </div>
+                            <h3>Figma UI Kit</h3>
+                            <p>모든 컴포넌트와 스타일이 정의된 Figma 라이브러리 파일입니다. (v1.2.0)</p>
                         </div>
-                        <div class="comp-info">
-                            <h4>Login Form</h4>
-                            <span>Authentication layout</span>
-                        </div>
-                    </a>
+                        <button class="btn btn-primary btn-sm">Download .fig <i class="ri-download-line"></i></button>
+                    </div>
                     
-                    <a href="#" class="comp-card">
-                        <div class="comp-preview">
-                            <!-- Search Bar Visual -->
-                            <div class="demo-search">
-                                <i class="ri-search-line"></i>
-                                <div class="demo-search-cursor"></div>
+                    <div class="download-card">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px;">
+                                <i class="ri-file-zip-line" style="color:#333;"></i>
                             </div>
+                            <h3>Icon Pack</h3>
+                            <p>SVG 및 PNG 포맷의 시스템 아이콘 전체 세트입니다.</p>
                         </div>
-                        <div class="comp-info">
-                            <h4>Search</h4>
-                            <span>Global search & results</span>
+                        <button class="btn btn-secondary btn-sm">Download .zip <i class="ri-download-line"></i></button>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px;">
+                                <span style="font-weight:900; font-family:serif;">Ag</span>
+                            </div>
+                            <h3>Pretendard Font</h3>
+                            <p>시스템 기본 서체인 Pretendard 폰트 패밀리입니다.</p>
                         </div>
-                    </a>
+                        <button class="btn btn-secondary btn-sm">Go to Github <i class="ri-external-link-line"></i></button>
+                    </div>
                 </div>
             </section>
 
-            <!-- Category 2: Feedback & Status -->
-            <section class="comp-category">
-                <h2 class="sub-section-title">Feedback & Status</h2>
-                <div class="comp-grid">
-                    <a href="#" class="comp-card">
-                        <div class="comp-preview">
-                            <!-- Empty State Visual -->
-                            <div class="demo-empty">
-                                <div class="demo-empty-icon"><i class="ri-inbox-line"></i></div>
-                                <div class="demo-empty-line"></div>
-                                <div class="demo-empty-line short"></div>
+            <!-- 2. For Developers -->
+            <section class="comp-category" style="margin-top:60px;">
+                <h2 class="sub-section-title">For Developers</h2>
+                <div class="downloads-section">
+                    <div class="download-card" style="background:#2D2D2D; color:white;">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px; background:#444; border:none; color:white;">
+                                <i class="ri-npmjs-fill"></i>
                             </div>
+                            <h3 style="color:white;">NPM Package</h3>
+                            <p style="color:#aaa;">React/Vue용 컴포넌트 라이브러리 패키지입니다.</p>
+                            <div class="code-block" style="margin-top:16px; background:#000;">npm install @newtype/ds-react</div>
                         </div>
-                        <div class="comp-info">
-                            <h4>Empty States</h4>
-                            <span>No data display</span>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="comp-card">
-                        <div class="comp-preview">
-                            <div class="demo-empty" style="gap:8px;">
-                                <i class="ri-error-warning-fill" style="font-size:32px; color:#E02020;"></i>
-                                <div class="demo-empty-line" style="background:#FFEEEE; width:100px;"></div>
+                        <button class="btn btn-primary btn-sm" style="background:white; color:black;">View Package <i class="ri-arrow-right-line"></i></button>
+                    </div>
+
+                    <div class="download-card" style="background:#FF4785; color:white;">
+                        <div class="dl-content">
+                            <div class="resource-icon-box" style="margin-bottom:16px; background:rgba(255,255,255,0.2); border:none; color:white;">
+                                <i class="ri-book-open-line"></i>
                             </div>
+                            <h3 style="color:white;">Storybook</h3>
+                            <p style="color:rgba(255,255,255,0.8);">컴포넌트의 실제 동작과 Props를 테스트할 수 있는 문서입니다.</p>
                         </div>
-                        <div class="comp-info">
-                            <h4>Error Handling</h4>
-                            <span>Form validation & alerts</span>
-                        </div>
-                    </a>
+                        <button class="btn btn-primary btn-sm" style="background:white; color:#FF4785;">Open Storybook <i class="ri-external-link-line"></i></button>
+                    </div>
                 </div>
             </section>
 
@@ -113,8 +110,8 @@
 
     <script src="script.js"></script>
     <script>
-        loadComponent('header-placeholder', 'layout/header.html', 'patterns'); // Active Menu: Patterns
-        loadComponent('sidebar-placeholder', 'layout/sidebar-patterns.html', 'patterns-overview.html');
+        loadComponent('header-placeholder', 'layout/header.html', 'resources'); // Active Menu: Resources (패턴, 리소스 메뉴는 헤더에 아직 없으므로 아래 설명 참조)
+        loadComponent('sidebar-placeholder', 'layout/sidebar-resources.html', 'resources-overview.html');
     </script>
 </body>
 </html>
